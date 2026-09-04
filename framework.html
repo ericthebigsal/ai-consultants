@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>Delivery Framework — AI Consultants (working name)</title>
+<meta name="description" content="The core skills of an end-to-end development cycle, each with a contract for what it takes in and hands off — looping from Maintenance back to Business Requirements.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-active="framework">
+
+<div class="draft-banner"><strong>Internal working draft</strong> — not for distribution. This whole page is <span class="tag proposed" style="vertical-align:1px;">Proposed</span>, pending both founders' sign-off.</div>
+
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="brand" href="index.html">AI Consultants <span class="brand-tag">(working name)</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="services.html" data-page="services">Services</a>
+      <a href="problem-space.html" data-page="problem-space">Problem space</a>
+      <a href="principles.html" data-page="principles">Principles</a>
+      <a href="framework.html" data-page="framework">Framework</a>
+      <a href="engagement.html" data-page="engagement">Engagement</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">Theme</button>
+  </div>
+</header>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <p class="eyebrow">Our delivery methodology</p>
+    <h1>How work moves end to end</h1>
+    <p class="standfirst">
+      Ten core skills, not a flat list: eight sequential stages that loop — each with a
+      contract for what it consumes and what it hands off — plus two cross-cutting skills
+      that attach into several stages rather than owning a step of their own. This is both
+      how we intend to run our own engagements and the methodology behind
+      <a href="services.html#pillar-5">Pillar 05 — AI in the SDLC</a>.
+    </p>
+  </div>
+</header>
+
+<section id="loop">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The loop</h2></div>
+    <p class="lede prose">
+      It's a cycle, not a pipeline with an end. Maintenance doesn't close the project — it
+      generates the next cycle's Business Requirements.
+    </p>
+
+    <figure class="diagram">
+      <div class="diagram-wrap">
+        <svg class="loop-diagram" viewBox="0 0 800 410" role="img" aria-label="Eight-stage delivery loop: Business Requirements, UX Design, Functional Specification and Architecture run left to right along the top; Test Plan, Test-First Development, Deployment and Maintenance run right to left along the bottom; a dashed line loops from Maintenance back to Business Requirements, closing the cycle.">
+          <defs>
+            <marker id="flowArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="flow-arrow" d="M0,0 L10,5 L0,10 z"></path>
+            </marker>
+            <marker id="loopArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="loop-arrow" d="M0,0 L10,5 L0,10 z"></path>
+            </marker>
+          </defs>
+
+          <line class="flow-line" x1="190" y1="60" x2="228" y2="60" marker-end="url(#flowArrow)"></line>
+          <line class="flow-line" x1="380" y1="60" x2="418" y2="60" marker-end="url(#flowArrow)"></line>
+          <line class="flow-line" x1="570" y1="60" x2="608" y2="60" marker-end="url(#flowArrow)"></line>
+          <line class="flow-line" x1="685" y1="90" x2="685" y2="308" marker-end="url(#flowArrow)"></line>
+          <line class="flow-line" x1="608" y1="340" x2="572" y2="340" marker-end="url(#flowArrow)"></line>
+          <line class="flow-line" x1="418" y1="340" x2="382" y2="340" marker-end="url(#flowArrow)"></line>
+          <line class="flow-line" x1="228" y1="340" x2="192" y2="340" marker-end="url(#flowArrow)"></line>
+
+          <line class="loop-line" x1="115" y1="308" x2="115" y2="92" marker-end="url(#loopArrow)"></line>
+          <text class="loop-label" x="128" y="196">closes the</text>
+          <text class="loop-label" x="128" y="210">loop</text>
+
+          <rect class="node-rect" x="40" y="30" width="150" height="60" rx="10"></rect>
+          <circle class="node-num-circle" cx="54" cy="32" r="11"></circle>
+          <text class="node-num" x="54" y="32">1</text>
+          <text class="node-label" x="115" y="54">Business</text>
+          <text class="node-label" x="115" y="70">Requirements</text>
+
+          <rect class="node-rect" x="230" y="30" width="150" height="60" rx="10"></rect>
+          <circle class="node-num-circle" cx="244" cy="32" r="11"></circle>
+          <text class="node-num" x="244" y="32">2</text>
+          <text class="node-label" x="305" y="64">UX Design</text>
+
+          <rect class="node-rect" x="420" y="30" width="150" height="60" rx="10"></rect>
+          <circle class="node-num-circle" cx="434" cy="32" r="11"></circle>
+          <text class="node-num" x="434" y="32">3</text>
+          <text class="node-label" x="495" y="64">Functional Spec</text>
+
+          <rect class="node-rect" x="610" y="30" width="150" height="60" rx="10"></rect>
+          <circle class="node-num-circle" cx="624" cy="32" r="11"></circle>
+          <text class="node-num" x="624" y="32">4</text>
+          <text class="node-label" x="685" y="64">Architecture</text>
+
+          <rect class="node-rect" x="610" y="310" width="150" height="60" rx="10"></rect>
+          <circle class="node-num-circle" cx="624" cy="312" r="11"></circle>
+          <text class="node-num" x="624" y="312">5</text>
+          <text class="node-label" x="685" y="344">Test Plan</text>
+
+          <rect class="node-rect" x="420" y="310" width="150" height="60" rx="10"></rect>
+          <circle class="node-num-circle" cx="434" cy="312" r="11"></circle>
+          <text class="node-num" x="434" y="312">6</text>
+          <text class="node-label" x="495" y="344">Test-First Dev</text>
+
+          <rect class="node-rect" x="230" y="310" width="150" height="60" rx="10"></rect>
+          <circle class="node-num-circle" cx="244" cy="312" r="11"></circle>
+          <text class="node-num" x="244" y="312">7</text>
+          <text class="node-label" x="305" y="344">Deployment</text>
+
+          <rect class="node-rect" x="40" y="310" width="150" height="60" rx="10"></rect>
+          <circle class="node-num-circle" cx="54" cy="312" r="11"></circle>
+          <text class="node-num" x="54" y="312">8</text>
+          <text class="node-label" x="115" y="344">Maintenance</text>
+        </svg>
+      </div>
+      <figcaption class="diagram-cap">
+        Read left to right along the top — Business Requirements &rarr; UX Design &rarr;
+        Functional Specification &rarr; Architecture — then right to left along the bottom —
+        Test Plan &rarr; Test-First Development &rarr; Deployment &rarr; Maintenance — which
+        loops back to Business Requirements (dashed), closing the cycle. Logging and Error
+        Handling aren't drawn as stages: they attach into several of these rather than owning
+        a step of their own (see &sect;03).
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="stages">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>The eight stages</h2></div>
+    <p class="lede prose">
+      Same four fields for every stage: what it takes in, what it hands off, what makes that
+      handoff valid, and where it goes next. That's the contract.
+    </p>
+
+    <article class="stage-card" id="stage-1">
+      <header><span class="stage-num">Stage 1</span><h3>Business Requirements</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Input</p><p>Discovery findings (the conversation on <a href="problem-space.html">Problem space</a>) — or, on a repeat cycle, the prior cycle's Maintenance signals.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Output</p><p>A written requirements document: goals, target users, success metrics, and must/should/could priorities.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Definition of done</p><p>Every requirement is measurable in principle and traces to a business outcome; a named business stakeholder has signed off.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Feeds into</p><p>UX Design and Functional Specification.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>Internally, this is the write-up we produce after a discovery conversation. At a client, it's the artifact their product owner signs before any design or engineering starts — the thing that keeps "AI would be cool here" from becoming a requirement on its own.</p></div>
+    </article>
+
+    <article class="stage-card" id="stage-2">
+      <header><span class="stage-num">Stage 2</span><h3>UX Design</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Input</p><p>Business Requirements — goals, users, success metrics.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Output</p><p>Flows, wireframes or prototypes, and every user journey described including its error and empty states.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Definition of done</p><p>Every requirement maps to a flow; edge cases are designed, not left for engineering to improvise; validated with at least a lightweight usability check.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Feeds into</p><p>Functional Specification.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>For an AI-assisted feature specifically, this is where we decide what the user sees while a model is "thinking," what a wrong answer looks like, and how a user corrects it — the step most playground-built AI features skip entirely.</p></div>
+    </article>
+
+    <article class="stage-card" id="stage-3">
+      <header><span class="stage-num">Stage 3</span><h3>Functional Specification</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Input</p><p>Business Requirements + UX Design.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Output</p><p>An implementation-ready specification: system behaviors, business rules, and explicit out-of-scope.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Definition of done</p><p>An engineer who wasn't in the room could implement it without guessing; both business and engineering have signed off.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Feeds into</p><p>Architecture and Test Plan.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>For an AI-assisted feature, this is where expected failure behavior gets defined (see Error Handling, &sect;03) — not left as an implicit assumption that the model "just works."</p></div>
+    </article>
+
+    <article class="stage-card" id="stage-4">
+      <header><span class="stage-num">Stage 4</span><h3>Architecture</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Input</p><p>Functional Specification.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Output</p><p>A system/component diagram — boundaries, data flow, integration points, and where observability hooks in.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Definition of done</p><p>Every functional requirement maps to a component; every external dependency and failure boundary is drawn, not assumed.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Feeds into</p><p>Test Plan and Test-First Development.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>For AI-touched systems, this is where we draw the model/provider boundary explicitly — which matters directly for <a href="services.html#pillar-4">Pillar 04</a>: you can't migrate a boundary you never drew.</p></div>
+    </article>
+
+    <article class="stage-card" id="stage-5">
+      <header><span class="stage-num">Stage 5</span><h3>Test Plan</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Input</p><p>Functional Specification + Architecture.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Output</p><p>Acceptance criteria and test cases — unit, integration, end-to-end — written before code.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Definition of done</p><p>Every functional requirement has at least one test case; the boundary between test types is explicit.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Feeds into</p><p>Test-First Development.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>For AI-assisted behavior, this is where we write eval cases, not just unit tests — a test plan for model-driven output looks different from one for deterministic code, and pretending otherwise is the "playground, not production" failure mode from <a href="services.html#pillar-2">Pillar 02</a>.</p></div>
+    </article>
+
+    <article class="stage-card" id="stage-6">
+      <header><span class="stage-num">Stage 6</span><h3>Test-First Development</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Input</p><p>Test Plan + Architecture.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Output</p><p>Working code — tests written first (or red/green/refactor alongside), passing, reviewed against the Functional Specification.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Definition of done</p><p>Every test-plan case passes; code review is complete; no untested path reaches Deployment.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Feeds into</p><p>Deployment.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>This is the production bar from Pillar 02, applied literally: an AI-assisted feature gets the same review rigor as anything else, no exception for "the model wrote most of it."</p></div>
+    </article>
+
+    <article class="stage-card" id="stage-7">
+      <header><span class="stage-num">Stage 7</span><h3>Deployment</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Input</p><p>Reviewed, tested code + a release plan — environments, rollback path.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Output</p><p>Running software in the target environment, a release note, and a verified rollback.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Definition of done</p><p>Rollback is tested, not assumed; monitoring and alerting are live before traffic fully cuts over.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Feeds into</p><p>Maintenance.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>For a platform migration (<a href="services.html#pillar-4">Pillar 04</a>), this stage <em>is</em> the migration — cutting a team over to the golden provider with a real rollback path, not a one-way door.</p></div>
+    </article>
+
+    <article class="stage-card" id="stage-8">
+      <header><span class="stage-num">Stage 8</span><h3>Maintenance</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Input</p><p>The running system, its logs and error signals, and user or business feedback.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Output</p><p>Incident reports, usage and cost data, and a prioritized list of fixes or new needs.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Definition of done</p><p>Every production incident has a root cause and a decision; recurring signals get promoted back into Business Requirements.</p></div>
+      <div class="tpl-block"><p class="tpl-label">Feeds into</p><p><strong>Business Requirements</strong> — closing the loop.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>This is also where <a href="services.html#pillar-3">Pillar 03</a> (cost efficiency) lives day to day: spend and usage data reviewed here becomes next cycle's requirements, not a separate annual audit.</p></div>
+    </article>
+  </div>
+</section>
+
+<section id="crosscutting">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Cross-cutting: Logging &amp; Error Handling</h2></div>
+    <p class="lede prose">
+      These don't get their own position in the loop. They attach as a requirement into
+      several stages' contracts — which is a different (and stricter) kind of contract:
+      not input/output, but a guarantee every attached stage has to meet.
+    </p>
+
+    <article class="stage-card crosscut" id="crosscut-logging">
+      <header><span class="stage-num">Cross-cutting</span><h3>Logging</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Attaches to</p><p><a href="#stage-4">Architecture</a> (where events are emitted), <a href="#stage-6">Test-First Development</a> (what gets logged and how), <a href="#stage-7">Deployment</a> (routing and alerting), <a href="#stage-8">Maintenance</a> (what actually gets read).</p></div>
+      <div class="tpl-block"><p class="tpl-label">Contract it enforces</p><p>Every component named in the architecture emits structured, correlatable events at defined points, and logging is live before a release ships — not bolted on after the first incident.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>For an AI-assisted feature, this includes the specific inputs, outputs, and model/version used per request. Without it, "why did it say that" is unanswerable after the fact.</p></div>
+    </article>
+
+    <article class="stage-card crosscut" id="crosscut-error-handling">
+      <header><span class="stage-num">Cross-cutting</span><h3>Error Handling</h3></header>
+      <div class="tpl-block"><p class="tpl-label">Attaches to</p><p><a href="#stage-3">Functional Specification</a> (expected failure behavior), <a href="#stage-4">Architecture</a> (failure boundaries), <a href="#stage-6">Test-First Development</a> (failure paths are tested, not assumed), <a href="#stage-7">Deployment</a> (a rollback is a designed error-handling case, not an emergency improvisation).</p></div>
+      <div class="tpl-block"><p class="tpl-label">Contract it enforces</p><p>Every failure mode identified in the architecture has a defined, tested behavior; no unhandled path reaches a user.</p></div>
+      <div class="tpl-block"><p class="tpl-label">In practice</p><p>For AI-assisted features specifically, a wrong, slow, or unavailable model response is a failure mode like any other — designed for at UX Design, not discovered in production.</p></div>
+    </article>
+  </div>
+</section>
+
+<section id="open">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Still open</h2></div>
+    <div class="callout open">
+      <strong>Open:</strong> whether every client engagement runs the full eight-stage loop, or
+      whether a narrow engagement (e.g. a Pillar 04 migration touching only Stages 6&ndash;8) can
+      legitimately skip the earlier stages rather than retrofit them. Also open: whether this
+      framework is something we hand to a client as-is, or a lens we apply without necessarily
+      naming it to them. See the master list on
+      <a href="engagement.html#open-questions">Engagement &rarr; open questions</a>.
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap site-footer-inner">
+    <p>This site is the two of us converging on what this company is before we take it to a single client conversation. Nothing here is a promise to a prospect yet.</p>
+    <p class="site-footer-meta">ai-consultants · draft · <a href="https://github.com/ericthebigsal/ai-consultants">source</a> · <a href="engagement.html#open-questions">open questions</a></p>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

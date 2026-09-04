@@ -15,12 +15,16 @@ Hosted via GitHub Pages: <https://ericthebigsal.github.io/ai-consultants/>
 | `services.html` | The five pillars, each to a fixed template |
 | `problem-space.html` | Discovery question set + fit rubric |
 | `principles.html` | Proposed point of view on judicious AI use |
+| `framework.html` | The 10 core delivery skills as an 8-stage loop (with input/output contracts) plus 2 cross-cutting skills — also the methodology behind Pillar 05 |
 | `engagement.html` | End-to-end engagement flow + the master open-questions list |
 | `resources/web-search-apis-for-mcp.html` | Standalone reference doc (moved from the site root) |
 | `assets/styles.css`, `assets/site.js` | Shared design system + theme toggle, used by every page |
 
 Design spec for this structure: Shelfmark, Product → Feature Specs →
 *"Consultancy Site — Design Spec"* (`PRD.SPC.GNB86`).
+
+Delivery-framework mirror: Shelfmark, Engineering → Architecture →
+*"Delivery Framework — Core Skills Loop"* (`ENG.ARC.J3JXC`).
 
 ## Other docs
 

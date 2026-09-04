@@ -137,6 +137,7 @@ body[data-active="home"] .site-nav a[data-page="home"],
 body[data-active="services"] .site-nav a[data-page="services"],
 body[data-active="problem-space"] .site-nav a[data-page="problem-space"],
 body[data-active="principles"] .site-nav a[data-page="principles"],
+body[data-active="framework"] .site-nav a[data-page="framework"],
 body[data-active="engagement"] .site-nav a[data-page="engagement"] {
   color: var(--accent-ink); background: var(--accent-soft);
 }
@@ -234,20 +235,22 @@ h1 { font-size: clamp(2rem, 4.6vw, 3rem); font-weight: 700; }
 }
 .card .card-body { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.5; font-family: "IBM Plex Sans", sans-serif; }
 
-/* ---- pillar / template blocks (services page) ---- */
-.pillar {
+/* ---- pillar / template blocks (services page, framework page) ---- */
+.pillar, .stage-card {
   border: 1px solid var(--line); border-radius: 12px; background: var(--surface);
   padding: 26px 26px 8px; margin-top: 22px; box-shadow: var(--shadow); scroll-margin-top: 84px;
 }
-.pillar > header {
+.pillar > header, .stage-card > header {
   display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
   flex-wrap: wrap; border-bottom: 1px solid var(--line-soft); padding-bottom: 16px;
 }
-.pillar h3 { margin: 0; font-size: 1.28rem; }
-.pillar .pillar-num {
+.pillar h3, .stage-card h3 { margin: 0; font-size: 1.28rem; }
+.pillar .pillar-num, .stage-card .stage-num {
   font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--accent-ink);
   letter-spacing: .06em;
 }
+.stage-card.crosscut { border-left: 3px solid var(--warn); }
+.stage-card.crosscut .stage-num { color: var(--warn); }
 .tpl-block { padding: 18px 0; border-bottom: 1px solid var(--line-soft); font-family: "IBM Plex Sans", sans-serif; font-size: 0.94rem; }
 .tpl-block:last-of-type { border-bottom: none; }
 .tpl-label {
@@ -339,6 +342,35 @@ table.matrix .fit-red { color: var(--crit); font-weight: 600; }
   color: var(--ink); margin-bottom: 8px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;
 }
 .principle .principle-rationale { color: var(--ink-soft); margin: 0; }
+
+/* ---- loop diagram (framework page) ---- */
+figure.diagram { margin: 26px 0 0; }
+.diagram-wrap {
+  border: 1px solid var(--line); border-radius: 12px; background: var(--surface);
+  padding: 18px; box-shadow: var(--shadow); overflow-x: auto;
+}
+.loop-diagram { width: 100%; height: auto; display: block; min-width: 640px; }
+.loop-diagram .node-rect { fill: var(--surface-2); stroke: var(--line); stroke-width: 1.5; }
+.loop-diagram .node-rect.crosscut-touch { stroke: var(--warn); stroke-dasharray: 3 3; }
+.loop-diagram .node-label {
+  fill: var(--ink); font-family: "IBM Plex Sans", sans-serif; font-size: 13px;
+  font-weight: 600; text-anchor: middle;
+}
+.loop-diagram .node-num-circle { fill: var(--accent); }
+.loop-diagram .node-num {
+  fill: var(--surface); font-family: "IBM Plex Mono", monospace; font-size: 11px;
+  font-weight: 600; text-anchor: middle; dominant-baseline: middle;
+}
+.loop-diagram .flow-line { stroke: var(--ink-soft); stroke-width: 1.6; fill: none; }
+.loop-diagram .flow-arrow { fill: var(--ink-soft); }
+.loop-diagram .loop-line { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 4; fill: none; }
+.loop-diagram .loop-arrow { fill: var(--accent); }
+.loop-diagram .loop-label {
+  fill: var(--accent-ink); font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+}
+figcaption.diagram-cap {
+  margin-top: 12px; font-family: "IBM Plex Sans", sans-serif; font-size: 0.86rem; color: var(--muted);
+}
 
 /* ---- footer ---- */
 .site-footer {
