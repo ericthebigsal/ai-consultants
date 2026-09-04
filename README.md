@@ -20,11 +20,24 @@ Hosted via GitHub Pages: <https://ericthebigsal.github.io/ai-consultants/>
 | `resources/web-search-apis-for-mcp.html` | Standalone reference doc (moved from the site root) |
 | `assets/styles.css`, `assets/site.js` | Shared design system + theme toggle, used by every page |
 
-Design spec for this structure: Shelfmark, Product → Feature Specs →
-*"Consultancy Site — Design Spec"* (`PRD.SPC.GNB86`).
+## Shelfmark (docs dashboard) mirror
 
-Delivery-framework mirror: Shelfmark, Engineering → Architecture →
-*"Delivery Framework — Core Skills Loop"* (`ENG.ARC.J3JXC`).
+Every page on this site is mirrored into Shelfmark as a standalone reference, alongside the
+design artifacts:
+
+| Shelfmark location | Document |
+|---|---|
+| Product → Roadmap & Strategy `PRD.ROA.JAE56` | Company Thesis — Why Now (Home) |
+| Product → Roadmap & Strategy `PRD.ROA.JAE57` | Service Offering — Five Pillars (Services) |
+| Product → Roadmap & Strategy `PRD.ROA.JAE58` | Delivery Principles — Judicious AI Use (Principles) |
+| Product → Roadmap & Strategy `PRD.ROA.JAE59` | Engagement Model & Open Decisions (Engagement) |
+| Product → Research `PRD.RES.JAE5A` | Discovery Framework — Problem Space & Fit (Problem space) |
+| Product → Feature Specs `PRD.SPC.GNB86` | Consultancy Site — Design Spec |
+| Engineering → Architecture `ENG.ARC.J3JXC` | Delivery Framework — Core Skills Loop (Framework) |
+| Engineering → API Reference `ENG.API.JAE5B` | Web Search APIs for MCP (resources/) |
+
+The GitHub Pages site is the canonical, fuller version of each; Shelfmark holds a condensed
+reference that links back to it.
 
 ## Other docs
 
