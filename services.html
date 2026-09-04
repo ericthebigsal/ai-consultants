@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>Services — AI Consultants (working name)</title>
+<meta name="description" content="The five pillars: what each engagement solves, what we do, what you walk away with, and how we know it worked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-active="services">
+
+<div class="draft-banner"><strong>Internal working draft</strong> — not for distribution. Items tagged <span class="tag tbd" style="vertical-align:1px;">TBD</span> or <span class="tag open" style="vertical-align:1px;">Open</span> are still open decisions.</div>
+
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="brand" href="index.html">AI Consultants <span class="brand-tag">(working name)</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="services.html" data-page="services">Services</a>
+      <a href="problem-space.html" data-page="problem-space">Problem space</a>
+      <a href="principles.html" data-page="principles">Principles</a>
+      <a href="engagement.html" data-page="engagement">Engagement</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">Theme</button>
+  </div>
+</header>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <p class="eyebrow">The offer</p>
+    <h1>Five ways we help</h1>
+    <p class="standfirst">
+      Five patterns we keep seeing, written to the same structure so they read as one system:
+      the situation in the client's words, what's really going on underneath it, what we do,
+      what they walk away with, and how we'll know it worked. None of these are mutually
+      exclusive — a client often starts in one and surfaces a second.
+    </p>
+  </div>
+</header>
+
+<section id="pillars">
+  <div class="wrap">
+
+    <article class="pillar" id="pillar-1">
+      <header>
+        <span class="pillar-num">Pillar 01</span>
+        <h3>AI orientation &amp; opportunity mapping</h3>
+      </header>
+      <div class="tpl-block">
+        <p class="tpl-label">The situation</p>
+        <blockquote>"We keep hearing we should be doing something with AI. We don't know where to start, and we don't want to waste six months on a pilot nobody uses."</blockquote>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What's really going on</p>
+        <p>Leadership has real signal that competitors or vendors are moving, but no way to translate "AI" into "which specific things in our product and delivery process would benefit, in what order, for what return." Without that translation, the default move is a splashy pilot disconnected from the roadmap, or nothing at all.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What we do</p>
+        <ul>
+          <li>Interview product, engineering, support and — where relevant — sales, to find where the business already loses time or money to well-understood, repeatable work.</li>
+          <li>Map candidate AI applications against effort, risk, and customer-facing value, not against what's technically impressive.</li>
+          <li>Rank them into a short list with a plain-language case for each: what it costs to try, what it's worth if it works, how you'd know within weeks, not quarters.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What you walk away with</p>
+        <ul>
+          <li>A prioritized opportunity map, not a slide of buzzwords.</li>
+          <li>A recommended first move, sized to prove value fast.</li>
+          <li>A shared vocabulary the leadership team can actually use with each other.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">How we know it worked</p>
+        <ul>
+          <li>You can name the top 1–3 AI opportunities and defend the ranking without us in the room.</li>
+          <li>The first pilot ships, and its outcome is measured against the case we wrote for it.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Rough shape <span class="tag tbd">TBD</span></p>
+        <p>Likely a short, fixed-fee engagement — days, not months. Natural candidate for the lead offer (see <a href="engagement.html#open-questions">open questions</a>).</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
+        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+      </div>
+    </article>
+
+    <article class="pillar" id="pillar-2">
+      <header>
+        <span class="pillar-num">Pillar 02</span>
+        <h3>From playground to production</h3>
+      </header>
+      <div class="tpl-block">
+        <p class="tpl-label">The situation</p>
+        <blockquote>"Half our engineers are already using AI tools on their own. Some of it's great, some of it's a liability, and we have no idea which is which."</blockquote>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What's really going on</p>
+        <p>Individual initiative outpaced organizational direction. Ungoverned use isn't the real problem — the absence of a bar for what "production quality" means for an AI-assisted feature is. No review standard, no evaluation process, no shared pattern library, so quality is whoever built it that week.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What we do</p>
+        <ul>
+          <li>Audit what's actually running today — tools, prompts, integrations, and everywhere model output reaches a customer or a decision.</li>
+          <li>Establish a production bar: review criteria, an evaluation/testing approach for AI-assisted or AI-driven features, guardrails for known failure modes.</li>
+          <li>Train the team against that bar using their own codebase — a pattern library and a review checklist, not a generic course.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What you walk away with</p>
+        <ul>
+          <li>A written standard for shipping AI-assisted work, folded into your existing review process.</li>
+          <li>The best of what your team already built, hardened and kept; the rest retired or fixed, deliberately.</li>
+          <li>Engineers who can tell the difference between a demo and a dependency.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">How we know it worked</p>
+        <ul>
+          <li>AI-assisted features go through the same review rigor as anything else you ship — no special exception, no special fear.</li>
+          <li>Incident and rollback rates for AI-touched features trend to the same baseline as the rest of the codebase.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Rough shape <span class="tag tbd">TBD</span></p>
+        <p>Likely an assessment phase followed by an embedded advisory period.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
+        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+      </div>
+    </article>
+
+    <article class="pillar" id="pillar-3">
+      <header>
+        <span class="pillar-num">Pillar 03</span>
+        <h3>AI cost efficiency</h3>
+      </header>
+      <div class="tpl-block">
+        <p class="tpl-label">The situation</p>
+        <blockquote>"Our AI bill keeps climbing and nobody can tell me if we're getting more value for it or just more usage."</blockquote>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What's really going on</p>
+        <p>Token and API spend is easy to turn on and hard to attribute — which team, which feature, which model tier is driving it, and whether a cheaper model or a smarter architecture would do the same job. Without attribution, "cut the budget" and "let it ride" are the only two levers anyone can pull.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What we do</p>
+        <ul>
+          <li>Break down current spend by team, feature, and model/provider, and map it against the value each use actually delivers.</li>
+          <li>Identify the easy wins: right-sizing model choice, caching, prompt/context efficiency, batching, and eliminating usage nobody is actually reading.</li>
+          <li>Set up ongoing visibility — a dashboard or a reporting cadence — so cost-per-outcome is a number someone owns, not a surprise on the invoice.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What you walk away with</p>
+        <ul>
+          <li>A cost baseline tied to outcomes, not just usage.</li>
+          <li>A prioritized savings list, ranked by effort against expected impact.</li>
+          <li>A lightweight process to keep spend visible after we leave.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">How we know it worked</p>
+        <ul>
+          <li>Spend per unit of value — not just total spend — moves in the right direction.</li>
+          <li>Someone inside the company can explain this quarter's AI bill without calling us.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Rough shape <span class="tag tbd">TBD</span></p>
+        <p>Typically a focused, time-boxed engagement.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
+        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+      </div>
+    </article>
+
+    <article class="pillar" id="pillar-4">
+      <header>
+        <span class="pillar-num">Pillar 04</span>
+        <h3>Platform consolidation / golden-provider migration</h3>
+      </header>
+      <div class="tpl-block">
+        <p class="tpl-label">The situation</p>
+        <blockquote>"We're running Claude, ChatGPT, Copilot, and a couple of others across different teams with no plan. We want to standardize on one platform without breaking how people actually work."</blockquote>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What's really going on</p>
+        <p>Tool sprawl happened the same way the playground problem did — bottom-up adoption, no direction. Now it's a cost, security, and support burden, but a top-down mandate to "just use X" fails if it silently breaks workflows that took months to get right. The real work is migration, not decree.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What we do</p>
+        <ul>
+          <li>Inventory how AI tools are actually used, team by team — the real use case, not the sanctioned one.</li>
+          <li>Recommend, or validate your choice of, a golden provider based on your actual workloads, not vendor marketing.</li>
+          <li>Do the hands-on migration work ourselves: rebuild workflows on the new platform without losing functionality or outcomes, working directly with the teams affected.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What you walk away with</p>
+        <ul>
+          <li>One standardized platform, with a paper trail of what changed and why, team by team.</li>
+          <li>Workflows that survived the move — same or better outcomes, on the new tool.</li>
+          <li>A model for evaluating the next platform decision yourselves.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">How we know it worked</p>
+        <ul>
+          <li>Legacy platforms are decommissioned, not just deprioritized.</li>
+          <li>Teams report the new platform does what the old ones did — ideally with less friction, not more.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Rough shape <span class="tag tbd">TBD</span></p>
+        <p>The most execution-heavy pillar. Likely needs embedded time, possibly alongside client engineering support — see the reference below.</p>
+      </div>
+      <div class="callout">
+        <strong>Real-world reference.</strong> A recent WOTC job posting sought a "hands-on Migration Engineer to lead our enterprise transition from multiple AI platforms (Claude, ChatGPT, Copilot, and others) onto a single, standardized 'golden provider'" — an execution role, working directly with individual users and teams to rebuild their workflows on the new platform "without losing functionality or outcomes," supported by an embedded FTE engineer for coding tasks. This is close to a literal description of this pillar, and evidence that enterprises are already budgeting for exactly this work.
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
+        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+      </div>
+    </article>
+
+    <article class="pillar" id="pillar-5">
+      <header>
+        <span class="pillar-num">Pillar 05</span>
+        <h3>AI in the SDLC</h3>
+      </header>
+      <div class="tpl-block">
+        <p class="tpl-label">The situation</p>
+        <blockquote>"We want AI to actually speed up how we build software — not just autocomplete in the editor, the whole cycle."</blockquote>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What's really going on</p>
+        <p>Most organizations' AI use clusters at the write-code step, because that's where the tools are most visible. The bigger opportunity — and the harder one — is upstream and downstream of that: requirements and definition, test generation and coverage, release and deployment, and maintenance/on-call. Left unaddressed, code-writing gets faster while everything around it stays the bottleneck.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What we do</p>
+        <ul>
+          <li>Map your define &rarr; build &rarr; test &rarr; release &rarr; maintain cycle and find where AI reduces cycle time without reducing quality.</li>
+          <li>Introduce and integrate tools and practices at each stage to fit your existing process, not a wholesale rip-and-replace.</li>
+          <li>Measure cycle time and quality before and after, stage by stage.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What you walk away with</p>
+        <ul>
+          <li>A faster, still-trustworthy SDLC, with AI doing real work at more than one stage.</li>
+          <li>Documented practices your team can extend on its own.</li>
+          <li>A before/after picture you can take to leadership.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">How we know it worked</p>
+        <ul>
+          <li>Cycle time drops at the stages we touched, with defect and incident rates flat or improved.</li>
+          <li>The team keeps using what we introduced after we're gone.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Rough shape <span class="tag tbd">TBD</span></p>
+        <p>Likely the longest-running pillar; probably phased one SDLC stage at a time.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
+        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="open">
+  <div class="wrap">
+    <div class="callout open">
+      <strong>Open across all five:</strong> pricing per pillar, which one is the lead offer, and
+      per-pillar anti-scope are unresolved. Full list on
+      <a href="engagement.html#open-questions">Engagement &rarr; open questions</a>.
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap site-footer-inner">
+    <p>This site is the two of us converging on what this company is before we take it to a single client conversation. Nothing here is a promise to a prospect yet.</p>
+    <p class="site-footer-meta">ai-consultants · draft · <a href="https://github.com/ericthebigsal/ai-consultants">source</a> · <a href="engagement.html#open-questions">open questions</a></p>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>Problem Space &amp; Discovery — AI Consultants (working name)</title>
+<meta name="description" content="The discovery-meeting question set and the fit rubric we use to decide whether we can actually help a business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-active="problem-space">
+
+<div class="draft-banner"><strong>Internal working draft</strong> — not for distribution. Items tagged <span class="tag open" style="vertical-align:1px;">Open</span> are still open decisions.</div>
+
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="brand" href="index.html">AI Consultants <span class="brand-tag">(working name)</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="services.html" data-page="services">Services</a>
+      <a href="problem-space.html" data-page="problem-space">Problem space</a>
+      <a href="principles.html" data-page="principles">Principles</a>
+      <a href="engagement.html" data-page="engagement">Engagement</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">Theme</button>
+  </div>
+</header>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <p class="eyebrow">How we find fit</p>
+    <h1>Problem space &amp; discovery</h1>
+    <p class="standfirst">
+      Before any pillar gets pitched, we run the same conversation across six areas. It's how
+      we understand a business fast, and it's how we — and they — find out whether we're
+      actually a fit before anyone signs anything.
+    </p>
+  </div>
+</header>
+
+<section id="questions">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The discovery conversation</h2></div>
+    <p class="lede prose">Six groups of questions. Not a script — a checklist to make sure we've actually understood the business before we recommend anything.</p>
+
+    <div class="q-group">
+      <h3>Current state — where are you today?</h3>
+      <ul>
+        <li>What does your product/engineering organization look like today — team sizes, roles, delivery cadence?</li>
+        <li>What's the last thing you shipped, and how long did it take from idea to production?</li>
+        <li>Where does work get stuck, historically — definition, build, test, release, or maintenance?</li>
+      </ul>
+    </div>
+
+    <div class="q-group">
+      <h3>Value delivery — what does "accelerating value to customers" mean for you, specifically?</h3>
+      <ul>
+        <li>What's the metric that matters — time to market, feature throughput, defect rate, customer-reported issues, something else?</li>
+        <li>What's the cost of a slow cycle to your business, concretely?</li>
+        <li>Who's feeling the delay — external customers, internal stakeholders, both?</li>
+      </ul>
+    </div>
+
+    <div class="q-group">
+      <h3>AI maturity — where are you between "heard of it" and "running it in production"?</h3>
+      <ul>
+        <li>Is anyone in the org using AI tools today? Sanctioned, or not?</li>
+        <li>Has anything shipped to production that's AI-assisted or AI-driven?</li>
+        <li>Is there an existing policy, guideline, or governance process for AI use?</li>
+      </ul>
+    </div>
+
+    <div class="q-group">
+      <h3>Cost — what do you actually know about what you're spending, and on what?</h3>
+      <ul>
+        <li>What are you currently spending on AI tools and APIs, and does anyone own that number?</li>
+        <li>Do you know spend per team, per feature, per outcome — or just a total?</li>
+        <li>Has cost ever blocked or slowed an AI initiative?</li>
+      </ul>
+    </div>
+
+    <div class="q-group">
+      <h3>Platform sprawl — how many AI platforms are actually in use?</h3>
+      <ul>
+        <li>How many distinct AI tools or platforms are in active use across the org, officially and unofficially?</li>
+        <li>Has anyone tried to consolidate before? What happened?</li>
+        <li>Is there a mandate — or an appetite — for a single "golden provider"?</li>
+      </ul>
+    </div>
+
+    <div class="q-group">
+      <h3>SDLC — where in define &rarr; build &rarr; test &rarr; release &rarr; maintain is the biggest drag?</h3>
+      <ul>
+        <li>Walk us through your SDLC stage by stage — where's the friction?</li>
+        <li>What tooling exists today at each stage, AI or not?</li>
+        <li>What would "faster, without getting worse" actually look like to you?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="rubric">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Fit rubric</h2></div>
+    <p class="lede prose">A rough read on whether we can actually help — used internally after a discovery conversation, not shared verbatim with the client.</p>
+    <div class="table-scroll">
+      <table class="matrix">
+        <thead>
+          <tr><th>Signal</th><th>Green — good fit</th><th>Yellow — workable</th><th>Red — not yet</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">AI maturity</th>
+            <td class="fit-green">Some real usage already, wants direction</td>
+            <td class="fit-yellow">Zero usage, genuinely curious</td>
+            <td class="fit-red">Wants a magic fix with no internal ownership</td>
+          </tr>
+          <tr>
+            <th scope="row">Decision authority</th>
+            <td class="fit-green">Talking to someone who can act on findings</td>
+            <td class="fit-yellow">A champion exists, needs to build the case upward</td>
+            <td class="fit-red">No one in the room can approve next steps</td>
+          </tr>
+          <tr>
+            <th scope="row">Engineering culture</th>
+            <td class="fit-green">Existing quality/review discipline to extend</td>
+            <td class="fit-yellow">Discipline exists but inconsistent</td>
+            <td class="fit-red">No delivery discipline to build on — not an AI problem yet</td>
+          </tr>
+          <tr>
+            <th scope="row">Budget reality</th>
+            <td class="fit-green">Already spending, wants it to work harder</td>
+            <td class="fit-yellow">Budget approved in principle, not yet allocated</td>
+            <td class="fit-red">No budget, exploring "what would it cost"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="open">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Still open</h2></div>
+    <div class="callout open">
+      <strong>Open:</strong> which industries and company sizes we actually target, what counts
+      as a deal-breaker beyond the red signals above, and what referral or partner channels we'd
+      rely on to meet businesses in the first place. None of this is decided — see the master
+      list on <a href="engagement.html#open-questions">Engagement &rarr; open questions</a>.
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap site-footer-inner">
+    <p>This site is the two of us converging on what this company is before we take it to a single client conversation. Nothing here is a promise to a prospect yet.</p>
+    <p class="site-footer-meta">ai-consultants · draft · <a href="https://github.com/ericthebigsal/ai-consultants">source</a> · <a href="engagement.html#open-questions">open questions</a></p>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
