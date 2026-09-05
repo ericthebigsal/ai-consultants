@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Chateau Salerno — Tasting notes &amp; product copy</title>
+<meta name="description" content="Illustrative prototype: structured wine data in, consistent tasting notes and product copy out.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/chateau-salerno.css">
+</head>
+<body>
+
+<header class="cs-header">
+  <div class="cs-header-in">
+    <a class="cs-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="11" r="5.5" fill="#5B2233"></circle><path d="M9 5.5 C9 3 10.5 1.5 12.5 1.5" stroke="#4F6B47" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg>
+      Chateau&nbsp;Salerno
+    </a>
+    <nav class="cs-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="segments.html">Segments</a>
+      <a href="journeys.html">Journeys</a>
+      <a href="retention.html">Retention</a>
+      <a href="copy.html" aria-current="page">Copy</a>
+    </nav>
+    <span class="cs-sample-tag">Illustrative prototype</span>
+  </div>
+</header>
+
+<div class="cs-hero">
+  <p class="cs-eyebrow">Capability 04</p>
+  <h1>The writing wineries put off.</h1>
+  <p>
+    From the structured wine data already in the platform, draft the tasting note, the shop
+    description, and the allocation email &mdash; consistently, in one voice, across every
+    channel. The winemaker edits; they don&rsquo;t start from a blank page.
+  </p>
+  <div class="cs-meta">
+    <span>From existing product fields</span>
+    <span>One voice across every channel</span>
+    <span>The winemaker edits, doesn't write</span>
+  </div>
+</div>
+
+<main class="cs-main">
+
+  <section id="input">
+    <p class="sec-label">The wine</p>
+    <div class="cs-panel">
+      <div class="reg-wrap"><table class="reg">
+        <tbody>
+          <tr><th>Wine</th><td>2022 Reserve Pinot Noir &ldquo;Block 7&rdquo;</td></tr>
+          <tr><th>SKU</th><td class="mono">PN-B7-22</td></tr>
+          <tr><th>Appellation</th><td>Dundee Hills, Willamette Valley</td></tr>
+          <tr><th>Block</th><td>Block 7 &mdash; 1998 planting, east shoulder of the ridge</td></tr>
+          <tr><th>Cases</th><td class="num">180</td></tr>
+          <tr><th>Oak</th><td>14 months French oak, 30% new; bottled unfined</td></tr>
+          <tr><th>Harvest</th><td class="mono">2022-09-28</td></tr>
+          <tr><th>Vintage character</th><td>Long, cool vintage; late pick; firm structure</td></tr>
+        </tbody>
+      </table></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+        <span class="cs-tag cs-tag--mute">Voice: Kestrel Ridge</span>
+        <span class="cs-tag cs-tag--mute">Length: standard</span>
+        <span class="cs-tag cs-tag--mute">Channels: 3</span>
+      </div>
+      <p style="margin-top:16px"><button class="cs-btn cs-btn--primary" type="button">Draft copy</button></p>
+    </div>
+  </section>
+
+  <section id="output">
+    <p class="sec-label">Drafts <span class="mock-badge">Pre-generated</span></p>
+
+    <div class="cs-panel">
+      <p class="panel-label">Tasting note</p>
+      <p style="margin:0;font-family:var(--f-display);font-size:1.06rem;line-height:1.5">
+        The east shoulder of the ridge ripens about a week behind the rest of the vineyard,
+        and in a cool year like 2022 that patience shows. This is the darker, quieter Block 7
+        &mdash; more structure than fruit, tight now, better in three or four years. Save it
+        for a cold night and something braised.
+      </p>
+      <p style="margin-top:12px;font-size:12.5px;color:var(--mute)">58 words &middot; reuses phrasing from Kestrel Ridge&rsquo;s past Block 7 notes</p>
+      <p style="margin-top:8px"><button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">regenerate</button> <button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit</button></p>
+    </div>
+
+    <div class="cs-panel">
+      <p class="panel-label">Shop description</p>
+      <p style="margin:0">
+        Block 7 sits on the 1998 planting on the ridge&rsquo;s east shoulder, the last fruit
+        we bring in most years. 2022 was a long, cool vintage &mdash; we picked on September
+        28, later than we like, and the wine came in with real spine. Fourteen months in
+        French oak, a third of it new, then bottled unfined. Just 180 cases. It&rsquo;s built
+        to be put away; if you open one now, give it an hour in a decanter and plan on a
+        second bottle in 2027.
+      </p>
+      <p style="margin-top:12px;font-size:12.5px;color:var(--mute)">95 words &middot; buyer-facing, more block and vintage context</p>
+      <p style="margin-top:8px"><button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">regenerate</button> <button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit</button></p>
+    </div>
+
+    <div class="cs-panel">
+      <p class="panel-label">Allocation email</p>
+      <p style="margin:0"><span class="subject" style="font-weight:600">Subject:</span> Block 7 is 180 cases this year</p>
+      <p style="margin-top:10px">
+        Falconer members: your Block 7 allocation is open. 2022 is the smallest we&rsquo;ve
+        made &mdash; a cool vintage on the east shoulder, picked late, and there just
+        wasn&rsquo;t much of it. Your standard allocation is two bottles; reply to this email
+        if you want to adjust up or down before the 20th. Everything ships with the fall
+        release the first week of November.
+      </p>
+      <p style="margin-top:12px;font-size:12.5px;color:var(--mute)">68 words &middot; Falconer tier &middot; pulls the standard allocation and ship date from the club record</p>
+      <p style="margin-top:8px"><button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">regenerate</button> <button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit</button></p>
+    </div>
+  </section>
+
+  <section id="consistency">
+    <p class="sec-label">Why it's worth it</p>
+    <p>The same wine, same voice, rendered for two more surfaces without anyone rewriting it:</p>
+    <div class="cs-panel">
+      <p class="panel-label">Cellar-door shelf-talker</p>
+      <p style="margin:0;font-family:var(--f-display)">&ldquo;Block 7, 2022 &mdash; the ridge&rsquo;s east shoulder, a cool year, 180 cases.&rdquo;</p>
+    </div>
+    <div class="cs-panel">
+      <p class="panel-label">SMS</p>
+      <p style="margin:0" class="mono">&ldquo;Kestrel Ridge: your 2022 Block 7 allocation is open through the 20th. [link]&rdquo;</p>
+    </div>
+    <ul>
+      <li>Trained on the winery&rsquo;s own back catalogue of notes &mdash; so it writes like Kestrel Ridge, not like a generic wine blurb.</li>
+      <li>Structured fields go in, so there&rsquo;s no invented appellation, no oak regime that never happened, no wrong case count.</li>
+      <li>Every draft is a draft. The winemaker&rsquo;s edit is the point &mdash; the blank page was the problem.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="cs-footer">
+  <div class="cs-footer-in">
+    <p class="cs-disclaimer"><strong>Illustrative prototype, not a shipping product.</strong> Chateau Salerno and Kestrel Ridge Vineyards are fictional; all data, wines, and figures are invented. The interface and flow are real; every block of AI output is pre-generated and marked. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
