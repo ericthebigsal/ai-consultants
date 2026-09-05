@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Chateau Salerno — Natural-language segments</title>
+<meta name="description" content="Illustrative prototype: describe an audience in plain English, get a resolved, editable segment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/chateau-salerno.css">
+</head>
+<body>
+
+<header class="cs-header">
+  <div class="cs-header-in">
+    <a class="cs-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="11" r="5.5" fill="#5B2233"></circle><path d="M9 5.5 C9 3 10.5 1.5 12.5 1.5" stroke="#4F6B47" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg>
+      Chateau&nbsp;Salerno
+    </a>
+    <nav class="cs-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="segments.html" aria-current="page">Segments</a>
+      <a href="journeys.html">Journeys</a>
+      <a href="retention.html">Retention</a>
+      <a href="copy.html">Copy</a>
+    </nav>
+    <span class="cs-sample-tag">Illustrative prototype</span>
+  </div>
+</header>
+
+<div class="cs-hero">
+  <p class="cs-eyebrow">Capability 01</p>
+  <h1>Describe the audience. Get the segment.</h1>
+  <p>
+    Today a Kestrel Ridge marketer builds this segment by hand across five filter screens.
+    Here they type it, and the platform resolves it against the segment engine that already
+    exists &mdash; filter tree, count, and sample all in view.
+  </p>
+  <div class="cs-meta">
+    <span>Built on the existing segment engine</span>
+    <span>Query is inspectable</span>
+    <span>Nothing is hidden</span>
+  </div>
+</div>
+
+<main class="cs-main">
+
+  <section id="try">
+    <p class="sec-label">The ask</p>
+    <div class="cs-panel">
+      <div class="cs-field">
+        <label for="q">Describe your audience</label>
+        <textarea class="cs-input" id="q" rows="2" readonly>club members in Texas who bought Pinot at least twice but haven't opened an email in 90 days</textarea>
+      </div>
+      <p style="margin-top:12px;font-size:13px;color:var(--mute)">Other examples</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+        <button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">Falconer members who haven't bought Block 7 this release</button>
+        <button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">Visited the cellar door in the last year but isn't in the club</button>
+      </div>
+      <p style="margin-top:16px"><button class="cs-btn cs-btn--primary" type="button">Generate segment</button></p>
+    </div>
+  </section>
+
+  <section id="result">
+    <p class="sec-label">What it produced <span class="mock-badge">Pre-generated</span></p>
+
+    <div class="cs-panel">
+      <p class="panel-label">Resolved filter</p>
+      <ul class="filter-tree">
+        <li><span class="cond">tier &isin; { Fledgling, Kestrel, Falconer }</span> <button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit</button></li>
+        <li><span class="op">and</span> <span class="cond">ship-to state = TX</span> <button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit</button></li>
+        <li><span class="op">and</span> <span class="cond">lifetime Pinot bottles &ge; 2</span> <button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit</button></li>
+        <li><span class="op">and</span> <span class="cond">last email open &gt; 90 days ago</span> <button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit</button></li>
+      </ul>
+    </div>
+
+    <div class="cs-panel">
+      <div class="stat-row" style="margin-top:0">
+        <div class="stat"><div class="k">Matched customers</div><div class="v">34</div><div class="d">of ~900 club members</div></div>
+        <div class="stat"><div class="k">In Texas, all club</div><div class="v">61</div><div class="d">before engagement filter</div></div>
+      </div>
+    </div>
+
+    <div class="cs-panel">
+      <p class="panel-label">Sample of matched customers</p>
+      <div class="reg-wrap"><table class="reg wide">
+        <thead><tr><th>Customer</th><th>Tier</th><th>Ship state</th><th>Lifetime Pinot btl</th><th>Last email open</th></tr></thead>
+        <tbody>
+          <tr><td>Grant Fowler</td><td>Fledgling</td><td class="mono">TX</td><td class="num">6</td><td class="mono">118 days ago</td></tr>
+          <tr><td>Ren&eacute;e Duval</td><td>Kestrel</td><td class="mono">TX</td><td class="num">14</td><td class="mono">142 days ago</td></tr>
+          <tr><td>Coleman Pace</td><td>Fledgling</td><td class="mono">TX</td><td class="num">4</td><td class="mono">96 days ago</td></tr>
+          <tr><td>Yolanda Ruiz</td><td>Kestrel</td><td class="mono">TX</td><td class="num">9</td><td class="mono">201 days ago</td></tr>
+          <tr><td>Bill Traeger</td><td>Falconer</td><td class="mono">TX</td><td class="num">22</td><td class="mono">134 days ago</td></tr>
+        </tbody>
+      </table></div>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--mute)">29 more not shown.</p>
+    </div>
+
+    <div class="callout vine">
+      <strong>This is the same segment object the rest of the platform already uses.</strong>
+      The campaign builder, journeys, and exports all consume it unchanged. The model wrote
+      the filter &mdash; it didn't invent a new kind of segment.
+    </div>
+  </section>
+
+  <section id="how">
+    <p class="sec-label">In a build</p>
+    <ul>
+      <li>The model maps language onto the existing filter schema. There's no new query language for anyone to learn, and no filter it can produce that a person couldn't have built by hand.</li>
+      <li>An ambiguous ask ("recent buyers") returns a clarifying question &mdash; "recent meaning last 30, 60, or 90 days?" &mdash; not a guess.</li>
+      <li>Every generated segment is saved as a normal, editable segment, with the original prompt kept on it so the next person can see the intent.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="cs-footer">
+  <div class="cs-footer-in">
+    <p class="cs-disclaimer"><strong>Illustrative prototype, not a shipping product.</strong> Chateau Salerno and Kestrel Ridge Vineyards are fictional; all data, wines, and figures are invented. The interface and flow are real; every block of AI output is pre-generated and marked. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
