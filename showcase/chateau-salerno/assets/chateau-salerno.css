@@ -192,7 +192,8 @@ a.cs-btn { display: inline-block; text-decoration: none; }
   color: var(--mute); border-bottom: 1px solid var(--rule);
 }
 .reg td.num { font-family: var(--f-mono); font-size: 12.5px; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.reg td.mono { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); }
+.reg td.mono { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); white-space: nowrap; }
+.reg td .cs-btn { white-space: nowrap; }
 .risk-hi { color: var(--wine); font-weight: 600; }
 .risk-md { color: var(--brass); font-weight: 600; }
 .risk-lo { color: var(--mute); }

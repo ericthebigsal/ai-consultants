@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Chateau Salerno — Churn &amp; lifetime-value prediction</title>
+<meta name="description" content="Illustrative prototype: club members scored on cancellation risk and predicted value, with the reasons shown.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/chateau-salerno.css">
+</head>
+<body>
+
+<header class="cs-header">
+  <div class="cs-header-in">
+    <a class="cs-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="11" r="5.5" fill="#5B2233"></circle><path d="M9 5.5 C9 3 10.5 1.5 12.5 1.5" stroke="#4F6B47" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg>
+      Chateau&nbsp;Salerno
+    </a>
+    <nav class="cs-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="segments.html">Segments</a>
+      <a href="journeys.html">Journeys</a>
+      <a href="retention.html" aria-current="page">Retention</a>
+      <a href="copy.html">Copy</a>
+    </nav>
+    <span class="cs-sample-tag">Illustrative prototype</span>
+  </div>
+</header>
+
+<div class="cs-hero">
+  <p class="cs-eyebrow">Capability 03</p>
+  <h1>Which club members are about to leave &mdash; and why.</h1>
+  <p>
+    Every Aviary member scored on cancellation risk and predicted 24-month value, with the
+    factors behind each score shown in the platform&rsquo;s own events, and a one-click path
+    into a win-back journey.
+  </p>
+  <div class="cs-meta">
+    <span>900 members scored weekly</span>
+    <span>Factors shown, not just a number</span>
+    <span>One click to a journey</span>
+  </div>
+</div>
+
+<main class="cs-main">
+
+  <section id="summary">
+    <p class="sec-label">This week</p>
+    <div class="stat-row">
+      <div class="stat"><div class="k">At-risk (risk &ge; 0.5)</div><div class="v">88</div><div class="d down">&#9650; 12 vs last week</div></div>
+      <div class="stat"><div class="k">Predicted 90-day cancels</div><div class="v">23</div><div class="d">of 88 at-risk</div></div>
+      <div class="stat"><div class="k">Value at risk (24-mo)</div><div class="v">$46k</div><div class="d">projected lost revenue</div></div>
+    </div>
+    <div class="callout vine">
+      <strong>A risk score is only useful if it's actionable.</strong> Every at-risk member
+      below has a one-click path into the win-back journey &mdash; the same journey drafted on
+      the <a href="journeys.html">Journeys</a> page.
+    </div>
+  </section>
+
+  <section id="scores">
+    <p class="sec-label">Member scores <span class="mock-badge">Pre-generated</span></p>
+    <div class="reg-wrap"><table class="reg wide">
+      <thead><tr><th>Customer</th><th>Tier</th><th>Tenure</th><th>Spend to date</th><th>Risk</th><th>Pred. 24-mo</th><th>Top factors</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Dana Whitfield</td><td>Falconer</td><td class="mono">4.2 yr</td><td class="num">$3,940</td>
+          <td class="mono risk-hi">0.71</td><td class="num">$1,180</td>
+          <td>No cellar-door visit in 18 mo &middot; last 2 allocations on hold &middot; opens down 40%</td>
+          <td><a class="cs-btn cs-btn--ghost cs-btn--sm" href="journeys.html#journey-step-1">&rarr; win-back</a></td>
+        </tr>
+        <tr>
+          <td>Marcus Lindqvist</td><td>Kestrel</td><td class="mono">1.1 yr</td><td class="num">$610</td>
+          <td class="mono risk-hi">0.63</td><td class="num">$540</td>
+          <td>Joined on a Ros&eacute; promo &middot; one shipment declined &middot; no add-on purchases</td>
+          <td><a class="cs-btn cs-btn--ghost cs-btn--sm" href="journeys.html#journey-step-1">&rarr; win-back</a></td>
+        </tr>
+        <tr>
+          <td>Grant Fowler</td><td>Fledgling</td><td class="mono">2.4 yr</td><td class="num">$840</td>
+          <td class="mono risk-hi">0.68</td><td class="num">$300</td>
+          <td>Downgraded from Kestrel last year &middot; buys only the minimum &middot; TX shipping holds in summer</td>
+          <td><a class="cs-btn cs-btn--ghost cs-btn--sm" href="journeys.html#journey-step-1">&rarr; win-back</a></td>
+        </tr>
+        <tr>
+          <td>Tom Becker</td><td>Fledgling</td><td class="mono">0.7 yr</td><td class="num">$210</td>
+          <td class="mono risk-hi">0.55</td><td class="num">$260</td>
+          <td>New &middot; card declined once &middot; no email engagement yet</td>
+          <td><a class="cs-btn cs-btn--ghost cs-btn--sm" href="journeys.html#journey-step-1">&rarr; win-back</a></td>
+        </tr>
+        <tr>
+          <td>Sofia Reyes</td><td>Kestrel</td><td class="mono">3.0 yr</td><td class="num">$2,150</td>
+          <td class="mono risk-md">0.22</td><td class="num">$1,400</td>
+          <td>Steady &middot; opens most emails &middot; one recent shipping ticket</td>
+          <td class="mono" style="color:var(--mute)">&mdash;</td>
+        </tr>
+        <tr>
+          <td>Priya Anand</td><td>Falconer</td><td class="mono">6.5 yr</td><td class="num">$8,220</td>
+          <td class="mono risk-lo">0.09</td><td class="num">$2,600</td>
+          <td>Visits twice a year &middot; buys Block 7 every release &middot; refers</td>
+          <td class="mono" style="color:var(--mute)">&mdash;</td>
+        </tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:10px;font-size:12.5px;color:var(--mute)">84 more at or above 0.5, sorted by predicted value at risk.</p>
+  </section>
+
+  <section id="factors">
+    <p class="sec-label">Why &mdash; one member</p>
+    <div class="cs-panel">
+      <h3 style="margin-top:0">Dana Whitfield &mdash; risk 0.71</h3>
+      <p style="margin:0;font-size:14px;color:var(--ink-soft)">The score, broken into weighted contributions:</p>
+      <div class="factors">
+        <div class="factor"><span class="lbl">No cellar-door visit in 18 months</span><span class="val">+0.28</span><span class="bar"><span style="width:85%"></span></span></div>
+        <div class="factor"><span class="lbl">Last 2 allocations set to &ldquo;hold&rdquo;</span><span class="val">+0.22</span><span class="bar"><span style="width:67%"></span></span></div>
+        <div class="factor"><span class="lbl">Email opens down 40% year-over-year</span><span class="val">+0.14</span><span class="bar"><span style="width:42%"></span></span></div>
+        <div class="factor"><span class="lbl">Tenure and spend (protective)</span><span class="val">&minus;0.09</span><span class="bar"><span class="protective" style="width:27%"></span></span></div>
+      </div>
+      <p style="margin-top:14px;font-size:14px">
+        The model explains the score in the platform&rsquo;s own events &mdash; visits,
+        allocation choices, opens &mdash; not a number with no handle on it. The strongest
+        signal here is the shift to &ldquo;hold,&rdquo; which usually comes before a cancel.
+      </p>
+    </div>
+  </section>
+
+  <section id="how">
+    <p class="sec-label">In a build</p>
+    <ul>
+      <li>The score is retrained weekly on the winery&rsquo;s own history &mdash; its members, its seasonality, its shipping patterns.</li>
+      <li>&ldquo;Hold&rdquo; and &ldquo;skip&rdquo; allocation events are the strongest early signal; they show up weeks before a cancellation.</li>
+      <li>A member drops off the at-risk list automatically once they re-engage, so the marketer isn&rsquo;t chasing stale flags.</li>
+    </ul>
+    <div class="callout">
+      <strong>At-risk members are just a segment.</strong> Anything that consumes a segment
+      &mdash; the <a href="segments.html">segment engine</a>, journeys, exports &mdash; can use
+      them without anything new being built.
+    </div>
+  </section>
+
+</main>
+
+<footer class="cs-footer">
+  <div class="cs-footer-in">
+    <p class="cs-disclaimer"><strong>Illustrative prototype, not a shipping product.</strong> Chateau Salerno and Kestrel Ridge Vineyards are fictional; all data, wines, and figures are invented. The interface and flow are real; every block of AI output is pre-generated and marked. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
