@@ -32,6 +32,8 @@ Grotesque), no internal-draft banner, disclaimed as samples on every page.
 | `showcase/design-system.html` | Northwind's token system, component specs, governance — with margin notes marking each AI pass and the human decision |
 | `showcase/brand-guidelines.html` | Northwind's wordmark, color meaning, voice principles with worked do/avoid examples |
 | `showcase/process.html` | The five-stage AI-augmented design process as an AI-lane / human-lane swimlane |
+| `showcase/security.html` | Northwind's AI governance register, controls, risk register, and framework crosswalk |
+| `showcase/vendors.html` | Northwind's AI vendor register, a head-to-head scorecard, exit readiness, and renewal watch |
 | `showcase/assets/northwind.css` | The Northwind design system (the demos are the system in use) |
 
 ## Shelfmark (docs dashboard) mirror
@@ -53,6 +55,8 @@ design artifacts:
 | Design → Design System `DSN.SYS.I5706` | AI-Augmented Design Systems (→ showcase/design-system.html) |
 | Design → Brand Guidelines `DSN.BRD.I5707` | AI-Augmented Brand Guidelines (→ showcase/brand-guidelines.html) |
 | Design → Process `DSN.PRC.I5708` | The AI-Augmented Design Process (→ showcase/process.html) |
+| Operations → Security & Compliance `OPS.SEC.K5L9H` | AI-Augmented Security & Compliance (→ showcase/security.html) |
+| Operations → Vendor Management `OPS.VEN.K5L9I` | AI-Augmented Vendor Management (→ showcase/vendors.html) |
 
 The GitHub Pages site is the canonical, fuller version of each; Shelfmark holds a condensed
 reference that links back to it.

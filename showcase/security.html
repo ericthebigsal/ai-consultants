@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Northwind Analytics — AI Governance &amp; Controls</title>
+<meta name="description" content="An illustrative sample: an AI security and compliance posture for the fictional Northwind Analytics, showing how AI Consultants uses AI to build and maintain it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/northwind.css">
+</head>
+<body>
+
+<header class="nw-header">
+  <div class="nw-header-in">
+    <a class="nw-brand" href="design-system.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#1B4B49"></rect><path d="M10 4 L15 15 L5 15 Z" fill="#FBFAF6"></path></svg>
+      North<em>wind</em> Analytics
+    </a>
+    <nav class="nw-nav" aria-label="Northwind samples">
+      <a href="design-system.html">Design system</a>
+      <a href="brand-guidelines.html">Brand</a>
+      <a href="process.html">Process</a>
+      <a href="security.html" aria-current="page">Security</a>
+      <a href="vendors.html">Vendors</a>
+    </nav>
+    <span class="nw-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="nw-hero">
+  <p class="nw-eyebrow">AI governance · rev 4</p>
+  <h1>Northwind knows which AI tools touch customer data, and what happens when they do.</h1>
+  <p>
+    A scan found 14 AI tools in use across the company; four of them saw customer data and
+    none were on the approved list. This is the register, the controls, and the crosswalk to
+    the frameworks Northwind reports against. The margin notes mark each AI pass and the
+    human call.
+  </p>
+  <div class="nw-meta">
+    <span>14 tools found · 6 approved</span>
+    <span>4 data-touching uses under review</span>
+    <span>Mapped to NIST AI RMF · ISO 42001 · SOC 2</span>
+    <span>Re-scanned weekly</span>
+  </div>
+</div>
+
+<main class="nw-doc">
+
+  <section id="register">
+    <p class="sec-label">01 · Where AI is used</p>
+    <h2>The register</h2>
+    <p class="lead">
+      Every place a model runs against Northwind data or a Northwind decision. If it isn't
+      here, it isn't approved.
+    </p>
+
+    <aside class="ai-note">
+      <span class="mode">Create</span>
+      <span class="did">Built the first draft of this register from an SSO log review, an expense-data pass, and a browser-extension inventory — surfacing tools no one had declared.</span>
+      <span class="kept">the risk tier on each entry, and the four uses paused pending review.</span>
+    </aside>
+
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>System</th><th>Purpose</th><th>Data class</th><th>Provider</th><th>Owner</th><th>Risk</th></tr></thead>
+      <tbody>
+        <tr><td>Support triage</td><td>Categorize inbound tickets</td><td class="val">Customer PII</td><td>hosted LLM API</td><td>Support ops</td><td><span class="tier-hi">High</span></td></tr>
+        <tr><td>Churn model</td><td>Score accounts weekly</td><td class="val">Customer usage</td><td>in-house</td><td>Data science</td><td><span class="tier-md">Medium</span></td></tr>
+        <tr><td>Code assistant</td><td>Editor autocomplete</td><td class="val">Source code</td><td>vendor plugin</td><td>Platform eng</td><td><span class="tier-md">Medium</span></td></tr>
+        <tr><td>Doc search</td><td>Internal knowledge base</td><td class="val">Internal only</td><td>hosted, ZDR</td><td>IT</td><td><span class="tier-lo">Low</span></td></tr>
+        <tr><td>Marketing copy</td><td>Draft campaign text</td><td class="val">Public only</td><td>hosted LLM API</td><td>Marketing</td><td><span class="tier-lo">Low</span></td></tr>
+        <tr><td>Meeting notes</td><td>Transcribe &amp; summarize calls</td><td class="val">Mixed / customer</td><td>vendor app</td><td><span class="tier-hi">unassigned</span></td><td><span class="tier-hi">High</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout signal">
+      <strong>The one that mattered.</strong> The meeting-notes tool was recording customer
+      calls, sending audio to a vendor with no DPA on file, and had no owner. It's paused
+      until a DPA is signed or it's replaced.
+    </div>
+  </section>
+
+  <section id="controls">
+    <p class="sec-label">02 · Controls</p>
+    <h2>The rules</h2>
+    <p class="lead">Short enough that an engineer will actually read them before shipping.</p>
+    <ul>
+      <li><strong>Approved tools only.</strong> Customer or confidential data goes only to a provider on the approved list, with a signed DPA and, where the data class requires it, zero data retention.</li>
+      <li><strong>Human review before action.</strong> A model output that changes a customer record, sends a message, or moves money is reviewed by a person before it takes effect. Read-only and draft outputs are exempt.</li>
+      <li><strong>Logged and attributable.</strong> Every model call against customer data logs the input class, the model and version, and the requesting service. Retained 90 days.</li>
+      <li><strong>New tool = a request.</strong> Adding an AI tool that touches non-public data is a written request with the data class and the purpose. One approver.</li>
+    </ul>
+  </section>
+
+  <section id="risk">
+    <p class="sec-label">03 · Risk register</p>
+    <h2>Open risks</h2>
+
+    <aside class="ai-note">
+      <span class="mode">Enhance</span>
+      <span class="did">Mapped the current controls to NIST AI RMF, ISO 42001, and the SOC 2 criteria Northwind reports against, and flagged where a control was named but had no evidence behind it.</span>
+      <span class="kept">which gaps are accepted risk versus must-fix, and the remediation dates.</span>
+    </aside>
+
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Control</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Customer data to a non-approved provider</td><td class="val">Medium</td><td class="val">High</td><td>Egress monitoring + approved-list enforcement</td><td><span class="nw-badge nw-badge--alert">open</span></td></tr>
+        <tr><td>Prompt-injection via customer-submitted content</td><td class="val">High</td><td class="val">Medium</td><td>Output review on all action-taking uses</td><td><span class="nw-badge nw-badge--watch">mitigating</span></td></tr>
+        <tr><td>Model output used in a decision with no log</td><td class="val">Low</td><td class="val">Medium</td><td>Structured logging on all data-class calls</td><td><span class="nw-badge nw-badge--live">closed</span></td></tr>
+        <tr><td>Vendor changes terms / training policy</td><td class="val">Medium</td><td class="val">Medium</td><td>Quarterly DPA re-review (see Vendors)</td><td><span class="nw-badge nw-badge--watch">mitigating</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="frameworks">
+    <p class="sec-label">04 · Framework crosswalk</p>
+    <h2>What this maps to</h2>
+    <p class="lead">
+      Northwind doesn't need a new framework; it needs its AI controls to satisfy the ones it
+      already reports against.
+    </p>
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Northwind control</th><th>NIST AI RMF</th><th>ISO/IEC 42001</th><th>SOC 2</th></tr></thead>
+      <tbody>
+        <tr><td>The register</td><td class="val">Map 1.1 – 1.6</td><td class="val">6.1.2, 8.2</td><td class="val">CC3.2</td></tr>
+        <tr><td>Approved tools + DPA</td><td class="val">Govern 2.1</td><td class="val">8.3</td><td class="val">CC9.2</td></tr>
+        <tr><td>Human review before action</td><td class="val">Manage 4.1</td><td class="val">8.4</td><td class="val">CC7.2</td></tr>
+        <tr><td>Logging &amp; retention</td><td class="val">Measure 2.7</td><td class="val">9.1</td><td class="val">CC7.2, CC7.3</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="maintain">
+    <p class="sec-label">05 · Governance</p>
+    <h2>Keeping it current</h2>
+
+    <aside class="ai-note">
+      <span class="mode">Maintain</span>
+      <span class="did">Re-runs the discovery scan weekly (SSO, expense feeds, egress logs), diffs it against the register, and opens a review item for any new tool or any approved tool whose config drifted.</span>
+      <span class="kept">the risk call on anything new, and whether a drift is a violation or an approved exception.</span>
+    </aside>
+
+    <aside class="ai-note">
+      <span class="mode">Accelerate</span>
+      <span class="did">Assembles the evidence pack for the annual SOC 2 audit — control descriptions, sample logs, the DPA set, the register history — from the systems of record.</span>
+      <span class="kept">what goes in front of the auditor.</span>
+    </aside>
+
+    <ul>
+      <li><strong>Weekly re-scan.</strong> New tools and config drift become grouped review items, not surprises during an audit.</li>
+      <li><strong>Quarterly control review.</strong> Each control is re-checked against a fresh sample of real activity.</li>
+      <li><strong>One owner.</strong> A named person at Northwind approves every register change and every accepted risk.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>What we hand over.</strong> The register wired to the discovery scan, the control
+      set, the framework crosswalk, the audit-evidence job, and a working session so
+      Northwind's security lead runs all of it.
+    </div>
+  </section>
+
+</main>
+
+<footer class="nw-footer">
+  <div class="nw-footer-in">
+    <p><strong>This is an illustrative sample, not a real compliance artifact.</strong> Northwind Analytics is a fictional company; the control mappings are simplified for illustration. Built by AI&nbsp;Consultants <em>(working name)</em> to show how we use AI to build and maintain a client's AI governance. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
