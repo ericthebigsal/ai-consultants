@@ -1,0 +1,255 @@
+/* Chateau Salerno — prototype design system
+   Illustrative sample by AI Consultants (working name).
+   Chateau Salerno and Kestrel Ridge Vineyards are fictional.
+   Single committed light theme; all colors painted explicitly.
+
+   Warm parchment ground, deep bordeaux primary, vine-green as the
+   only bright accent (the anti-terracotta), brass for allocation
+   moments. Newsreader for display only; Hanken Grotesk carries every
+   working surface; Spline Sans Mono for data. */
+
+:root {
+  --paper:        #F0ECE2;
+  --surface:      #FAF8F1;
+  --surface-sunk: #E7E1D2;
+  --ink:          #22190F;
+  --ink-soft:     #4A3F31;
+  --mute:         #7A6E5B;
+  --rule:         #DCD2BF;
+  --rule-soft:    #E8E0CF;
+  --wine:         #5B2233;
+  --wine-mid:     #86394C;
+  --wine-tint:    #EFE1E2;
+  --vine:         #4F6B47;
+  --vine-tint:    #E3EADD;
+  --brass:        #A9803C;
+  --brass-tint:   #F0E6D0;
+  --shadow: 0 1px 2px rgba(34,25,15,.06), 0 14px 30px -18px rgba(34,25,15,.20);
+
+  --f-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-body:    "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:    "Spline Sans Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --container: 1080px;
+  --measure:   680px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+[hidden] { display: none !important; }
+
+h1, h2, h3, h4 {
+  font-family: var(--f-display);
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+a { color: var(--wine-mid); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { color: var(--wine); }
+:focus-visible { outline: 2px solid var(--wine-mid); outline-offset: 3px; border-radius: 2px; }
+
+.mono { font-family: var(--f-mono); font-size: 0.84em; letter-spacing: -0.01em; }
+code {
+  font-family: var(--f-mono); font-size: 0.82em;
+  background: var(--surface-sunk); padding: 0.12em 0.4em; border-radius: 3px;
+}
+
+/* ---------- header / nav ---------- */
+.cs-header {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+  border-top: 3px solid var(--wine);
+}
+.cs-header-in {
+  max-width: var(--container); margin: 0 auto; padding: 14px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 22px; flex-wrap: wrap;
+}
+.cs-brand {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--f-display); font-weight: 600; font-size: 17px;
+  letter-spacing: -0.01em; color: var(--ink); text-decoration: none;
+}
+.cs-brand svg { flex: none; }
+.cs-nav { display: flex; gap: 3px; flex-wrap: wrap; font: 500 14px var(--f-body); }
+.cs-nav a { color: var(--mute); text-decoration: none; padding: 6px 12px; border-radius: 7px; }
+.cs-nav a:hover { color: var(--ink); background: var(--surface-sunk); }
+.cs-nav a[aria-current="page"] { color: var(--wine); background: var(--wine-tint); }
+.cs-sample-tag {
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--mute); border: 1px solid var(--rule); border-radius: 999px; padding: 3px 9px;
+}
+
+/* ---------- hero ---------- */
+.cs-hero {
+  max-width: var(--container); margin: 0 auto; padding: 60px 32px 36px;
+  border-bottom: 1px solid var(--rule);
+}
+.cs-eyebrow {
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--vine); margin: 0 0 16px;
+}
+.cs-hero h1 { font-size: clamp(2.1rem, 4.6vw, 3.2rem); font-weight: 500; max-width: 22ch; }
+.cs-hero p { margin: 18px 0 0; max-width: 56ch; font-size: 1.1rem; color: var(--ink-soft); }
+.cs-meta {
+  margin-top: 24px; display: flex; gap: 10px 26px; flex-wrap: wrap;
+  font-family: var(--f-mono); font-size: 12px; color: var(--mute);
+}
+
+/* ---------- doc scaffold ---------- */
+.cs-main { max-width: var(--container); margin: 0 auto; padding: 8px 32px 72px; }
+.cs-main > section { max-width: var(--measure); padding: 40px 0; border-bottom: 1px solid var(--rule-soft); }
+.cs-main > section:last-of-type { border-bottom: none; }
+.sec-label {
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mute); margin: 0 0 10px;
+}
+.cs-main h2 { font-size: 1.65rem; margin-bottom: 6px; }
+.cs-main h3 { font-size: 1.12rem; margin: 26px 0 8px; font-weight: 600; }
+.cs-main p { margin: 14px 0 0; }
+.cs-main ul, .cs-main ol { margin: 14px 0 0; padding-left: 1.2em; }
+.cs-main li { margin: 6px 0; }
+.cs-main li::marker { color: var(--vine); }
+.lead { font-size: 1.1rem; color: var(--ink-soft); }
+
+/* ---------- panel ---------- */
+.cs-panel {
+  border: 1px solid var(--rule); border-radius: 12px; background: var(--surface);
+  box-shadow: var(--shadow); padding: 22px; margin-top: 16px;
+}
+.cs-panel + .cs-panel { margin-top: 14px; }
+.cs-panel h3 { margin-top: 0; }
+.cs-panel .panel-label {
+  font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--mute); margin: 0 0 10px;
+}
+
+/* ---------- buttons / fields ---------- */
+.cs-btn {
+  font: 600 14px var(--f-body); padding: 9px 18px; border-radius: 8px;
+  border: 1px solid transparent; cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.cs-btn--primary { background: var(--wine); color: var(--surface); }
+.cs-btn--primary:hover { background: var(--wine-mid); }
+.cs-btn--ghost { background: transparent; color: var(--ink-soft); border-color: var(--rule); }
+.cs-btn--ghost:hover { background: var(--surface-sunk); color: var(--ink); }
+a.cs-btn { display: inline-block; text-decoration: none; }
+.cs-btn--sm { padding: 4px 10px; font-size: 12px; border-radius: 6px; }
+
+.cs-field { display: flex; flex-direction: column; gap: 5px; }
+.cs-field label { font: 600 12px var(--f-body); color: var(--ink-soft); }
+.cs-input, textarea.cs-input {
+  font: 400 14px var(--f-body); padding: 9px 11px;
+  border: 1px solid var(--rule); border-radius: 8px; background: var(--paper); color: var(--ink);
+  width: 100%; resize: vertical;
+}
+.cs-input:focus, textarea.cs-input:focus {
+  outline: none; border-color: var(--wine-mid); box-shadow: 0 0 0 3px var(--wine-tint);
+}
+
+/* ---------- tags ---------- */
+.cs-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.03em;
+  padding: 3px 8px; border-radius: 999px; white-space: nowrap;
+}
+.cs-tag--vine  { background: var(--vine-tint); color: var(--vine); }
+.cs-tag--wine  { background: var(--wine-tint); color: var(--wine-mid); }
+.cs-tag--brass { background: var(--brass-tint); color: var(--brass); }
+.cs-tag--mute  { background: var(--surface-sunk); color: var(--mute); }
+
+.mock-badge {
+  display: inline-block;
+  font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.04em;
+  background: var(--surface-sunk); color: var(--mute);
+  border-radius: 4px; padding: 2px 6px; vertical-align: 2px;
+}
+
+/* ---------- register table ---------- */
+.reg-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 4px; }
+.reg { border-collapse: collapse; width: 100%; font-size: 13.5px; font-family: var(--f-body); }
+.reg.wide { min-width: 640px; }
+.reg th, .reg td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; line-height: 1.4; }
+.reg thead th {
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--mute); border-bottom: 1px solid var(--rule);
+}
+.reg td.num { font-family: var(--f-mono); font-size: 12.5px; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.reg td.mono { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); }
+.risk-hi { color: var(--wine); font-weight: 600; }
+.risk-md { color: var(--brass); font-weight: 600; }
+.risk-lo { color: var(--mute); }
+
+/* ---------- stat ---------- */
+.stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.stat { border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; background: var(--surface); min-width: 150px; }
+.stat .k { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--mute); }
+.stat .v { font-family: var(--f-display); font-weight: 500; font-size: 1.7rem; margin-top: 4px; letter-spacing: -0.02em; }
+.stat .d { font-family: var(--f-mono); font-size: 12px; margin-top: 3px; }
+.stat .d.up { color: var(--vine); }
+.stat .d.down { color: var(--wine-mid); }
+
+/* ---------- callout ---------- */
+.callout {
+  margin-top: 20px; border: 1px solid var(--rule); border-left: 3px solid var(--wine);
+  border-radius: 0 8px 8px 0; background: var(--surface); padding: 15px 18px;
+  font-size: 14.5px; color: var(--ink-soft);
+}
+.callout strong { color: var(--ink); }
+.callout.vine { border-left-color: var(--vine); }
+
+/* ---------- landing card grid ---------- */
+.cap-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 20px; }
+
+/* ---------- journey step blocks ---------- */
+.journey-step .step-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.journey-step .timing { font-family: var(--f-mono); font-size: 11.5px; color: var(--mute); }
+.journey-step .subject { font-weight: 600; color: var(--ink); }
+.journey-step .why { margin-top: 8px; font-size: 13px; color: var(--mute); }
+.flow {
+  font-family: var(--f-mono); font-size: 12px; line-height: 1.7; color: var(--ink-soft);
+  white-space: pre; overflow-x: auto;
+}
+
+/* ---------- factor bars ---------- */
+.factors { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.factor { display: grid; grid-template-columns: 1fr 46px; align-items: center; gap: 10px; font-size: 13px; }
+.factor .bar { background: var(--surface-sunk); border-radius: 4px; height: 16px; overflow: hidden; grid-column: 1 / -1; }
+.factor .bar > span { display: block; height: 100%; background: var(--wine); }
+.factor .bar > span.protective { background: var(--vine); }
+.factor .lbl { color: var(--ink-soft); }
+.factor .val { font-family: var(--f-mono); font-size: 12px; text-align: right; color: var(--mute); }
+
+/* ---------- filter tree ---------- */
+.filter-tree { list-style: none; padding-left: 0; margin-top: 12px; font-family: var(--f-mono); font-size: 12.5px; }
+.filter-tree li { margin: 4px 0; display: flex; align-items: baseline; gap: 8px; }
+.filter-tree .op { color: var(--vine); font-size: 11px; }
+.filter-tree .cond { color: var(--ink-soft); }
+
+/* ---------- footer ---------- */
+.cs-footer { border-top: 1px solid var(--rule); background: var(--surface); }
+.cs-footer-in { max-width: var(--container); margin: 0 auto; padding: 26px 32px 42px; font-size: 13px; color: var(--mute); line-height: 1.55; }
+.cs-disclaimer strong { color: var(--ink-soft); }
+.cs-footer-in a { color: var(--mute); }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .cs-header-in, .cs-hero, .cs-main, .cs-footer-in { padding-left: 20px; padding-right: 20px; }
+}
