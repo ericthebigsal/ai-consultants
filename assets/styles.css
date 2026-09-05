@@ -135,6 +135,7 @@ img { max-width: 100%; }
 .site-nav a:hover { color: var(--ink); background: var(--surface-2); }
 body[data-active="home"] .site-nav a[data-page="home"],
 body[data-active="services"] .site-nav a[data-page="services"],
+body[data-active="flywheel"] .site-nav a[data-page="flywheel"],
 body[data-active="problem-space"] .site-nav a[data-page="problem-space"],
 body[data-active="principles"] .site-nav a[data-page="principles"],
 body[data-active="framework"] .site-nav a[data-page="framework"],
@@ -367,6 +368,9 @@ figure.diagram { margin: 26px 0 0; }
 .loop-diagram .loop-arrow { fill: var(--accent); }
 .loop-diagram .loop-label {
   fill: var(--accent-ink); font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+}
+.loop-diagram .arc-label {
+  fill: var(--ink-soft); font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600;
 }
 figcaption.diagram-cap {
   margin-top: 12px; font-family: "IBM Plex Sans", sans-serif; font-size: 0.86rem; color: var(--muted);
