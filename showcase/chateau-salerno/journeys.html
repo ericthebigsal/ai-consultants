@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Chateau Salerno — Campaign &amp; journey drafting</title>
+<meta name="description" content="Illustrative prototype: a goal in, a multi-step email and SMS journey out.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/chateau-salerno.css">
+</head>
+<body>
+
+<header class="cs-header">
+  <div class="cs-header-in">
+    <a class="cs-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="11" r="5.5" fill="#5B2233"></circle><path d="M9 5.5 C9 3 10.5 1.5 12.5 1.5" stroke="#4F6B47" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg>
+      Chateau&nbsp;Salerno
+    </a>
+    <nav class="cs-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="segments.html">Segments</a>
+      <a href="journeys.html" aria-current="page">Journeys</a>
+      <a href="retention.html">Retention</a>
+      <a href="copy.html">Copy</a>
+    </nav>
+    <span class="cs-sample-tag">Illustrative prototype</span>
+  </div>
+</header>
+
+<div class="cs-hero">
+  <p class="cs-eyebrow">Capability 02</p>
+  <h1>A goal in. A journey out.</h1>
+  <p>
+    Kestrel Ridge&rsquo;s marketer describes the outcome. The platform drafts the multi-step
+    email and SMS journey &mdash; timing, branch logic, and first-draft copy in the
+    winery&rsquo;s voice &mdash; on the same canvas they already edit.
+  </p>
+  <div class="cs-meta">
+    <span>Email + SMS</span>
+    <span>Editable steps</span>
+    <span>Copy in the winery's voice</span>
+  </div>
+</div>
+
+<main class="cs-main">
+
+  <section id="goal">
+    <p class="sec-label">The goal</p>
+    <div class="cs-panel">
+      <div class="cs-field">
+        <label for="g">What are you trying to do?</label>
+        <input class="cs-input" id="g" value="win back lapsed Aviary members before the fall release" readonly>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+        <span class="cs-tag cs-tag--mute">Audience: lapsed Aviary &mdash; no order 9+ mo &mdash; 212 members</span>
+        <span class="cs-tag cs-tag--mute">Window: 3 weeks</span>
+        <span class="cs-tag cs-tag--mute">Channels: email + SMS</span>
+      </div>
+      <p style="margin-top:16px"><button class="cs-btn cs-btn--primary" type="button">Draft journey</button></p>
+    </div>
+  </section>
+
+  <section id="journey">
+    <p class="sec-label">Drafted journey <span class="mock-badge">Pre-generated</span></p>
+
+    <div class="cs-panel journey-step" id="journey-step-1">
+      <div class="step-head">
+        <span class="cs-tag cs-tag--wine">Step 1</span>
+        <span class="cs-tag cs-tag--vine">Email</span>
+        <span class="timing">Day 0 &mdash; all 212</span>
+      </div>
+      <p style="margin:0"><span class="subject">Subject:</span> The east ridge came in late this year</p>
+      <p>Opens on the vineyard and the vintage &mdash; the cool fall, the late pick on the ridge&rsquo;s east shoulder. Names the fall release date. One soft line at the end about holding their Aviary spot. No discount.</p>
+      <p class="why">Why: lead with place, not the ask. A lapsed member who left over money won&rsquo;t come back for a coupon; one who drifted will come back for the wine.</p>
+      <p style="margin-top:10px"><button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit copy</button></p>
+    </div>
+
+    <div class="cs-panel journey-step" id="journey-step-2">
+      <div class="step-head">
+        <span class="cs-tag cs-tag--wine">Step 2</span>
+        <span class="cs-tag cs-tag--mute">SMS</span>
+        <span class="timing">Day 4 &mdash; only if Step 1 unopened</span>
+      </div>
+      <p style="margin:0" class="mono">&ldquo;Kestrel Ridge: fall release opens the 15th. Your Aviary spot is held through the 12th &mdash; reply YES to keep it.&rdquo;</p>
+      <p class="why">Why: SMS reaches the members email didn&rsquo;t. A real, near deadline &mdash; the 12th &mdash; not manufactured urgency.</p>
+      <p style="margin-top:10px"><button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit copy</button></p>
+    </div>
+
+    <div class="cs-panel journey-step" id="journey-step-3">
+      <div class="step-head">
+        <span class="cs-tag cs-tag--wine">Step 3</span>
+        <span class="cs-tag cs-tag--vine">Email</span>
+        <span class="timing">Day 8 &mdash; all still lapsed</span>
+      </div>
+      <p style="margin:0"><span class="subject">Subject:</span> What was in the spring shipment</p>
+      <p>Shows the specific wines they missed at their tier &mdash; the 2022 Estate Pinot, the 2023 Ros&eacute; that sold out &mdash; with a short tasting-room note on each. Ends with the fall allocation link.</p>
+      <p class="why">Why: a concrete, tier-specific picture of what was missed lands harder than &ldquo;we miss you.&rdquo;</p>
+      <p style="margin-top:10px"><button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit copy</button></p>
+    </div>
+
+    <div class="cs-panel journey-step" id="journey-step-4">
+      <div class="step-head">
+        <span class="cs-tag cs-tag--wine">Step 4</span>
+        <span class="cs-tag cs-tag--vine">Email</span>
+        <span class="timing">Day 14 &mdash; branch: opened Step 3</span>
+      </div>
+      <p style="margin:0"><span class="subject">Subject:</span> Hold your fall allocation</p>
+      <p>One-click reactivate. Falconer-tier members also see that Block 7 access comes back with their membership. Short, direct &mdash; this is the conversion step.</p>
+      <p class="why">Why: only sent to the engaged branch, so it can be a plain ask instead of another soft touch.</p>
+      <p style="margin-top:10px"><button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit copy</button></p>
+    </div>
+
+    <div class="cs-panel journey-step" id="journey-step-5">
+      <div class="step-head">
+        <span class="cs-tag cs-tag--wine">Step 5</span>
+        <span class="cs-tag cs-tag--mute">SMS</span>
+        <span class="timing">Day 19 &mdash; branch: no reactivation</span>
+      </div>
+      <p style="margin:0" class="mono">&ldquo;Last call &mdash; fall allocations lock tomorrow. [link]&rdquo;</p>
+      <p class="why">Why: a single final touch. After this, the member exits the journey to the quarterly re-engagement list &mdash; not more sends.</p>
+      <p style="margin-top:10px"><button class="cs-btn cs-btn--ghost cs-btn--sm" type="button">edit copy</button></p>
+    </div>
+  </section>
+
+  <section id="canvas">
+    <p class="sec-label">On the canvas</p>
+    <div class="cs-panel">
+      <div class="flow">Day 0   Step 1 · Email  ──────────────┐
+                               │ unopened
+Day 4   Step 2 · SMS   ◀────────────────┘
+                               │
+Day 8   Step 3 · Email  ─── opened ──▶ Day 14  Step 4 · Email ─── reactivated ──▶  done
+                               │ not opened / not reactivated
+Day 19  Step 5 · SMS   ─────────────────────────────────────▶  quarterly list</div>
+    </div>
+    <div class="callout">
+      <strong>Every step is a normal journey step.</strong> The model set the structure,
+      the timing, and the first-draft copy; the marketer edits each step in place and hits
+      publish. Nothing about the canvas or the step types is new.
+    </div>
+  </section>
+
+  <section id="how">
+    <p class="sec-label">In a build</p>
+    <ul>
+      <li>Copy is drafted from the winery&rsquo;s own past sends and product data &mdash; its voice, not a generic template. The spring-shipment step pulls the actual wines from that shipment.</li>
+      <li>Branch logic uses engagement events the platform already tracks &mdash; opened, clicked, reactivated &mdash; so the branches are testable, not black-box.</li>
+      <li>Nothing sends until the marketer approves the journey. The draft is a starting point, not an auto-send.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="cs-footer">
+  <div class="cs-footer-in">
+    <p class="cs-disclaimer"><strong>Illustrative prototype, not a shipping product.</strong> Chateau Salerno and Kestrel Ridge Vineyards are fictional; all data, wines, and figures are invented. The interface and flow are real; every block of AI output is pre-generated and marked. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
