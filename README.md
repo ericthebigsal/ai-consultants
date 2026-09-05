@@ -23,9 +23,11 @@ Hosted via GitHub Pages: <https://ericthebigsal.github.io/ai-consultants/>
 
 ### Showcase — client-facing capability samples
 
-`showcase/` holds illustrative assets built for a **fictional** client, Northwind Analytics, to
-show how we'd use AI on a design engagement. Own visual identity (petrol / chalk / Bricolage
-Grotesque), no internal-draft banner, disclaimed as samples on every page.
+`showcase/` holds illustrative assets built for **fictional** clients, disclaimed as samples on
+every page, each with its own visual identity (distinct from the internal-draft site).
+
+**Northwind Analytics** — a fictional data-analytics SaaS; how we'd use AI on a design + ops
+engagement. Petrol / chalk / Bricolage Grotesque.
 
 | Page | Content |
 |---|---|
@@ -35,6 +37,20 @@ Grotesque), no internal-draft banner, disclaimed as samples on every page.
 | `showcase/security.html` | Northwind's AI governance register, controls, risk register, and framework crosswalk |
 | `showcase/vendors.html` | Northwind's AI vendor register, a head-to-head scorecard, exit readiness, and renewal watch |
 | `showcase/assets/northwind.css` | The Northwind design system (the demos are the system in use) |
+
+**Chateau Salerno** — a fictional winery-commerce SaaS (marketing platform for small wineries),
+modeled on a Commerce7-class product. A pitch package: Business Case + SOW (Shelfmark) plus four
+clickable capability prototypes built around a sample winery, Kestrel Ridge Vineyards. Bordeaux /
+parchment / Newsreader. Build spec: `PRD.SPC.0HDIM`; plan: `docs/plans/2026-09-05-chateau-salerno-poc.md`.
+
+| Page | Content |
+|---|---|
+| `showcase/chateau-salerno/index.html` | Prototype landing — the four capabilities, what's real vs. pre-generated |
+| `showcase/chateau-salerno/segments.html` | Plain-English audience → resolved, editable segment (filter tree, count, sample) |
+| `showcase/chateau-salerno/journeys.html` | A goal → a 5-step email + SMS journey with branch logic, copy in the winery's voice |
+| `showcase/chateau-salerno/retention.html` | Club members scored on churn risk + predicted value, with per-member factor breakdown |
+| `showcase/chateau-salerno/copy.html` | Structured wine data → tasting note, shop description, allocation email, one voice |
+| `showcase/chateau-salerno/assets/chateau-salerno.css` | The Chateau Salerno prototype design system |
 
 ## Shelfmark (docs dashboard) mirror
 
@@ -57,6 +73,14 @@ design artifacts:
 | Design → Process `DSN.PRC.I5708` | The AI-Augmented Design Process (→ showcase/process.html) |
 | Operations → Security & Compliance `OPS.SEC.K5L9H` | AI-Augmented Security & Compliance (→ showcase/security.html) |
 | Operations → Vendor Management `OPS.VEN.K5L9I` | AI-Augmented Vendor Management (→ showcase/vendors.html) |
+| Product → Feature Specs `PRD.SPC.0HDIM` | Chateau Salerno POC — Build Spec |
+| Chateau Salerno → Business Case `CHA.BUS.1HBXH` | The Case for AI Modernization |
+| Chateau Salerno → SOW `CHA.SOW.1HBXI` | Statement of Work — AI Capability Program |
+| Chateau Salerno → Prototype `CHA.PRO.1EYKH` | Prototype — What's Included (overview) |
+| Chateau Salerno → Prototype `CHA.PRO.1EYKI` | Prototype — Natural-Language Segments (→ segments.html) |
+| Chateau Salerno → Prototype `CHA.PRO.1EYKJ` | Prototype — Campaign & Journey Drafting (→ journeys.html) |
+| Chateau Salerno → Prototype `CHA.PRO.1EYKK` | Prototype — Churn & LTV Prediction (→ retention.html) |
+| Chateau Salerno → Prototype `CHA.PRO.1EYKL` | Prototype — Tasting Notes & Product Copy (→ copy.html) |
 
 The GitHub Pages site is the canonical, fuller version of each; Shelfmark holds a condensed
 reference that links back to it.
@@ -66,6 +90,7 @@ reference that links back to it.
 | Doc | Summary |
 |---|---|
 | [research/web-search-apis-for-mcp.md](research/web-search-apis-for-mcp.md) | Markdown mirror of the resources page — comparison of 15 web-search / answer APIs with MCP support. |
+| [docs/plans/2026-09-05-chateau-salerno-poc.md](docs/plans/2026-09-05-chateau-salerno-poc.md) | Implementation plan for the Chateau Salerno POC package (executed). |
 
 ## Local preview
 
