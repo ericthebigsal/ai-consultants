@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Northwind Analytics — Design System</title>
+<meta name="description" content="An illustrative sample: a design system for the fictional Northwind Analytics, built to show how AI Consultants uses AI to create, accelerate, and maintain a client's design system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/northwind.css">
+</head>
+<body>
+
+<header class="nw-header">
+  <div class="nw-header-in">
+    <a class="nw-brand" href="design-system.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#1B4B49"></rect><path d="M10 4 L15 15 L5 15 Z" fill="#FBFAF6"></path></svg>
+      North<em>wind</em> Analytics
+    </a>
+    <nav class="nw-nav" aria-label="Design docs">
+      <a href="design-system.html" aria-current="page">Design system</a>
+      <a href="brand-guidelines.html">Brand</a>
+      <a href="process.html">Process</a>
+    </nav>
+    <span class="nw-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="nw-hero">
+  <p class="nw-eyebrow">Design system · v1.0</p>
+  <h1>One system, rebuilt from what Northwind already shipped.</h1>
+  <p>
+    Six years of product, four design vendors, no shared foundation. We audited every
+    screen, pulled the real patterns out of the noise, and turned them into a system the
+    Northwind team owns. The margin notes mark where a model did the work and what a
+    person decided.
+  </p>
+  <div class="nw-meta">
+    <span>47 screens audited</span>
+    <span>214 raw colors → 9 ramps</span>
+    <span>3 button styles → 1</span>
+    <span>Kept current weekly</span>
+  </div>
+</div>
+
+<main class="nw-doc">
+
+  <section id="foundations">
+    <p class="sec-label">01 · Foundations</p>
+    <h2>Color</h2>
+    <p class="lead">
+      Nine ramps, each with a named role. A token is only added when a screen needs a
+      value the system can't already express — not the other way around.
+    </p>
+
+    <aside class="ai-note">
+      <span class="mode">Create</span>
+      <span class="did">Sampled every distinct fill, text, and border color across the 47 screens — 214 raw values — and clustered them into 9 candidate ramps, each named from where it was actually used.</span>
+      <span class="kept">the final ramp count, merging the two near-identical greens, and every token name.</span>
+    </aside>
+
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#F2F1EC"></div><div class="info"><div class="name">color.ground</div><div class="hex">#F2F1EC</div><div class="use">App background</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#FBFAF6;border-bottom:1px solid #D8D5CC"></div><div class="info"><div class="name">color.surface</div><div class="hex">#FBFAF6</div><div class="use">Cards, panels, menus</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#16211F"></div><div class="info"><div class="name">color.ink</div><div class="hex">#16211F</div><div class="use">Primary text</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#3C4744"></div><div class="info"><div class="name">color.ink.soft</div><div class="hex">#3C4744</div><div class="use">Secondary text</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#1B4B49"></div><div class="info"><div class="name">color.petrol.700</div><div class="hex">#1B4B49</div><div class="use">Primary actions, active nav</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#2E7D79"></div><div class="info"><div class="name">color.petrol.500</div><div class="hex">#2E7D79</div><div class="use">Links, hover, focus ring</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#D6452B"></div><div class="info"><div class="name">color.signal</div><div class="hex">#D6452B</div><div class="use">Alerts, threshold breach, negative delta</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#B9822B"></div><div class="info"><div class="name">color.gold</div><div class="hex">#B9822B</div><div class="use">Second data series only</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#D8D5CC"></div><div class="info"><div class="name">color.rule</div><div class="hex">#D8D5CC</div><div class="use">Borders, dividers, table lines</div></div></div>
+    </div>
+
+    <div class="callout signal">
+      <strong>One rule for red.</strong> <code>color.signal</code> means something is wrong or
+      falling — a crossed threshold, a dropped metric, a failed job. It is never used for
+      brand emphasis or decoration. This is the constraint the audit found most often broken.
+    </div>
+
+    <h3>Type</h3>
+    <p>
+      Display and headings in <span class="mono">Bricolage Grotesque</span>; running text in
+      <span class="mono">Hanken Grotesk</span>; every token name, metric, and axis label in
+      <span class="mono">Spline Sans Mono</span>, so numbers always read as data.
+    </p>
+
+    <aside class="ai-note">
+      <span class="mode">Accelerate</span>
+      <span class="did">Measured the 22 distinct font sizes in the live app, fit them to a 1.2 modular scale, and produced this table plus a list of the 6 one-off sizes to retire.</span>
+      <span class="kept">the scale ratio, and which "one-offs" were genuine exceptions worth a token.</span>
+    </aside>
+
+    <div class="specimen">
+      <div class="row"><span class="role">text.display — Bricolage 800 · 54/1.1</span><span class="mono">-2% tracking</span></div>
+      <div class="sample" style="font-family:var(--f-display);font-weight:800;font-size:2.4rem;letter-spacing:-0.03em;line-height:1.1">Revenue by cohort</div>
+    </div>
+    <div class="specimen">
+      <div class="row"><span class="role">text.h2 — Bricolage 700 · 27/1.15</span></div>
+      <div class="sample" style="font-family:var(--f-display);font-weight:700;font-size:1.5rem;letter-spacing:-0.02em">Retention is holding above target</div>
+    </div>
+    <div class="specimen">
+      <div class="row"><span class="role">text.body — Hanken 400 · 17/1.6</span></div>
+      <div class="sample" style="font-size:1rem">Weekly active accounts rose 4.2% against a 3.0% plan. The gain is concentrated in the enterprise segment.</div>
+    </div>
+    <div class="specimen">
+      <div class="row"><span class="role">text.mono — Spline Sans Mono 500 · 13/1.5</span></div>
+      <div class="sample mono" style="font-size:0.85rem">wau  128,904   ▲ 4.2%   plan 3.0%</div>
+    </div>
+
+    <div class="spec-wrap"><table class="spec">
+      <thead><tr><th>Token</th><th>Size / line</th><th>Face</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">text.display</td><td class="val">54 / 1.1</td><td>Bricolage 800</td><td>Page titles</td></tr>
+        <tr><td class="tok">text.h2</td><td class="val">27 / 1.15</td><td>Bricolage 700</td><td>Section headings</td></tr>
+        <tr><td class="tok">text.h3</td><td class="val">18 / 1.3</td><td>Bricolage 700</td><td>Subsection headings</td></tr>
+        <tr><td class="tok">text.body</td><td class="val">17 / 1.6</td><td>Hanken 400</td><td>Running text</td></tr>
+        <tr><td class="tok">text.small</td><td class="val">14 / 1.5</td><td>Hanken 500</td><td>UI labels, table cells</td></tr>
+        <tr><td class="tok">text.mono</td><td class="val">13 / 1.5</td><td>Spline Sans Mono 400</td><td>Token names, metrics, axis labels</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Space, radius, elevation</h3>
+    <div class="spec-wrap"><table class="spec">
+      <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">space.1 – space.8</td><td class="val">4 · 8 · 12 · 16 · 24 · 32 · 48 · 64</td><td>All margins, padding, gaps</td></tr>
+        <tr><td class="tok">radius.sm / md / lg</td><td class="val">4 · 7 · 12</td><td>Inputs · buttons &amp; cards · panels</td></tr>
+        <tr><td class="tok">radius.pill</td><td class="val">999</td><td>Badges, toggles</td></tr>
+        <tr><td class="tok">elevation.raised</td><td class="val">0 12px 28px −16px rgba(22,33,31,.18)</td><td>Cards that lift on hover, menus</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="components">
+    <p class="sec-label">02 · Components</p>
+    <h2>Components</h2>
+    <p class="lead">
+      Each component is one spec with every state defined. The audit found three button
+      styles, two of them undocumented; this is the one that stays.
+    </p>
+
+    <aside class="ai-note">
+      <span class="mode">Enhance</span>
+      <span class="did">Generated the states each component was missing — disabled, loading, focus, error — from its base spec, and checked every foreground/background pair for WCAG AA.</span>
+      <span class="kept">interaction timing, the focus-ring style, and the call to drop the third button variant entirely.</span>
+    </aside>
+
+    <h3>Button</h3>
+    <div class="demo">
+      <div class="stage">
+        <button class="nw-btn nw-btn--primary">Run report</button>
+        <button class="nw-btn nw-btn--secondary">Save view</button>
+        <button class="nw-btn nw-btn--ghost">Cancel</button>
+        <button class="nw-btn nw-btn--primary" disabled style="opacity:.45;cursor:not-allowed">Running…</button>
+      </div>
+      <div class="code">primary    petrol.700 fill · radius.md · hover petrol.500
+secondary  petrol.700 border · hover petrol.tint
+ghost      ink.soft text · hover surface.sunk
+disabled   opacity .45 · pointer-events none</div>
+    </div>
+
+    <h3>Text field</h3>
+    <div class="demo">
+      <div class="stage">
+        <div class="nw-field"><label for="d1">Metric</label><input class="nw-input" id="d1" value="weekly_active_accounts"></div>
+        <div class="nw-field"><label for="d2">Threshold</label><input class="nw-input" id="d2" placeholder="e.g. 120000"></div>
+      </div>
+      <div class="code">input   color.rule border · radius.sm
+focus   border petrol.500 + 3px petrol.tint ring</div>
+    </div>
+
+    <h3>Badge &amp; stat</h3>
+    <div class="demo">
+      <div class="stage">
+        <span class="nw-badge nw-badge--neutral">draft</span>
+        <span class="nw-badge nw-badge--live">live</span>
+        <span class="nw-badge nw-badge--alert">threshold breached</span>
+        <div class="nw-stat"><div class="k">Weekly active</div><div class="v">128,904</div><div class="d up">▲ 4.2% vs plan</div></div>
+        <div class="nw-stat"><div class="k">Trial → paid</div><div class="v">11.6%</div><div class="d down">▼ 0.8% vs plan</div></div>
+      </div>
+      <div class="code">delta.up petrol.500 · delta.down signal · never the reverse</div>
+    </div>
+  </section>
+
+  <section id="dataviz">
+    <p class="sec-label">03 · Data visualization</p>
+    <h2>Chart tokens</h2>
+    <p class="lead">
+      Northwind is an analytics product; the charts are the product. Series colors are a
+      fixed, ordered set so the same metric is the same color on every dashboard.
+    </p>
+    <div class="spec-wrap"><table class="spec">
+      <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td class="tok">chart.series.1</td><td class="val">#1B4B49</td><td>Primary metric</td></tr>
+        <tr><td class="tok">chart.series.2</td><td class="val">#B9822B</td><td>Comparison / plan</td></tr>
+        <tr><td class="tok">chart.series.3</td><td class="val">#6A6B63</td><td>Prior period</td></tr>
+        <tr><td class="tok">chart.threshold</td><td class="val">#D6452B</td><td>Target line, breach shading</td></tr>
+        <tr><td class="tok">chart.grid</td><td class="val">#E7E4DB</td><td>Gridlines, axis</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout">
+      <strong>Accessibility note.</strong> Series 1–3 are distinguishable in grayscale and for
+      the common color-vision types; charts also carry direct labels, not just a legend.
+    </div>
+  </section>
+
+  <section id="governance">
+    <p class="sec-label">04 · Governance</p>
+    <h2>Keeping it current</h2>
+    <p class="lead">
+      A design system decays the day the team stops looking at it. This one is checked
+      against the live app every week, and drift is surfaced as a diff, not a surprise.
+    </p>
+
+    <aside class="ai-note">
+      <span class="mode">Maintain</span>
+      <span class="did">Runs weekly against a crawl of the production app: flags any screen using a value outside the token set, groups the findings, and opens a review with a proposed fix.</span>
+      <span class="kept">what counts as drift worth fixing versus a deliberate, documented exception.</span>
+    </aside>
+
+    <ul>
+      <li><strong>Weekly drift check.</strong> Every production screen is compared to the token set. New off-token values become a grouped review item.</li>
+      <li><strong>Change proposals.</strong> A new token or component variant starts as a written proposal with the screens that need it — same bar as a code change.</li>
+      <li><strong>Ownership.</strong> One named person on the Northwind side approves every addition. The system is theirs, not ours.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>What we hand over.</strong> The token files, the component specs, the weekly
+      drift check wired into your CI, and a half-day session so your team can run all of it
+      without us.
+    </div>
+  </section>
+
+</main>
+
+<footer class="nw-footer">
+  <div class="nw-footer-in">
+    <p><strong>This is an illustrative sample, not a real product.</strong> Northwind Analytics is a fictional company. These pages were built by AI&nbsp;Consultants <em>(working name)</em> to show how we use AI to create, accelerate, and maintain a client's design system. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

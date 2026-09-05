@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Northwind Analytics — Brand Guidelines</title>
+<meta name="description" content="An illustrative sample: brand guidelines for the fictional Northwind Analytics, showing how AI Consultants uses AI to create and keep a brand guide current.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/northwind.css">
+<style>
+  .wordmark-stage {
+    border: 1px solid var(--rule); border-radius: 12px; background: var(--surface);
+    padding: 40px; margin-top: 18px; display: flex; align-items: center; justify-content: center;
+  }
+  .wordmark {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--f-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.03em; color: var(--ink);
+  }
+  .wordmark em { font-style: normal; color: var(--petrol); }
+  .dd { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .dd > div { border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; background: var(--surface); font-size: 14px; }
+  .dd .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .dd .do .tag { color: var(--petrol); }
+  .dd .dont .tag { color: var(--signal); }
+  .dd .ex { margin-top: 8px; color: var(--ink); }
+  .dd .was { margin-top: 8px; color: var(--mute); text-decoration: line-through; }
+  @media (max-width: 560px) { .dd { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="nw-header">
+  <div class="nw-header-in">
+    <a class="nw-brand" href="design-system.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#1B4B49"></rect><path d="M10 4 L15 15 L5 15 Z" fill="#FBFAF6"></path></svg>
+      North<em>wind</em> Analytics
+    </a>
+    <nav class="nw-nav" aria-label="Design docs">
+      <a href="design-system.html">Design system</a>
+      <a href="brand-guidelines.html" aria-current="page">Brand</a>
+      <a href="process.html">Process</a>
+    </nav>
+    <span class="nw-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="nw-hero">
+  <p class="nw-eyebrow">Brand guidelines · v1.0</p>
+  <h1>Northwind sounds like a colleague who has read the data.</h1>
+  <p>
+    Precise, plain, and unbothered. We help you get to the numbers and understand them;
+    we don't perform excitement about them. This guide is short on purpose — a brand people
+    won't read is a brand people won't follow.
+  </p>
+  <div class="nw-meta">
+    <span>4 voice principles</span>
+    <span>30 worked string rewrites</span>
+    <span>1 wordmark, 2 lockups</span>
+    <span>Checked before every release</span>
+  </div>
+</div>
+
+<main class="nw-doc">
+
+  <section id="wordmark">
+    <p class="sec-label">01 · Identity</p>
+    <h2>The wordmark</h2>
+    <p class="lead">
+      One wordmark. The compass mark points north; the split color carries the
+      &ldquo;wind.&rdquo; No separate icon-only logo — at small sizes the mark alone reads as
+      a generic arrow.
+    </p>
+
+    <div class="wordmark-stage">
+      <span class="wordmark">
+        <svg width="28" height="28" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#1B4B49"></rect><path d="M10 4 L15 15 L5 15 Z" fill="#FBFAF6"></path></svg>
+        North<em>wind</em>
+      </span>
+    </div>
+
+    <aside class="ai-note">
+      <span class="mode">Enhance</span>
+      <span class="did">Rendered the wordmark against 40 backgrounds and at 12 sizes to find where contrast and the mark break down; produced the clear-space and minimum-size rules from the failures.</span>
+      <span class="kept">the minimum-size call, and the one dark-background lockup we allow.</span>
+    </aside>
+
+    <h3>Rules</h3>
+    <ul>
+      <li><strong>Clear space:</strong> the height of the compass mark on all sides.</li>
+      <li><strong>Minimum size:</strong> 96px wide on screen, 22mm in print. Below that, use the mark alone.</li>
+      <li><strong>Color:</strong> ink + petrol on light grounds; all-surface (<code>#FBFAF6</code>) on petrol or ink grounds. No other combinations.</li>
+    </ul>
+
+    <div class="dd">
+      <div class="do"><span class="tag">Do</span><div class="ex">Place it on <code>color.ground</code> or <code>color.surface</code> with full clear space.</div></div>
+      <div class="dont"><span class="tag">Avoid</span><div class="ex">Recolor the mark, stretch the wordmark, or set it on a photograph.</div></div>
+    </div>
+  </section>
+
+  <section id="color">
+    <p class="sec-label">02 · Color</p>
+    <h2>Brand color</h2>
+    <p class="lead">
+      The palette is the design system's — brand doesn't get its own colors. What brand
+      owns is <em>meaning</em>: petrol is Northwind, signal-red is only ever a warning.
+    </p>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#1B4B49"></div><div class="info"><div class="name">Petrol</div><div class="hex">#1B4B49</div><div class="use">The brand color. Primary actions, the wordmark, one accent per screen.</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#F2F1EC"></div><div class="info"><div class="name">Chalk</div><div class="hex">#F2F1EC</div><div class="use">The ground. Calm, matte, never pure white.</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#D6452B"></div><div class="info"><div class="name">Signal</div><div class="hex">#D6452B</div><div class="use">Warnings only. If it isn't a problem, it isn't this color.</div></div></div>
+    </div>
+    <div class="callout">
+      <strong>Restraint is the brand.</strong> One petrol accent per view. A screen that's
+      mostly chalk and ink, with a single confident mark of color, is on brand. A screen with
+      four accent colors is not.
+    </div>
+  </section>
+
+  <section id="voice">
+    <p class="sec-label">03 · Voice</p>
+    <h2>How Northwind writes</h2>
+    <p class="lead">Four principles. Each has worked examples, because a principle without one is just an adjective.</p>
+
+    <aside class="ai-note">
+      <span class="mode">Create</span>
+      <span class="did">Read ~400 support replies, release notes, and marketing pages; pulled out the recurring phrasings and which ones customers responded well to; drafted principles from the pattern.</span>
+      <span class="kept">the four that survived, and cutting the two that amounted to &ldquo;be friendly.&rdquo;</span>
+    </aside>
+
+    <h3>1 · Lead with the number</h3>
+    <div class="dd">
+      <div class="do"><span class="tag">Do</span><div class="ex">&ldquo;Weekly active accounts rose 4.2%, against a 3.0% plan.&rdquo;</div></div>
+      <div class="dont"><span class="tag">Avoid</span><div class="ex">&ldquo;We're thrilled to share some exciting growth this week!&rdquo;</div></div>
+    </div>
+
+    <h3>2 · Say what changed, then what to do</h3>
+    <div class="dd">
+      <div class="do"><span class="tag">Do</span><div class="ex">&ldquo;Trial-to-paid fell 0.8 points. The drop is all in self-serve signups — check the onboarding email that changed Tuesday.&rdquo;</div></div>
+      <div class="dont"><span class="tag">Avoid</span><div class="ex">&ldquo;Conversion metrics are trending in a concerning direction and warrant further investigation.&rdquo;</div></div>
+    </div>
+
+    <h3>3 · Errors explain and instruct</h3>
+    <div class="dd">
+      <div class="do"><span class="tag">Do</span><div class="ex">&ldquo;This report needs a date range. Pick a start and end date, then run it again.&rdquo;</div></div>
+      <div class="dont"><span class="tag">Avoid</span><div class="ex">&ldquo;Oops! Something went wrong. Please try again later.&rdquo;</div></div>
+    </div>
+
+    <h3>4 · No performed enthusiasm</h3>
+    <div class="dd">
+      <div class="do"><span class="tag">Do</span><div class="ex">&ldquo;Scheduled reports are here. Set one up from any saved view.&rdquo;</div></div>
+      <div class="dont"><span class="tag">Avoid</span><div class="ex">&ldquo;🎉 We can't wait for you to try our game-changing new Scheduled Reports!&rdquo;</div></div>
+    </div>
+
+    <aside class="ai-note">
+      <span class="mode">Accelerate</span>
+      <span class="did">Rewrote 30 real in-product strings — empty states, errors, toasts — against each principle, so every rule ships with a before/after from the actual product.</span>
+      <span class="kept">which rewrites went live; a few were fine as they were.</span>
+    </aside>
+  </section>
+
+  <section id="maintain">
+    <p class="sec-label">04 · Governance</p>
+    <h2>Keeping it current</h2>
+    <p class="lead">
+      A brand guide is only real if it's enforced somewhere. Northwind's runs as a check
+      before copy ships, not a PDF someone forgot about.
+    </p>
+
+    <aside class="ai-note">
+      <span class="mode">Maintain</span>
+      <span class="did">Reads new marketing pages, release notes, and lifecycle emails on the way to publish; flags any copy that breaks a voice principle, with the principle and a suggested fix.</span>
+      <span class="kept">tone judgment on anything borderline — the check flags, a person decides.</span>
+    </aside>
+
+    <ul>
+      <li><strong>Pre-publish check.</strong> Customer-facing copy is checked against the four principles before it ships. Flags are advisory, not blocking.</li>
+      <li><strong>Quarterly read.</strong> The principles are re-checked against a fresh sample of what customers actually responded to. If one stops matching reality, it changes.</li>
+      <li><strong>Ownership.</strong> One person owns the voice. New rules are proposed in writing with examples.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>What we hand over.</strong> This guide, the 30 rewrites as a reference set, the
+      pre-publish check configured for your CMS, and a working session so your writers own it.
+    </div>
+  </section>
+
+</main>
+
+<footer class="nw-footer">
+  <div class="nw-footer-in">
+    <p><strong>This is an illustrative sample, not a real product.</strong> Northwind Analytics is a fictional company. These pages were built by AI&nbsp;Consultants <em>(working name)</em> to show how we use AI to create and keep a client's brand guide current. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

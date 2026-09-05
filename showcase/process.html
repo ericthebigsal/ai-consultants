@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Northwind Analytics — Design Process</title>
+<meta name="description" content="An illustrative sample: the AI-augmented design-system process AI Consultants runs, shown stage by stage with what the model does and what the client's team decides.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/northwind.css">
+<style>
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+  .split > div { border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; background: var(--surface); }
+  .split h3 { margin: 0 0 8px; font-size: 1rem; }
+  .split .yours h3 { color: var(--signal); }
+  .split ul { margin: 0; padding-left: 1.1em; font-size: 14px; }
+  .split li { margin: 5px 0; }
+  @media (max-width: 560px) { .split { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="nw-header">
+  <div class="nw-header-in">
+    <a class="nw-brand" href="design-system.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#1B4B49"></rect><path d="M10 4 L15 15 L5 15 Z" fill="#FBFAF6"></path></svg>
+      North<em>wind</em> Analytics
+    </a>
+    <nav class="nw-nav" aria-label="Design docs">
+      <a href="design-system.html">Design system</a>
+      <a href="brand-guidelines.html">Brand</a>
+      <a href="process.html" aria-current="page">Process</a>
+    </nav>
+    <span class="nw-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="nw-hero">
+  <p class="nw-eyebrow">Process</p>
+  <h1>The model does the mechanical work. Your team makes the calls.</h1>
+  <p>
+    Building a design system from an existing product is mostly inventory: cataloguing every
+    screen, every color, every one-off. That work is where the manual version stalls —
+    usually around week eight, at the documentation step, when nobody has the time. AI does
+    that ~70%. The team's hours go to the 30% that needs judgment, and the timeline
+    compresses from two-plus months to about three weeks.
+  </p>
+  <div class="nw-meta">
+    <span>~3 weeks to v1</span>
+    <span>then ongoing governance</span>
+    <span>1 named owner on your side</span>
+  </div>
+</div>
+
+<main class="nw-doc">
+
+  <section id="stages">
+    <p class="sec-label">Five stages</p>
+    <h2>Audit → Extract → Systematize → Document → Govern</h2>
+    <p class="lead">
+      Each stage has an AI lane and a human lane. The red dot marks a decision only your
+      team should make.
+    </p>
+
+    <div class="lanes">
+      <div class="lane-head">
+        <div>Stage</div><div>AI does</div><div>Your team decides</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Audit<span>week 1</span></div>
+        <div class="ai-cell">Crawls the live product, captures every screen and state, extracts colors, type, spacing and components into a raw inventory, and clusters the near-duplicates.</div>
+        <div class="human-cell">What's in scope, and which screens actually matter versus the ones nobody uses.</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Extract<span>week 1–2</span></div>
+        <div class="ai-cell">Proposes token ramps and names from where each value is used, fits the type sizes to a scale, and drafts component specs from the most common real instances.</div>
+        <div class="human-cell">Which patterns are real and which are accidents; the names, in your team's language, not the model's.</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Systematize<span>week 2–3</span></div>
+        <div class="ai-cell">Generates the missing states, checks every color pair for contrast, outputs the token files in the formats your stack needs, and wires the build.</div>
+        <div class="human-cell">Interaction feel, the hard trade-offs, and what earns being a component versus staying a one-off.</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Document<span>week 3</span></div>
+        <div class="ai-cell">Drafts the reference pages from the specs, writes first-pass usage guidance, and keeps the docs in sync with the token files as they change.</div>
+        <div class="human-cell">The &ldquo;why&rdquo; behind each rule, and the examples that actually teach it.</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Govern<span>ongoing</span></div>
+        <div class="ai-cell">Runs a weekly drift check against production, groups the findings, and opens each one as a proposed fix to review.</div>
+        <div class="human-cell">What counts as drift worth fixing versus a documented exception; approval on every addition.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Why this order.</strong> Audit before Extract because you can't systematize
+      patterns you haven't seen. Document before Govern because there's nothing to enforce
+      until it's written down. The stages don't move until the human lane is done — the model
+      never advances the work on its own.
+    </div>
+  </section>
+
+  <section id="handover">
+    <p class="sec-label">At the end</p>
+    <h2>What you get, and what stays yours</h2>
+
+    <div class="split">
+      <div class="get">
+        <h3>You get</h3>
+        <ul>
+          <li>Token files in your stack's formats</li>
+          <li>Component specs with every state</li>
+          <li>The reference site (these pages)</li>
+          <li>The weekly drift check wired into your CI</li>
+          <li>A half-day session so your team runs it without us</li>
+        </ul>
+      </div>
+      <div class="yours">
+        <h3>Stays yours</h3>
+        <ul>
+          <li>Every naming and scoping decision</li>
+          <li>The brand intent behind the system</li>
+          <li>Accessibility sign-off</li>
+          <li>The call on what's a real pattern</li>
+          <li>The system itself — we hand it over and leave</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout signal">
+      <strong>The honest limit.</strong> AI is fast at cataloguing and drafting and terrible
+      at taste. If your product's design is genuinely good and just undocumented, this is
+      three weeks well spent. If the design itself is the problem, that's a different
+      engagement, and we'll say so.
+    </div>
+  </section>
+
+</main>
+
+<footer class="nw-footer">
+  <div class="nw-footer-in">
+    <p><strong>This is an illustrative sample, not a real engagement.</strong> Northwind Analytics is a fictional company. These pages were built by AI&nbsp;Consultants <em>(working name)</em> to show the AI-augmented design process we run. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

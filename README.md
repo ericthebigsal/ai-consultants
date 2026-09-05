@@ -21,6 +21,19 @@ Hosted via GitHub Pages: <https://ericthebigsal.github.io/ai-consultants/>
 | `resources/web-search-apis-for-mcp.html` | Standalone reference doc (moved from the site root) |
 | `assets/styles.css`, `assets/site.js` | Shared design system + theme toggle, used by every page |
 
+### Showcase — client-facing capability samples
+
+`showcase/` holds illustrative assets built for a **fictional** client, Northwind Analytics, to
+show how we'd use AI on a design engagement. Own visual identity (petrol / chalk / Bricolage
+Grotesque), no internal-draft banner, disclaimed as samples on every page.
+
+| Page | Content |
+|---|---|
+| `showcase/design-system.html` | Northwind's token system, component specs, governance — with margin notes marking each AI pass and the human decision |
+| `showcase/brand-guidelines.html` | Northwind's wordmark, color meaning, voice principles with worked do/avoid examples |
+| `showcase/process.html` | The five-stage AI-augmented design process as an AI-lane / human-lane swimlane |
+| `showcase/assets/northwind.css` | The Northwind design system (the demos are the system in use) |
+
 ## Shelfmark (docs dashboard) mirror
 
 Every page on this site is mirrored into Shelfmark as a standalone reference, alongside the
@@ -37,6 +50,9 @@ design artifacts:
 | Product → Feature Specs `PRD.SPC.GNB86` | Consultancy Site — Design Spec |
 | Engineering → Architecture `ENG.ARC.J3JXC` | Delivery Framework — Core Skills Loop (Framework) |
 | Engineering → API Reference `ENG.API.JAE5B` | Web Search APIs for MCP (resources/) |
+| Design → Design System `DSN.SYS.I5706` | AI-Augmented Design Systems (→ showcase/design-system.html) |
+| Design → Brand Guidelines `DSN.BRD.I5707` | AI-Augmented Brand Guidelines (→ showcase/brand-guidelines.html) |
+| Design → Process `DSN.PRC.I5708` | The AI-Augmented Design Process (→ showcase/process.html) |
 
 The GitHub Pages site is the canonical, fuller version of each; Shelfmark holds a condensed
 reference that links back to it.
