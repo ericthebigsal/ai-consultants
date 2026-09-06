@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>APlusTechBros — Eval harness</title>
+<meta name="description" content="Illustrative sample: a per-feature scorecard — win rate vs. the deterministic baseline, cost per call, and a verdict.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/aplustechbros.css">
+</head>
+<body>
+
+<header class="ab-header">
+  <div class="ab-header-in">
+    <a class="ab-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" rx="4" fill="#5647E8"></rect><path d="M5 12.5 L9 4.5 L13 12.5 M6.5 9.4 H11.5" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      APlusTechBros
+    </a>
+    <nav class="ab-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="audit.html">Audit</a>
+      <a href="routing.html">Routing</a>
+      <a href="evals.html" aria-current="page">Evals</a>
+      <a href="prompts.html">Prompts</a>
+    </nav>
+    <span class="ab-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="ab-hero">
+  <p class="ab-eyebrow">Analysis 03</p>
+  <h1>Does the AI version actually win?</h1>
+  <p>
+    For every feature, a held-out test set and a deterministic baseline &mdash; a rule, a
+    heuristic, a search. The AI version only stays if it beats the baseline by enough to
+    justify the cost. Two don't.
+  </p>
+  <div class="ab-meta">
+    <span>8 features scored</span>
+    <span>6 keep · 2 cut</span>
+    <span>3 downgraded</span>
+  </div>
+</div>
+
+<main class="ab-main">
+
+  <section id="scorecard">
+    <p class="sec-label">The scorecard</p>
+    <div class="reg-wrap"><table class="reg wide">
+      <thead><tr><th>Feature</th><th>Baseline it's tested against</th><th>Win rate</th><th>$ / call</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Content assistant</td><td>Template + merge fields</td><td class="num n-save">74%</td><td class="num">$0.009</td><td><span class="verdict verdict--downgrade">keep · downgrade</span></td></tr>
+        <tr><td>Subject-line optimizer</td><td>Best historical performer</td><td class="num n-save">61%</td><td class="num">$0.009</td><td><span class="verdict verdict--downgrade">keep · route</span></td></tr>
+        <tr><td>AI Insights panel</td><td>Static metric deltas</td><td class="num n-save">66%</td><td class="num">$0.006</td><td><span class="verdict verdict--downgrade">keep · collapse calls</span></td></tr>
+        <tr><td>Support chatbot</td><td>FAQ search</td><td class="num n-save">64%</td><td class="num">$0.005</td><td><span class="verdict verdict--keep">keep</span></td></tr>
+        <tr><td>Campaign summary</td><td>Metric table + rules</td><td class="num n-save">79%</td><td class="num">$0.020</td><td><span class="verdict verdict--downgrade">keep · downgrade</span></td></tr>
+        <tr><td>Tag &amp; classification</td><td>Existing keyword rules</td><td class="num">91% <span style="color:var(--mute)">(baseline 88%)</span></td><td class="num">$0.003</td><td><span class="verdict verdict--downgrade">marginal · downgrade</span></td></tr>
+        <tr><td>Segment suggester</td><td>Rules-based recommender</td><td class="num n-waste">43%</td><td class="num">$0.020</td><td><span class="verdict verdict--cut">cut</span></td></tr>
+        <tr><td>Send-time predictor</td><td>Per-recipient send history</td><td class="num n-waste">38%</td><td class="num">$0.009</td><td><span class="verdict verdict--cut">cut</span></td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:10px;font-size:12.5px;color:var(--mute)">Win rate = share of a 500-item blind test where reviewers (or a downstream metric) preferred the AI output over the baseline.</p>
+  </section>
+
+  <section id="cuts">
+    <p class="sec-label">The two cuts</p>
+
+    <div class="ab-panel">
+      <p class="panel-label">Segment suggester &mdash; 43% win rate</p>
+      <p style="margin:0">The AI suggestions were preferred less than half the time against a rules-based recommender built from purchase recency, category, and engagement. It also cost $0.02 a call and made 340k calls a month. Cutting it removes a feature that was, on balance, making segmentation slightly worse.</p>
+      <div class="ba"><span class="ba-label">Monthly cost</span><span class="ba-vals"><span class="ba-was">$6.8k</span><span class="ba-arrow">&rarr;</span><span class="ba-now">$0</span></span><span class="ba-note">The rules-based recommender it lost to is kept and promoted to the default.</span></div>
+    </div>
+
+    <div class="ab-panel">
+      <p class="panel-label">Send-time predictor &mdash; 38% win rate</p>
+      <p style="margin:0">A per-recipient "send at the hour they usually open" heuristic beat the model 62% of the time and costs nothing to run. The model was added because it sounded better, not because it tested better &mdash; and no one had tested it.</p>
+      <div class="ba"><span class="ba-label">Monthly cost</span><span class="ba-vals"><span class="ba-was">$8.0k</span><span class="ba-arrow">&rarr;</span><span class="ba-now">$0</span></span><span class="ba-note">The heuristic becomes the shipping behaviour.</span></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <p class="sec-label">What good looks like</p>
+    <ul>
+      <li>Every AI feature has a named baseline and a test set checked into the repo &mdash; if you can't say what it's better than, it doesn't ship.</li>
+      <li>The eval suite runs in CI on every prompt or model change, and on a schedule to catch drift.</li>
+      <li>A feature that drops below its threshold opens a ticket, not a silent regression.</li>
+      <li>&ldquo;It feels better&rdquo; is not a verdict. The verdict is a number against a baseline.</li>
+    </ul>
+    <div class="callout">
+      <strong>This is the gate for the routing plan.</strong> No feature on
+      <a href="routing.html">the routing table</a> is downgraded until its eval confirms the
+      cheaper tier holds the win rate.
+    </div>
+  </section>
+
+</main>
+
+<footer class="ab-footer">
+  <div class="ab-footer-in">
+    <p class="ab-disclaimer"><strong>Illustrative sample, not a real audit.</strong> APlusTechBros is a fictional company; every feature, figure, and dollar amount is invented to demonstrate the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

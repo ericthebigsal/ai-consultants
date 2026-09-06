@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>APlusTechBros — Model routing</title>
+<meta name="description" content="Illustrative sample: each AI feature mapped to the right model tier by task, with before/after cost and a projected saving.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/aplustechbros.css">
+</head>
+<body>
+
+<header class="ab-header">
+  <div class="ab-header-in">
+    <a class="ab-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" rx="4" fill="#5647E8"></rect><path d="M5 12.5 L9 4.5 L13 12.5 M6.5 9.4 H11.5" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      APlusTechBros
+    </a>
+    <nav class="ab-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="audit.html">Audit</a>
+      <a href="routing.html" aria-current="page">Routing</a>
+      <a href="evals.html">Evals</a>
+      <a href="prompts.html">Prompts</a>
+    </nav>
+    <span class="ab-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="ab-hero">
+  <p class="ab-eyebrow">Analysis 02</p>
+  <h1>Right model for the task</h1>
+  <p>
+    Every feature calls the top frontier model. Most of them don't need it. Route each one to
+    the cheapest tier that passes its eval, and the monthly bill drops by 59% &mdash; before
+    the two cuts.
+  </p>
+  <div class="ab-meta">
+    <span>$182k &rarr; ~$74k / mo</span>
+    <span>&minus;59%</span>
+    <span>quality gated by evals</span>
+  </div>
+</div>
+
+<main class="ab-main">
+
+  <section id="plan">
+    <p class="sec-label">The routing table</p>
+    <div class="reg-wrap"><table class="reg wide">
+      <thead><tr><th>Feature</th><th>Task type</th><th>Was</th><th>Now</th><th>$ / mo was</th><th>$ / mo now</th></tr></thead>
+      <tbody>
+        <tr><td>Content assistant</td><td>Open-ended generation</td><td class="mono">frontier</td><td class="mono">mid + frontier on hard cases</td><td class="num">$71k</td><td class="num n-save">$40k</td></tr>
+        <tr><td>Tag &amp; classification</td><td>Bounded classification</td><td class="mono">frontier</td><td class="mono">small classifier</td><td class="num">$44k</td><td class="num n-save">$6k</td></tr>
+        <tr><td>AI Insights panel</td><td>Summarize + structure</td><td class="mono">frontier &times;6</td><td class="mono">mid &times;1</td><td class="num">$22k</td><td class="num n-save">$5k</td></tr>
+        <tr><td>Subject-line optimizer</td><td>Short variants + ranking</td><td class="mono">frontier</td><td class="mono">mid, frontier for final rank</td><td class="num">$19k</td><td class="num n-save">$9k</td></tr>
+        <tr><td>Send-time predictor</td><td>Time-series prediction</td><td class="mono">frontier</td><td class="mono">deterministic heuristic</td><td class="num">$8.0k</td><td class="num n-save">$0</td></tr>
+        <tr><td>Support chatbot</td><td>Retrieval + response</td><td class="mono">mid</td><td class="mono">mid (prompt trimmed)</td><td class="num">$7.0k</td><td class="num n-save">$6k</td></tr>
+        <tr><td>Segment suggester</td><td>Recommendation</td><td class="mono">frontier</td><td class="mono">rules-based recommender</td><td class="num">$6.8k</td><td class="num n-save">$0</td></tr>
+        <tr><td>Campaign summary</td><td>Summarize</td><td class="mono">frontier</td><td class="mono">mid</td><td class="num">$4.2k</td><td class="num n-save">$1.6k</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total</td><td></td><td></td><td></td><td class="num">$182k</td><td class="num n-save">$74k</td></tr></tfoot>
+    </table></div>
+    <div class="ba">
+      <span class="ba-label">Monthly AI spend</span>
+      <span class="ba-vals"><span class="ba-was">$182k</span><span class="ba-arrow">&rarr;</span><span class="ba-now">$74k</span><span class="delta delta--save">&minus;$108k / mo</span></span>
+      <span class="ba-note">$1.3M a year. Two features (send-time, segment suggester) contribute $0 because the eval said to cut them &mdash; see <a href="evals.html">the eval results</a>.</span>
+    </div>
+  </section>
+
+  <section id="config">
+    <p class="sec-label">How it's wired</p>
+    <p class="lead">A gateway in front of every AI call. Routing is a config table, not code &mdash; each feature's tier can be changed or rolled back in seconds.</p>
+    <div class="code"><span class="cmt"># ai-gateway routing (excerpt)</span>
+content_assistant:
+  default: mid
+  escalate_if: <span class="cmt"># frontier only when the draft is rejected or the brief is long</span>
+    - draft_rejected
+    - brief_tokens &gt; 400
+tag_classification:
+  default: classifier-sm        <span class="cmt"># fine-tuned, 20 labels</span>
+  fallback: mid
+ai_insights:
+  default: mid
+  calls: 1                      <span class="cmt"># structured output, was 6</span>
+send_time_predictor:
+  default: heuristic            <span class="cmt"># send-history model, no LLM call</span></div>
+  </section>
+
+  <section id="safety">
+    <p class="sec-label">Why it's safe</p>
+    <ul>
+      <li>No feature is downgraded until its eval shows the cheaper tier holds the win rate &mdash; the routing table and the eval harness ship together.</li>
+      <li>Every route has a fallback to the next tier up on error or low confidence.</li>
+      <li>The gateway logs the tier used per call, so a regression is visible in a day, not a quarter.</li>
+      <li>Rollback is a one-line config change, per feature.</li>
+    </ul>
+    <div class="callout save">
+      <strong>The saving compounds.</strong> The routing change also shrinks the blast radius of
+      the next price increase &mdash; 80% of the volume is now on cheaper, more substitutable
+      models.
+    </div>
+  </section>
+
+</main>
+
+<footer class="ab-footer">
+  <div class="ab-footer-in">
+    <p class="ab-disclaimer"><strong>Illustrative sample, not a real audit.</strong> APlusTechBros is a fictional company; every feature, figure, and dollar amount is invented to demonstrate the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

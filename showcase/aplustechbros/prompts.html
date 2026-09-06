@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>APlusTechBros — Prompt &amp; call diet</title>
+<meta name="description" content="Illustrative sample: one system prompt trimmed 4,240 to 680 tokens with quality held, and a 6-call panel collapsed to 1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/aplustechbros.css">
+</head>
+<body>
+
+<header class="ab-header">
+  <div class="ab-header-in">
+    <a class="ab-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" rx="4" fill="#5647E8"></rect><path d="M5 12.5 L9 4.5 L13 12.5 M6.5 9.4 H11.5" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      APlusTechBros
+    </a>
+    <nav class="ab-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="audit.html">Audit</a>
+      <a href="routing.html">Routing</a>
+      <a href="evals.html">Evals</a>
+      <a href="prompts.html" aria-current="page">Prompts</a>
+    </nav>
+    <span class="ab-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="ab-hero">
+  <p class="ab-eyebrow">Analysis 04</p>
+  <h1>Instructions nobody reads, sent 8 million times a month</h1>
+  <p>
+    The content assistant's system prompt has grown to 4,240 tokens &mdash; and it's re-sent
+    uncached on every call. Half of it is stale examples and rules the platform now enforces
+    itself. Trim it, cache it, and the input cost per call drops by about 78%.
+  </p>
+  <div class="ab-meta">
+    <span>4,240 &rarr; 680 tokens</span>
+    <span>&minus;84% prompt size</span>
+    <span>win rate unchanged</span>
+  </div>
+</div>
+
+<main class="ab-main">
+
+  <section id="prompt">
+    <p class="sec-label">The system prompt</p>
+    <div class="ab-panel">
+      <p class="panel-label">What's in the 4,240 tokens</p>
+      <div class="reg-wrap"><table class="reg">
+        <thead><tr><th>Section</th><th>Tokens</th><th>Keep?</th></tr></thead>
+        <tbody>
+          <tr><td>Role, task, output contract</td><td class="num">520</td><td><span class="verdict verdict--keep">keep</span></td></tr>
+          <tr><td>Brand voice guidance</td><td class="num">240</td><td><span class="verdict verdict--keep">keep, tightened</span></td></tr>
+          <tr><td>Few-shot examples (12)</td><td class="num n-waste">1,820</td><td><span class="verdict verdict--cut">cut &mdash; written for a 2-gen-old model, no measured lift</span></td></tr>
+          <tr><td>Safety &amp; content rules</td><td class="num n-waste">900</td><td><span class="verdict verdict--cut">cut &mdash; enforced server-side now</span></td></tr>
+          <tr><td>Formatting rules</td><td class="num n-waste">620</td><td><span class="verdict verdict--cut">cut &mdash; duplicates the output schema</span></td></tr>
+          <tr><td>Commented-out experiments</td><td class="num n-waste">260</td><td><span class="verdict verdict--cut">cut</span></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td class="num">4,240</td><td></td></tr></tfoot>
+      </table></div>
+      <div class="ba"><span class="ba-label">System prompt</span><span class="ba-vals"><span class="ba-was">4,240 tok</span><span class="ba-arrow">&rarr;</span><span class="ba-now">680 tok</span><span class="delta delta--save">&minus;84%</span></span><span class="ba-note">Blind eval on 500 briefs: 74% win rate before, 74% after. No measurable quality change.</span></div>
+    </div>
+  </section>
+
+  <section id="caching">
+    <p class="sec-label">Then cache it</p>
+    <p class="lead">The trimmed 680-token prompt is identical on every call &mdash; a textbook case for prompt caching. Combined with the trim, the input side of each request gets much cheaper.</p>
+    <div class="code"><span class="cmt"># per content-assistant call, input tokens</span>
+before:  4,240 system + 220 user  = 4,460 tok, <span class="del">uncached, full price every call</span>
+after:     680 system + 220 user  =   900 tok, <span class="add">system portion cached after first call</span>
+
+<span class="cmt"># effective input cost per call</span>
+<span class="del">before  ~$0.0067</span>
+<span class="add">after   ~$0.0015   (-78%)</span></div>
+  </section>
+
+  <section id="calls">
+    <p class="sec-label">Collapse the insights panel</p>
+    <p class="lead">The AI Insights panel makes six sequential calls per view. A single call with a structured output schema returns the same result.</p>
+    <div class="calls"><span style="color:var(--waste)">before</span>   fetch context &rarr; summarize &rarr; detect anomalies
+         &rarr; rank &rarr; write headline &rarr; write body
+         6 calls, ~2.4s, the overhead paid 6 times
+
+<span style="color:var(--save)">after</span>    one call: context in, { headline, body, anomalies[] } out
+         1 call, ~0.9s</div>
+    <div class="ba"><span class="ba-label">AI Insights panel</span><span class="ba-vals"><span class="ba-was">6 calls · 2.4s</span><span class="ba-arrow">&rarr;</span><span class="ba-now">1 call · 0.9s</span></span><span class="ba-note">$22k/mo &rarr; ~$5k/mo, and the panel loads faster.</span></div>
+  </section>
+
+  <section id="how">
+    <p class="sec-label">What stays</p>
+    <ul>
+      <li>Prompts are reviewed like code &mdash; a change goes through the eval suite before it ships, and a diff shows what moved.</li>
+      <li>Guardrails live in one place (server-side policy), not copy-pasted into every prompt.</li>
+      <li>Few-shot examples earn their tokens: each one is there because the eval showed it helped, or it's removed.</li>
+      <li>A quarterly prompt review catches the next round of accumulation before it's 4,000 tokens again.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="ab-footer">
+  <div class="ab-footer-in">
+    <p class="ab-disclaimer"><strong>Illustrative sample, not a real audit.</strong> APlusTechBros is a fictional company; every feature, figure, and dollar amount is invented to demonstrate the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

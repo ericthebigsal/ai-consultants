@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>APlusTechBros — Cost &amp; usage audit</title>
+<meta name="description" content="Illustrative sample: the AI bill broken down by feature, model, and cost per outcome, with the waste named in dollars.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/aplustechbros.css">
+</head>
+<body>
+
+<header class="ab-header">
+  <div class="ab-header-in">
+    <a class="ab-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" rx="4" fill="#5647E8"></rect><path d="M5 12.5 L9 4.5 L13 12.5 M6.5 9.4 H11.5" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      APlusTechBros
+    </a>
+    <nav class="ab-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="audit.html" aria-current="page">Audit</a>
+      <a href="routing.html">Routing</a>
+      <a href="evals.html">Evals</a>
+      <a href="prompts.html">Prompts</a>
+    </nav>
+    <span class="ab-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="ab-hero">
+  <p class="ab-eyebrow">Analysis 01</p>
+  <h1>Where the money goes</h1>
+  <p>
+    Before the audit, "AI spend" was a single line on the cloud bill. After it, every dollar
+    is attributed to a feature, a model, and a cost per outcome &mdash; and the waste is
+    visible.
+  </p>
+  <div class="ab-meta">
+    <span>~$182k/mo total</span>
+    <span>8 features</span>
+    <span>3 features = 70% of spend</span>
+  </div>
+</div>
+
+<main class="ab-main">
+
+  <section id="totals">
+    <p class="sec-label">The picture</p>
+    <div class="stat-row">
+      <div class="stat"><div class="k">AI spend / month</div><div class="v waste">$182k</div><div class="d up">&#9650; 15% per quarter</div></div>
+      <div class="stat"><div class="k">Attributed before</div><div class="v">0%</div><div class="d">one line on the bill</div></div>
+      <div class="stat"><div class="k">Identified as waste</div><div class="v waste">~$108k</div><div class="d">wrong tier · no cache · redundant calls</div></div>
+    </div>
+  </section>
+
+  <section id="breakdown">
+    <p class="sec-label">By feature</p>
+    <div class="reg-wrap"><table class="reg wide">
+      <thead><tr><th>Feature</th><th>Calls / mo</th><th>Model</th><th>$ / mo</th><th>Cost per outcome</th><th>Flag</th></tr></thead>
+      <tbody>
+        <tr><td>Content assistant</td><td class="num">8.2M</td><td class="mono">frontier</td><td class="num n-waste">$71k</td><td class="num">$0.12 / draft kept</td><td><span class="flag">no cache</span></td></tr>
+        <tr><td>Tag &amp; classification</td><td class="num">14M</td><td class="mono">frontier</td><td class="num n-waste">$44k</td><td class="num">$0.003 / event</td><td><span class="flag">wrong tier</span></td></tr>
+        <tr><td>AI Insights panel</td><td class="num">3.7M</td><td class="mono">frontier</td><td class="num n-waste">$22k</td><td class="num">$0.035 / panel view</td><td><span class="flag">6 calls / view</span></td></tr>
+        <tr><td>Subject-line optimizer</td><td class="num">2.1M</td><td class="mono">frontier</td><td class="num">$19k</td><td class="num">$0.009 / send</td><td><span class="flag">wrong tier</span></td></tr>
+        <tr><td>Send-time predictor</td><td class="num">900k</td><td class="mono">frontier</td><td class="num n-waste">$8.0k</td><td class="num">$0.009 / send</td><td><span class="flag">loses to heuristic</span></td></tr>
+        <tr><td>Support chatbot</td><td class="num">1.4M</td><td class="mono">mid</td><td class="num">$7.0k</td><td class="num">$0.005 / deflection</td><td class="mono" style="color:var(--mute)">&mdash;</td></tr>
+        <tr><td>Segment suggester</td><td class="num">340k</td><td class="mono">frontier</td><td class="num n-waste">$6.8k</td><td class="num">$0.02 / suggestion</td><td><span class="flag">loses to baseline</span></td></tr>
+        <tr><td>Campaign summary</td><td class="num">210k</td><td class="mono">frontier</td><td class="num">$4.2k</td><td class="num">$0.02 / summary</td><td><span class="flag">wrong tier</span></td></tr>
+      </tbody>
+      <tfoot><tr><td>Total</td><td class="num">30.8M</td><td></td><td class="num">$182k</td><td></td><td></td></tr></tfoot>
+    </table></div>
+  </section>
+
+  <section id="waste">
+    <p class="sec-label">The three that matter</p>
+    <p class="lead">Content assistant, tag &amp; classification, and the insights panel are 70% of the bill &mdash; and all three are the easy fixes.</p>
+
+    <div class="ab-panel">
+      <p class="panel-label">Content assistant &mdash; no cache</p>
+      <p style="margin:0">The product-description generator re-runs on every catalogue page load. The same 40,000 products get regenerated dozens of times a day with no change to their inputs. A cache keyed on the product fields cuts an estimated 60% of the calls.</p>
+      <div class="ba"><span class="ba-label">Calls / month</span><span class="ba-vals"><span class="ba-was">8.2M</span><span class="ba-arrow">&rarr;</span><span class="ba-now">~3.3M</span><span class="delta delta--save">&minus;60%</span></span></div>
+    </div>
+
+    <div class="ab-panel">
+      <p class="panel-label">Tag &amp; classification &mdash; wrong tier</p>
+      <p style="margin:0">14 million events a month get a category label from the frontier model. This is a bounded classification task with ~20 labels &mdash; a small fine-tuned classifier does it at a fraction of the cost and slightly higher accuracy.</p>
+      <div class="ba"><span class="ba-label">Cost / month</span><span class="ba-vals"><span class="ba-was">$44k</span><span class="ba-arrow">&rarr;</span><span class="ba-now">~$3.5k</span><span class="delta delta--save">&minus;92%</span></span></div>
+    </div>
+
+    <div class="ab-panel">
+      <p class="panel-label">AI Insights panel &mdash; 6 calls per view</p>
+      <p style="margin:0">Each dashboard panel load makes six sequential model calls: fetch context, summarize, detect anomalies, rank, write the headline, write the body. One call with a structured output schema returns all of it.</p>
+      <div class="ba"><span class="ba-label">Calls per panel view</span><span class="ba-vals"><span class="ba-was">6</span><span class="ba-arrow">&rarr;</span><span class="ba-now">1</span><span class="delta delta--save">&minus;83%</span></span></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <p class="sec-label">What the audit produces</p>
+    <ul>
+      <li>A per-feature cost model, wired to the provider's usage export, that updates without anyone re-running a spreadsheet.</li>
+      <li>A cost-per-outcome for each feature &mdash; per kept draft, per deflection, per send &mdash; so the next question ("is it worth it?") has a number.</li>
+      <li>A ranked list of fixes with the dollar impact of each, which becomes the phase order in the <a href="https://claude.ai/code/artifact/99194861-1d96-4c87-ac9f-63c5c23b1829">statement of work</a>.</li>
+    </ul>
+    <div class="callout">
+      <strong>Attribution is the whole first phase.</strong> Every later decision &mdash; route
+      this feature, cut that one &mdash; needs a per-feature number behind it, and today there
+      isn't one.
+    </div>
+  </section>
+
+</main>
+
+<footer class="ab-footer">
+  <div class="ab-footer-in">
+    <p class="ab-disclaimer"><strong>Illustrative sample, not a real audit.</strong> APlusTechBros is a fictional company; every feature, figure, and dollar amount is invented to demonstrate the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

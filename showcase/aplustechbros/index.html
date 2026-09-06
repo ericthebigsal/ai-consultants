@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>APlusTechBros — AI Efficiency Prototype</title>
+<meta name="description" content="An illustrative sample: an AI cost, quality, and architecture audit for the fictional martech platform APlusTechBros, built by AI Consultants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/aplustechbros.css">
+</head>
+<body>
+
+<header class="ab-header">
+  <div class="ab-header-in">
+    <a class="ab-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" rx="4" fill="#5647E8"></rect><path d="M5 12.5 L9 4.5 L13 12.5 M6.5 9.4 H11.5" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      APlusTechBros
+    </a>
+    <nav class="ab-nav" aria-label="Prototype">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="audit.html">Audit</a>
+      <a href="routing.html">Routing</a>
+      <a href="evals.html">Evals</a>
+      <a href="prompts.html">Prompts</a>
+    </nav>
+    <span class="ab-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="ab-hero">
+  <p class="ab-eyebrow">AI efficiency prototype</p>
+  <h1>They shipped AI everywhere. Nobody checked the bill.</h1>
+  <p>
+    APlusTechBros runs eight AI features across its martech platform, spends about $182k a
+    month doing it, and can't tell you which features are worth the money. This is the audit,
+    the routing plan, the eval results, and the prompt cleanup &mdash; four analyses that turn
+    an ungoverned AI stack into a managed one.
+  </p>
+  <div class="ab-meta">
+    <span>$182k/mo &rarr; ~$74k/mo</span>
+    <span>8 features · 2 cut</span>
+    <span>illustrative figures</span>
+  </div>
+</div>
+
+<main class="ab-main">
+
+  <section id="audit">
+    <p class="sec-label">01 · Cost &amp; usage audit</p>
+    <h2>Where the money goes</h2>
+    <p class="lead">
+      The AI bill broken down by feature, model, and cost per outcome &mdash; and the waste
+      named in dollars. Three line items are 70% of the spend, and one of them re-runs the
+      same request on every page load.
+    </p>
+    <div class="ba">
+      <span class="ba-label">Spend with an owner and an attribution</span>
+      <span class="ba-vals"><span class="ba-was">0%</span><span class="ba-arrow">&rarr;</span><span class="ba-now">100%</span></span>
+      <span class="ba-note">Every dollar mapped to a feature, a model, and a cost-per-outcome.</span>
+    </div>
+    <p><a class="ab-btn ab-btn--primary" href="audit.html">Open the audit</a></p>
+  </section>
+
+  <section id="routing">
+    <p class="sec-label">02 · Model routing</p>
+    <h2>Stop sending everything to the biggest model</h2>
+    <p class="lead">
+      Every feature calls the top frontier model regardless of the task. Classification, tag
+      suggestion, and simple text expansion don't need it. Route each feature to the right
+      tier and the bill drops by more than half &mdash; with quality held by the eval harness.
+    </p>
+    <div class="ba">
+      <span class="ba-label">Monthly AI spend</span>
+      <span class="ba-vals"><span class="ba-was">$182k</span><span class="ba-arrow">&rarr;</span><span class="ba-now">~$74k</span><span class="delta delta--save">&minus;59%</span></span>
+    </div>
+    <p><a class="ab-btn ab-btn--primary" href="routing.html">Open the routing plan</a></p>
+  </section>
+
+  <section id="evals">
+    <p class="sec-label">03 · Eval harness</p>
+    <h2>Does the AI version actually win?</h2>
+    <p class="lead">
+      For each feature, a scorecard: win rate against the deterministic baseline, cost per
+      call, and a verdict. Two features lose to a simple rules-based version &mdash; they're
+      cut. Three more get downgraded to a cheaper model with no measurable quality loss.
+    </p>
+    <div class="ba">
+      <span class="ba-label">AI features running with no baseline comparison</span>
+      <span class="ba-vals"><span class="ba-was">8</span><span class="ba-arrow">&rarr;</span><span class="ba-now">0</span></span>
+      <span class="ba-note">6 keep (some downgraded), 2 cut for losing to the baseline.</span>
+    </div>
+    <p><a class="ab-btn ab-btn--primary" href="evals.html">Open the eval results</a></p>
+  </section>
+
+  <section id="prompts">
+    <p class="sec-label">04 · Prompt &amp; call diet</p>
+    <h2>4,240 tokens of instructions nobody reads</h2>
+    <p class="lead">
+      One feature's system prompt has accumulated stale few-shot examples, redundant
+      guardrails, and formatting rules that duplicate the output schema &mdash; re-sent
+      uncached on every one of 8 million calls a month. Trim it, cache it, and collapse the
+      6-call insights panel to 1.
+    </p>
+    <div class="ba">
+      <span class="ba-label">Content-assistant system prompt</span>
+      <span class="ba-vals"><span class="ba-was">4,240 tok</span><span class="ba-arrow">&rarr;</span><span class="ba-now">680 tok</span><span class="delta delta--save">&minus;84%</span></span>
+      <span class="ba-note">Eval win rate unchanged. Input cost per call down ~78% with caching.</span>
+    </div>
+    <p><a class="ab-btn ab-btn--primary" href="prompts.html">Open the prompt diet</a></p>
+  </section>
+
+  <section id="read">
+    <h2>How to read these</h2>
+    <p>
+      APlusTechBros is a fictional company. The eight features, the spend, the win rates, and
+      every dollar figure are invented to show the <em>shape</em> of the work &mdash; what an
+      AI efficiency audit measures, what it recommends, and how it proves the recommendation
+      is safe. The written case and statement of work sit alongside this prototype in the
+      engagement package.
+    </p>
+  </section>
+
+</main>
+
+<footer class="ab-footer">
+  <div class="ab-footer-in">
+    <p class="ab-disclaimer"><strong>Illustrative sample, not a real audit.</strong> APlusTechBros is a fictional company; every feature, figure, and dollar amount is invented to demonstrate the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
