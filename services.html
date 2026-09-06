@@ -6,11 +6,17 @@
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="noindex">
 <title>Services — AI Consultants (working name)</title>
-<meta name="description" content="The five pillars: what each engagement solves, what we do, what you walk away with, and how we know it worked.">
+<meta name="description" content="The eight pillars: five that form a journey, three that run across it — what each engagement solves, what we do, what you walk away with, and how we know it worked.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap">
 <link rel="stylesheet" href="assets/styles.css">
+<style>
+  .pillar-group { margin: 46px 0 8px; padding-top: 34px; border-top: 2px solid var(--line); }
+  .pillar-group .sec-num { display: inline-block; margin-bottom: 6px; }
+  .pillar-group h2 { margin: 0 0 8px; font-size: 1.5rem; }
+  .pillar-group p { margin: 0; max-width: 62ch; color: var(--ink-soft); }
+</style>
 </head>
 <body data-active="services">
 
@@ -35,12 +41,15 @@
 <header class="masthead">
   <div class="wrap masthead-inner">
     <p class="eyebrow">The offer</p>
-    <h1>Five ways we help</h1>
+    <h1>Eight ways we help</h1>
     <p class="standfirst">
-      Five patterns we keep seeing, written to the same structure so they read as one system:
+      Patterns we keep seeing, written to the same structure so they read as one system:
       the situation in the client's words, what's really going on underneath it, what we do,
-      what they walk away with, and how we'll know it worked. None of these are mutually
-      exclusive — a client often starts in one and surfaces a second.
+      what they walk away with, and how we'll know it worked. The first five form a journey —
+      engaging one tends to surface the next (see <a href="flywheel.html">Flywheel</a>). The
+      last three aren't stages you pass through; they're disciplines that run across the whole
+      loop. None of these are mutually exclusive — a client often starts in one and surfaces a
+      second.
     </p>
   </div>
 </header>
@@ -281,14 +290,165 @@
       </div>
     </article>
 
+    <div class="pillar-group">
+      <span class="sec-num">06&ndash;08</span>
+      <h2>The three that run across the loop</h2>
+      <p>
+        The first five are a journey. These three aren't stages a client passes through —
+        they're disciplines that apply at every turn of the flywheel and get deeper each time
+        around. A client rarely buys one cold; it surfaces inside another engagement and
+        becomes its own workstream. They matter most, and earliest, for companies whose
+        product itself is AI.
+      </p>
+    </div>
+
+    <article class="pillar" id="pillar-6">
+      <header>
+        <span class="pillar-num">Pillar 06</span>
+        <h3>Evaluation &amp; quality systems</h3>
+      </header>
+      <div class="tpl-block">
+        <p class="tpl-label">The situation</p>
+        <blockquote>"Everyone asks how we know the AI is any good, and the honest answer is we spot-check it and hope. We can't tell if a change made it better or worse."</blockquote>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What's really going on</p>
+        <p>AI features get shipped on vibes and a handful of manual checks. Without an eval — a fixed test set, a scored rubric, a baseline, a number that moves — quality is an opinion, regressions are invisible until a customer finds them, and "is the new prompt better?" is unanswerable. For a company whose product is AI, that isn't a gap, it's the core risk.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What we do</p>
+        <ul>
+          <li>Build the eval sets from real usage — graded reference cases, adversarial cases, and the failure modes that actually happen — not a generic benchmark.</li>
+          <li>Stand up the harness: offline eval in CI that blocks a regression, online eval on live traffic, LLM-judge calibration against human labels, and a human-review workflow for the cases a judge can't score.</li>
+          <li>Define the bar in numbers — what has to be true to ship — and wire it into the release process.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What you walk away with</p>
+        <ul>
+          <li>An eval suite that runs on every change, with the quality impact visible in the PR.</li>
+          <li>A quality bar you can put in front of a customer, an auditor, or a board.</li>
+          <li>A team that answers "did that help?" with a number, not a hunch.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">How we know it worked</p>
+        <ul>
+          <li>A regression gets caught by the eval, not by a customer.</li>
+          <li>The team ships prompt and model changes faster, because the eval tells them it's safe.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Rough shape <span class="tag tbd">TBD</span></p>
+        <p>A focused build engagement, then a lighter period keeping the sets current as usage shifts. Often the first thing to do inside a Pillar 02 or Pillar 08 engagement.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
+        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+      </div>
+    </article>
+
+    <article class="pillar" id="pillar-7">
+      <header>
+        <span class="pillar-num">Pillar 07</span>
+        <h3>AI trust &amp; governance</h3>
+      </header>
+      <div class="tpl-block">
+        <p class="tpl-label">The situation</p>
+        <blockquote>"Every enterprise deal now comes with an AI questionnaire, and every regulator is circling. We need answers that are true, not just reassuring."</blockquote>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What's really going on</p>
+        <p>AI touches regulated or sensitive data in places nobody mapped, and the controls people assume exist often don't. Meanwhile the buyer's procurement team, the auditor, and — depending on the sector — a regulator all want a straight answer to "where does our data go, who reviewed the model's output, and what happens when it's wrong." Governance run as a pure risk exercise stalls the business; run well, it unblocks deals.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What we do</p>
+        <ul>
+          <li>Build the register: every place a model runs against sensitive data or a consequential decision, with the data class, the owner, and the control that applies.</li>
+          <li>Establish the control set — human review before action, logging and attribution, data handling and retention, an approval path for new uses — and crosswalk it to the frameworks you already report against (SOC 2, ISO 42001, NIST AI RMF) and the sector rules that apply (HIPAA, financial-services conduct rules, state AI laws).</li>
+          <li>Turn it outward: a trust page, a standard answer set for security questionnaires, and the evidence pack an auditor or enterprise buyer asks for.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What you walk away with</p>
+        <ul>
+          <li>A register and control set that's enforced, not just written.</li>
+          <li>Faster enterprise deal cycles, because the AI questions have crisp, true answers.</li>
+          <li>An audit-evidence process that mostly assembles itself.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">How we know it worked</p>
+        <ul>
+          <li>An enterprise security review clears without a fire drill.</li>
+          <li>Every AI use that touches sensitive data is on the register, with an owner and a control.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Rough shape <span class="tag tbd">TBD</span></p>
+        <p>An assessment, then a build period to close the gaps, then a light retainer as the frameworks and the product both move.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
+        <p>What we explicitly won't do in this pillar — not yet decided. (We are not anyone's legal counsel; that line gets drawn here.)</p>
+      </div>
+    </article>
+
+    <article class="pillar" id="pillar-8">
+      <header>
+        <span class="pillar-num">Pillar 08</span>
+        <h3>Agentic systems &amp; reliability</h3>
+      </header>
+      <div class="tpl-block">
+        <p class="tpl-label">The situation</p>
+        <blockquote>"Our agent works in the demo, and about 85% of the time in production. The other 15% is eroding trust faster than the wins are building it."</blockquote>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What's really going on</p>
+        <p>An agent that plans, calls tools, and acts is a distributed system with a non-deterministic component in the loop. The demo tests the happy path; production is the long tail — a tool times out, the model loops, retrieval comes back empty, the task is genuinely ambiguous. Without deliberate design for those cases — when to retry, when to abstain, when to hand to a human, and how to see what happened — reliability is whatever the model felt like that request.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What we do</p>
+        <ul>
+          <li>Design the agent's structure: tool and interface design, the orchestration and control flow, the state model, and explicit budgets for cost, latency, and steps.</li>
+          <li>Build the reliability layer: input and output guardrails, a confidence threshold with a graceful abstain, human-escalation paths, retrieval-quality checks, and tracing so every run is reproducible.</li>
+          <li>Close the loop with Pillar 06: the failure modes become eval cases, and the reliability bar is measured, not asserted.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">What you walk away with</p>
+        <ul>
+          <li>An agent that fails safe — it hands off or abstains instead of guessing.</li>
+          <li>Traces and metrics that make a bad run diagnosable in minutes.</li>
+          <li>A reliability number you can quote to a customer and defend.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">How we know it worked</p>
+        <ul>
+          <li>The tail cases resolve to a safe handoff, not a wrong action.</li>
+          <li>On-call for the agent looks like on-call for any other production service.</li>
+        </ul>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Rough shape <span class="tag tbd">TBD</span></p>
+        <p>A design-and-build engagement scoped to one agent or agent family, with the patterns reused across the rest.</p>
+      </div>
+      <div class="tpl-block">
+        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
+        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+      </div>
+    </article>
+
   </div>
 </section>
 
 <section id="open">
   <div class="wrap">
     <div class="callout open">
-      <strong>Open across all five:</strong> pricing per pillar, which one is the lead offer, and
-      per-pillar anti-scope are unresolved. Full list on
+      <strong>Open across all eight:</strong> pricing per pillar, which one is the lead offer, and
+      per-pillar anti-scope are unresolved. Whether 06&ndash;08 are pitched as their own
+      engagements or only ever sold inside another is also open. Full list on
       <a href="engagement.html#open-questions">Engagement &rarr; open questions</a>.
     </div>
   </div>

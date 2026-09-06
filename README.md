@@ -11,9 +11,9 @@ Hosted via GitHub Pages: <https://ericthebigsal.github.io/ai-consultants/>
 
 | Page | Content |
 |---|---|
-| `index.html` | Home — thesis, why now, the five pillars at a glance |
-| `services.html` | The five pillars, each to a fixed template |
-| `flywheel.html` | How engaging one pillar surfaces the next — the five-pillar value loop |
+| `index.html` | Home — thesis, why now, the eight pillars at a glance |
+| `services.html` | The eight pillars (five journey + three cross-cutting), each to a fixed template |
+| `flywheel.html` | How engaging one journey pillar surfaces the next — the five-pillar value loop, plus the three cross-cutting pillars that run across it |
 | `problem-space.html` | Discovery question set + fit rubric |
 | `principles.html` | Proposed point of view on judicious AI use |
 | `framework.html` | The 10 core delivery skills as an 8-stage loop (with input/output contracts) plus 2 cross-cutting skills — also the methodology behind Pillar 05 |
@@ -111,7 +111,7 @@ design artifacts:
 | Shelfmark location | Document |
 |---|---|
 | Product → Roadmap & Strategy `PRD.ROA.JAE56` | Company Thesis — Why Now (Home) |
-| Product → Roadmap & Strategy `PRD.ROA.JAE57` | Service Offering — Five Pillars (Services) |
+| Product → Roadmap & Strategy `PRD.ROA.JAE57` | Service Offering — Eight Pillars (Services) |
 | Product → Roadmap & Strategy `PRD.ROA.SIMWZ` | The Value Flywheel (Flywheel) |
 | Product → Roadmap & Strategy `PRD.ROA.JAE58` | Delivery Principles — Judicious AI Use (Principles) |
 | Product → Roadmap & Strategy `PRD.ROA.JAE59` | Engagement Model & Open Decisions (Engagement) |
