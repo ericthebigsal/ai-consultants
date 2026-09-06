@@ -68,6 +68,20 @@ ledger row as the signature. Build spec: `PRD.SPC.4LDLE`.
 | `showcase/aplustechbros/prompts.html` | One prompt 4,240 → 680 tokens, quality held; a 6-call panel collapsed to 1 |
 | `showcase/aplustechbros/assets/aplustechbros.css` | The APlusTechBros prototype identity |
 
+**Fieldwork** — a fictional company building a survey platform that uses Claude Code across the
+SDLC to compress its requirements-to-deployed-feature cycle (~4 weeks → ~1.7, all six review
+gates kept). Business Case + SOW (Shelfmark) plus four demos. Spruce green / ochre gate markers
+/ Instrument Sans. Build spec: `PRD.SPC.5CIBG`.
+
+| Page | Content |
+|---|---|
+| `showcase/fieldwork/index.html` | Prototype landing — the four parts, illustrative-figures framing |
+| `showcase/fieldwork/cycle.html` | Each SDLC stage timed before/after Claude Code, with the drafting/deciding split |
+| `showcase/fieldwork/feature.html` | Response quotas per segment, from a one-paragraph requirement to a merged PR |
+| `showcase/fieldwork/setup.html` | The CLAUDE.md, skills, subagents, MCP servers, hooks, slash commands for the repo |
+| `showcase/fieldwork/guardrails.html` | Six human gates, TDD rule, CI checks, and what Claude Code can't touch |
+| `showcase/fieldwork/assets/fieldwork.css` | The Fieldwork prototype identity |
+
 ## Shelfmark (docs dashboard) mirror
 
 Every page on this site is mirrored into Shelfmark as a standalone reference, alongside the
@@ -105,6 +119,14 @@ design artifacts:
 | APlusTechBros → Prototype `APL.PRO.4WGPY` | Prototype — Model Routing (→ routing.html) |
 | APlusTechBros → Prototype `APL.PRO.4WGPZ` | Prototype — Eval Harness (→ evals.html) |
 | APlusTechBros → Prototype `APL.PRO.4WGQ0` | Prototype — Prompt & Call Diet (→ prompts.html) |
+| Product → Feature Specs `PRD.SPC.5CIBG` | Fieldwork POC — Build Spec |
+| Fieldwork → Business Case `FIE.BUS.5N34S` | Cycle Time Is the Constraint |
+| Fieldwork → SOW `FIE.SOW.5N34T` | Statement of Work — Claude Code in the SDLC |
+| Fieldwork → Prototype `FIE.PRO.5N34N` | Prototype — What's Included (overview) |
+| Fieldwork → Prototype `FIE.PRO.5N34O` | Prototype — The Cycle, Before & After (→ cycle.html) |
+| Fieldwork → Prototype `FIE.PRO.5N34P` | Prototype — A Feature, End to End (→ feature.html) |
+| Fieldwork → Prototype `FIE.PRO.5N34Q` | Prototype — The Claude Code Setup (→ setup.html) |
+| Fieldwork → Prototype `FIE.PRO.5N34R` | Prototype — The Guardrails (→ guardrails.html) |
 
 The GitHub Pages site is the canonical, fuller version of each; Shelfmark holds a condensed
 reference that links back to it.
