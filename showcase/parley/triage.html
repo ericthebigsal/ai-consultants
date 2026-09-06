@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Parley — Keep / Harden / Retire</title>
+<meta name="description" content="Illustrative sample: the six shipped AI features at Parley sorted against the production bar, with the reason for each verdict and what acting on it costs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/parley.css">
+</head>
+<body>
+
+<header class="pl-header">
+  <div class="pl-header-in">
+    <a class="pl-brand" href="index.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#3F5C6B"></rect><path d="M5.4 10.4 L8.6 13.6 L14.6 6.4" fill="none" stroke="#FBFCFC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Parley
+    </a>
+    <nav class="pl-nav" aria-label="Parley engagement">
+      <a href="index.html">Overview</a>
+      <a href="inventory.html">Inventory</a>
+      <a href="bar.html">The bar</a>
+      <a href="triage.html" aria-current="page">Triage</a>
+      <a href="hardened.html">Hardened</a>
+      <a href="enablement.html">Enablement</a>
+    </nav>
+    <span class="pl-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="pl-hero">
+  <p class="pl-eyebrow">Deliverable 03</p>
+  <h1>Keep, harden, retire</h1>
+  <p>
+    Every feature sorted against the <a href="bar.html">bar</a>. Keep means it clears the bar
+    or is one small fix away. Harden means the value is real but it isn't safe to depend on
+    yet. Retire means the honest answer is that it's costing more than it returns &mdash; and
+    hardening a negative-value feature just makes it an expensive negative-value feature.
+  </p>
+  <div class="pl-meta">
+    <span>2 keep · 2 harden · 2 retire</span>
+    <span>verdict proposed by AI, decided by the owning team</span>
+  </div>
+</div>
+
+<main class="pl-doc">
+
+  <section id="keep">
+    <p class="sec-label">Verdicts</p>
+    <h2>The six, sorted</h2>
+
+    <aside class="pass-note">
+      <span class="mode">Proposed</span>
+      <span class="drafted">Each verdict drafted from the feature's row in the inventory, its eval gap, and a sample of real output scored against the bar &mdash; with the reasoning written out so it could be argued.</span>
+      <span class="decided">the verdict itself. Two were debated; the owning team made the call and owns it.</span>
+    </aside>
+
+    <div class="verdict is-keep">
+      <div class="row"><h3>Ticket triage</h3><span class="stamp stamp--keep">keep</span></div>
+      <p class="why">Clears four of five rules. The gaps are the missing eval and the lack of a human gate on genuine P1s. It's two fixes from the bar, not a rebuild &mdash; and six months of agent-corrected labels are sitting there ready to become an eval set.</p>
+      <p class="cost">~1 week &mdash; build the eval from the corrected labels; add a rule that anything scored P1 goes to a human queue regardless of routing confidence.</p>
+    </div>
+
+    <div class="verdict is-keep">
+      <div class="row"><h3>Conversation summary</h3><span class="stamp stamp--keep">keep</span></div>
+      <p class="why">Internal-only, the lowest blast radius of the six, already has an owner, a recent review, logging, and a set of graded examples. The only real gap is that the graded examples don't run in CI.</p>
+      <p class="cost">~2 days &mdash; move the notebook checks into the CI eval suite and write the quality bar down as a number.</p>
+    </div>
+
+    <div class="verdict is-harden">
+      <div class="row"><h3>Suggested replies</h3><span class="stamp stamp--harden">harden</span></div>
+      <p class="why">Clears the labelling, human-gate, and ownership rules. Fails the eval rule, and logging is partial. The subtle risk: agents have come to trust it and now paste it with light edits, so a confidently wrong draft &mdash; a made-up refund window, a policy that doesn't exist &mdash; slips through under a human gate that has gone soft.</p>
+      <p class="cost">~2 weeks &mdash; an eval on factual accuracy and tone; a grounding check that flags any specific claim the sources don't support; full logging.</p>
+    </div>
+
+    <div class="verdict is-harden">
+      <div class="row"><h3>Answer bot</h3><span class="stamp stamp--harden">harden</span></div>
+      <p class="why">The only customer-facing model in the product, and it fails four of five rules. Around one answer in twelve contains a claim its sources don't support. But the deflection is real value and customers do like a fast answer &mdash; so the call is to harden it properly, not kill it. Walked all the way through on <a href="hardened.html">Hardened</a>.</p>
+      <p class="cost">~4 weeks &mdash; failure-mode catalogue, a retrofitted eval in CI, grounding + a confidence gate + a topic denylist, then a staged re-release.</p>
+    </div>
+
+    <div class="verdict is-retire">
+      <div class="row"><h3>Macro suggestions</h3><span class="stamp stamp--retire">retire</span></div>
+      <p class="why">When it was finally measured it picks the wrong macro about 15% of the time, and it adds a click even when it's right. Usage telemetry shows agents dismiss the suggestion roughly 80% of the time &mdash; they've already learned not to trust it. Hardening it would cost weeks to reach parity with the plain macro search it replaced.</p>
+      <p class="cost">~2 days &mdash; remove the suggestion slot, restore the macro-library search that predated it.</p>
+    </div>
+
+    <div class="verdict is-retire">
+      <div class="row"><h3>Sentiment flagging</h3><span class="stamp stamp--retire">retire</span></div>
+      <p class="why">No owner, no eval, and a back-test against manager-confirmed escalations shows it misses about 40% of genuinely at-risk conversations &mdash; the polite-but-furious ones &mdash; while flagging calm threads on strong language. That's worse than the keyword rule it replaced.</p>
+      <p class="cost">~1 day &mdash; disable the flag, restore the keyword rule, log the decision and the back-test so a future rebuild starts from it.</p>
+    </div>
+  </section>
+
+  <section id="retiring">
+    <p class="sec-label">The two retirements</p>
+    <h2>Retire doesn't mean rip out and walk away</h2>
+    <p class="lead">
+      Both features have a pre-AI fallback that still works. Retiring them is a small,
+      reversible change &mdash; done deliberately, not left to rot.
+    </p>
+    <ul class="chk">
+      <li><span class="tag tag--retire">fallback</span> Each retirement restores the mechanism that existed before &mdash; macro search, the keyword escalation rule. No capability actually disappears.</li>
+      <li><span class="tag tag--retire">comms</span> A one-paragraph note to each owning team: what's being turned off, why, the back-test, and what it would take to bring it back as a real project.</li>
+      <li><span class="tag tag--retire">watch</span> Agent-satisfaction and escalation metrics watched for a month after each change, so a wrong call is caught fast.</li>
+      <li><span class="tag tag--none">door open</span> Either could return &mdash; but as a scoped feature with an eval and an owner, going through the bar like anything new. Not as a revived experiment flag.</li>
+    </ul>
+    <div class="callout">
+      <strong>Why this is the hard part.</strong> The audit and the bar are mostly mechanical.
+      The judgement is in the two retire calls &mdash; saying out loud that a shipped feature
+      someone is proud of is costing more than it returns. That's why the verdict is the
+      owning team's to make, with the evidence laid out, not ours to impose.
+    </div>
+  </section>
+
+</main>
+
+<footer class="pl-footer">
+  <div class="pl-footer-in">
+    <p><strong>This is an illustrative sample, not a real engagement.</strong> Parley is a fictional company; the verdicts, failure rates, and effort estimates are invented for illustration. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

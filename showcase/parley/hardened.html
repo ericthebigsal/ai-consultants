@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Parley — The Answer Bot, Demo to Dependency</title>
+<meta name="description" content="Illustrative sample: Parley's customer-facing answer bot taken from an unevaluated hackathon feature to a hardened one — failure-mode catalogue, a retrofitted eval, guardrails, and before / after.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/parley.css">
+<style>
+  /* the catalogue and eval tables need more width than the prose column */
+  #failures, #eval { max-width: 840px; }
+  #failures .spec td:first-child { white-space: nowrap; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<header class="pl-header">
+  <div class="pl-header-in">
+    <a class="pl-brand" href="index.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#3F5C6B"></rect><path d="M5.4 10.4 L8.6 13.6 L14.6 6.4" fill="none" stroke="#FBFCFC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Parley
+    </a>
+    <nav class="pl-nav" aria-label="Parley engagement">
+      <a href="index.html">Overview</a>
+      <a href="inventory.html">Inventory</a>
+      <a href="bar.html">The bar</a>
+      <a href="triage.html">Triage</a>
+      <a href="hardened.html" aria-current="page">Hardened</a>
+      <a href="enablement.html">Enablement</a>
+    </nav>
+    <span class="pl-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="pl-hero">
+  <p class="pl-eyebrow">Worked example · the harden verdict</p>
+  <h1>The answer bot, from demo to dependency</h1>
+  <p>
+    One feature, taken all the way through hardening. The answer bot was a hackathon win that
+    reached every eligible customer without ever being evaluated. This is what it took to make
+    it safe to depend on &mdash; without losing the deflection that made it worth keeping.
+  </p>
+  <div class="pl-meta">
+    <span>~4 weeks</span>
+    <span>unsupported-claim rate 8.3% &rarr; 0.6%</span>
+    <span>deflection held</span>
+  </div>
+</div>
+
+<main class="pl-doc">
+
+  <section id="shipped">
+    <p class="sec-label">01 · As it shipped</p>
+    <h2>A demo that quietly became infrastructure</h2>
+    <p>
+      A Growth engineer built it in a hackathon: retrieve the top few help-center articles
+      for the customer's question, hand them to a model, post the answer straight into the
+      ticket before an agent sees it. It shipped behind a flag, the flag went to 100% of
+      eligible tickets in a week, and the launch dashboard showed deflection up. Nobody looked
+      closer for nine months.
+    </p>
+    <p>
+      No eval. No confidence threshold &mdash; it answered every question at any retrieval
+      quality. No topic limits, so it took billing disputes and security questions as readily
+      as &ldquo;how do I export a report.&rdquo; No way to say &ldquo;I don't know.&rdquo; And
+      no log of which help-center revision any given answer was based on.
+    </p>
+  </section>
+
+  <section id="failures">
+    <p class="sec-label">02 · The failure-mode catalogue</p>
+    <h2>What it actually did wrong</h2>
+
+    <aside class="pass-note">
+      <span class="mode">Drafted</span>
+      <span class="drafted">Pulled a sample of 400 real bot conversations, graded each answer against the cited sources, and clustered the errors into modes.</span>
+      <span class="decided">that each mode was real and worth fixing, and which one set the release blocker.</span>
+    </aside>
+
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Mode</th><th>Rate</th><th>Example</th><th>Why it happens</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Unsupported claim</td>
+          <td class="num">8.3%</td>
+          <td>&ldquo;Refunds are processed within 5 business days&rdquo; &mdash; no help article states a number</td>
+          <td>Model fills a plausible specific when the sources are silent</td>
+        </tr>
+        <tr>
+          <td>Stale answer</td>
+          <td class="num">4.1%</td>
+          <td>Cites the old SSO setup article after the flow was redesigned</td>
+          <td>Retrieval has no recency weighting; superseded articles still rank</td>
+        </tr>
+        <tr>
+          <td>Confident out-of-scope</td>
+          <td class="num">3.6%</td>
+          <td>Answers &ldquo;why was I charged twice&rdquo; with a generic billing explanation</td>
+          <td>No topic gate; a retrievable article exists for almost anything</td>
+        </tr>
+        <tr>
+          <td>No graceful &ldquo;don't know&rdquo;</td>
+          <td class="num">—</td>
+          <td>Always produces an answer, even when the top source scores 0.2 relevance</td>
+          <td>No confidence threshold; the prompt asks for an answer, not a judgement</td>
+        </tr>
+        <tr>
+          <td>Internal-macro leakage</td>
+          <td class="num">0.4%</td>
+          <td>Pastes &ldquo;[AGENT: confirm account tier before responding]&rdquo; into a reply</td>
+          <td>Some help articles embed internal notes the retriever doesn't strip</td>
+        </tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout warn">
+      <strong>The blocker.</strong> One customer-facing answer in twelve carried a claim the
+      sources didn't support. That set the release bar: the unsupported-claim rate had to
+      come under 1% before the bot went back to full traffic.
+    </div>
+  </section>
+
+  <section id="eval">
+    <p class="sec-label">03 · The eval, built after the fact</p>
+    <h2>Something to measure against before changing anything</h2>
+
+    <aside class="pass-note">
+      <span class="mode">Built</span>
+      <span class="drafted">Assembled a 150-question set from real tickets with graded reference answers, plus a held-out set of questions the bot <em>should</em> refuse. Wrote the graders: a claim-to-source checker, a refusal-appropriateness check, retrieval hit-rate.</span>
+      <span class="decided">the question mix, the pass thresholds, and what counts as an acceptable refusal.</span>
+    </aside>
+
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Check</th><th>What it measures</th><th>Bar to ship</th></tr></thead>
+      <tbody>
+        <tr><td>Unsupported-claim rate</td><td class="val">answers with a claim no cited source supports</td><td class="val">&lt; 1%</td></tr>
+        <tr><td>Appropriate refusal</td><td class="val">should-refuse questions it correctly hands off</td><td class="val">&gt; 85%</td></tr>
+        <tr><td>Answer quality</td><td class="val">graded against the reference answer, 1&ndash;5</td><td class="val">&ge; 4.0 mean</td></tr>
+        <tr><td>Retrieval hit-rate</td><td class="val">the needed article is in the top results</td><td class="val">&gt; 90%</td></tr>
+        <tr><td>Deflection (guardrail)</td><td class="val">tickets resolved without an agent</td><td class="val">down no more than 3 pts</td></tr>
+      </tbody>
+    </table></div>
+    <p>
+      The suite runs in CI on every change to the bot. A PR that drops answer quality or
+      pushes the unsupported-claim rate up fails the build, with the specific questions that
+      regressed attached.
+    </p>
+  </section>
+
+  <section id="guardrails">
+    <p class="sec-label">04 · The guardrails</p>
+    <h2>Four changes, each tied to a failure mode</h2>
+    <ul class="chk">
+      <li><span class="tag tag--keep">grounding</span> <strong>Citation required.</strong> Every factual sentence maps to a retrieved source above a relevance threshold. No supporting source, the sentence doesn't ship &mdash; kills most unsupported claims and the macro leakage.</li>
+      <li><span class="tag tag--keep">confidence</span> <strong>Confidence gate.</strong> Below a retrieval-quality threshold, the bot doesn't answer &mdash; it posts a short &ldquo;a support agent will follow up&rdquo; and routes the ticket, with the draft attached for the agent.</li>
+      <li><span class="tag tag--keep">scope</span> <strong>Topic denylist.</strong> Billing disputes, legal, security, and account cancellation skip the bot entirely and go straight to a human queue.</li>
+      <li><span class="tag tag--keep">recency</span> <strong>Freshness weighting.</strong> Retrieval down-ranks articles superseded by a newer one; the editor flow now marks the old one archived.</li>
+    </ul>
+    <div class="callout note">
+      <strong>The shape of the fix.</strong> None of this is a better model or a longer prompt.
+      It's a retrieval threshold, a routing rule, a denylist, and a recency signal &mdash;
+      boring, testable plumbing around the model, which is where the reliability was missing.
+    </div>
+  </section>
+
+  <section id="ba">
+    <p class="sec-label">05 · Before / after</p>
+    <h2>Safe to depend on, deflection intact</h2>
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="k">Unsupported-claim rate</div>
+        <div class="v"><span class="was">8.3%</span><span class="arrow">&rarr;</span>0.6%</div>
+        <div class="d good">under the 1% ship bar</div>
+      </div>
+      <div class="stat">
+        <div class="k">Appropriate refusal</div>
+        <div class="v"><span class="was">12%</span><span class="arrow">&rarr;</span>89%</div>
+        <div class="d good">out-of-scope now routed</div>
+      </div>
+      <div class="stat">
+        <div class="k">Deflection rate</div>
+        <div class="v"><span class="was">34%</span><span class="arrow">&rarr;</span>33%</div>
+        <div class="d flat">within the 3-point guardrail</div>
+      </div>
+      <div class="stat">
+        <div class="k">CSAT on bot-handled tickets</div>
+        <div class="v"><span class="was">3.9</span><span class="arrow">&rarr;</span>4.3</div>
+        <div class="d good">fewer wrong answers to be angry about</div>
+      </div>
+    </div>
+    <p>
+      Deflection dipped a single point &mdash; the questions the bot now declines are the ones
+      it was getting wrong anyway. Customers who used to get a confident wrong answer now get
+      a fast handoff, and the CSAT number moved because of it.
+    </p>
+    <p>
+      Re-release was staged: 10% of eligible tickets for a week with the eval running against
+      live samples, then 50%, then full. The rollback trigger was the unsupported-claim rate
+      crossing 1% on live traffic.
+    </p>
+  </section>
+
+  <section id="human">
+    <p class="sec-label">06 · What stayed a human call</p>
+    <h2>The decisions the bar deliberately leaves open</h2>
+    <ul>
+      <li><strong>The confidence threshold.</strong> Set jointly by Growth and Support &mdash; too high and deflection craters, too low and weak answers ship. It's a product trade-off, reviewed monthly against the eval and the deflection number.</li>
+      <li><strong>The denylist topics.</strong> Which subjects a model should never handle customer-facing is a policy question, not a modelling one. Support and Legal own the list.</li>
+      <li><strong>Whether it should be customer-facing at all.</strong> The standing question. For now the answer is yes, with the guardrails &mdash; revisited each quarter against real traffic and the incident log.</li>
+    </ul>
+    <div class="callout">
+      <strong>What Parley keeps.</strong> The eval suite and its question set, the guardrail
+      code as a reusable pattern (see <a href="enablement.html">Enablement</a>), the staged
+      re-release runbook, and a named owner on the Growth team with a monthly review on the
+      calendar.
+    </div>
+  </section>
+
+</main>
+
+<footer class="pl-footer">
+  <div class="pl-footer-in">
+    <p><strong>This is an illustrative sample, not a real engagement.</strong> Parley is a fictional company; the failure rates, eval thresholds, and before / after figures are invented to show the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

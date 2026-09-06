@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Parley — The Production Bar</title>
+<meta name="description" content="Illustrative sample: five rules for shipping AI-assisted work at Parley, folded into the existing PR review, each with a pass and a fail from the six shipped features.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/parley.css">
+</head>
+<body>
+
+<header class="pl-header">
+  <div class="pl-header-in">
+    <a class="pl-brand" href="index.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#3F5C6B"></rect><path d="M5.4 10.4 L8.6 13.6 L14.6 6.4" fill="none" stroke="#FBFCFC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Parley
+    </a>
+    <nav class="pl-nav" aria-label="Parley engagement">
+      <a href="index.html">Overview</a>
+      <a href="inventory.html">Inventory</a>
+      <a href="bar.html" aria-current="page">The bar</a>
+      <a href="triage.html">Triage</a>
+      <a href="hardened.html">Hardened</a>
+      <a href="enablement.html">Enablement</a>
+    </nav>
+    <span class="pl-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="pl-hero">
+  <p class="pl-eyebrow">Deliverable 02</p>
+  <h1>The production bar</h1>
+  <p>
+    Five rules, short enough that an engineer reads them before opening a PR. Not a new
+    process &mdash; four checkboxes added to the review Parley already runs, plus one CI
+    gate. The bar scales with blast radius: a draft an agent edits needs the first rule; a
+    model that auto-sends to a customer needs all five.
+  </p>
+  <div class="pl-meta">
+    <span>5 rules</span>
+    <span>4 review checkboxes · 1 CI gate</span>
+    <span>0 of 6 features clear it today</span>
+  </div>
+</div>
+
+<main class="pl-doc">
+
+  <section id="rules">
+    <p class="sec-label">The bar</p>
+    <h2>Five rules for shipping AI-assisted work</h2>
+
+    <aside class="pass-note">
+      <span class="mode">Drafted</span>
+      <span class="drafted">Written against the real failure patterns in the <a href="inventory.html">inventory</a> &mdash; not a generic checklist. Each rule exists because a shipped feature already broke it.</span>
+      <span class="decided">the wording, which rules are blocking vs. advisory, and the blast-radius threshold for &ldquo;needs all five.&rdquo;</span>
+    </aside>
+
+    <ul class="rules">
+      <li>
+        <div class="name">1 · Grounded or labelled</div>
+        <p class="rationale">Customer-facing factual output is either grounded in a cited source, or clearly presented as a draft or suggestion a named person owns. No unsourced assertions reaching a customer as fact.</p>
+        <div class="examples">
+          <div class="ex"><span class="stamp stamp--pass">pass</span><span><strong>Suggested replies</strong> &mdash; shown as an editable draft; the agent owns the send.</span></div>
+          <div class="ex"><span class="stamp stamp--fail">fail</span><span><strong>Answer bot</strong> &mdash; states billing and policy specifics with no citation and no &ldquo;this is automated&rdquo; framing.</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="name">2 · Evaluated before merge</div>
+        <p class="rationale">An AI feature ships with an eval suite that runs in CI, a written quality bar, and a baseline to beat. A PR that moves the metric shows the number moving.</p>
+        <div class="examples">
+          <div class="ex"><span class="stamp stamp--fail">fail</span><span><strong>Answer bot</strong> &mdash; zero eval, live to 100% of eligible tickets for nine months.</span></div>
+          <div class="ex"><span class="stamp stamp--fail">fail</span><span><strong>Macro suggestions</strong> &mdash; never measured; the &ldquo;wrong ~15% of the time&rdquo; number came out of this audit, not from monitoring.</span></div>
+        </div>
+        <p class="rationale" style="color:var(--retire)">No feature clears this rule today. It is the single biggest gap and the reason two features are being retired rather than kept.</p>
+      </li>
+      <li>
+        <div class="name">3 · Human gate on action</div>
+        <p class="rationale">Model output that sends a message, changes state a customer sees, or closes a conversation is reviewed by a person &mdash; unless its eval clears a higher bar and the feature is monitored in production.</p>
+        <div class="examples">
+          <div class="ex"><span class="stamp stamp--pass">pass</span><span><strong>Suggested replies</strong> &mdash; the agent reads and sends; the model never sends.</span></div>
+          <div class="ex"><span class="stamp stamp--fail">fail</span><span><strong>Ticket triage</strong> &mdash; silently sets priority and routing; a mis-route on a P1 outage ticket has cost real response time twice.</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="name">4 · Logged and attributable</div>
+        <p class="rationale">Every model call logs the prompt version, the model and version, the input class, and the outcome. Retained 90 days. A bad output can be traced to the exact inputs and prompt that produced it.</p>
+        <div class="examples">
+          <div class="ex"><span class="stamp stamp--pass">pass</span><span><strong>Conversation summary</strong> &mdash; logs prompt version and input class; a wrong summary is reproducible.</span></div>
+          <div class="ex"><span class="stamp stamp--fail">fail</span><span><strong>Answer bot</strong> &mdash; no record of which help-center revision it answered from, so a stale answer can't be traced.</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="name">5 · Owned</div>
+        <p class="rationale">Every AI feature has a named owner and a review cadence. The owner is who notices the day a data source changes and the outputs quietly degrade.</p>
+        <div class="examples">
+          <div class="ex"><span class="stamp stamp--pass">pass</span><span><strong>Conversation summary</strong> &mdash; named owner, reviewed two months ago.</span></div>
+          <div class="ex"><span class="stamp stamp--fail">fail</span><span><strong>Sentiment flagging</strong> &mdash; no owner; nobody noticed its false-negative rate for a year.</span></div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="foldin">
+    <p class="sec-label">How it folds in</p>
+    <h2>Four checkboxes and a gate, not a new committee</h2>
+    <p class="lead">
+      The bar is worthless as a wiki page nobody opens. It lives in the two places engineers
+      already are: the PR template and CI.
+    </p>
+    <ul class="chk">
+      <li><span class="tag tag--keep">PR</span> A short &ldquo;AI-assisted change&rdquo; block in the PR template: grounded/labelled, human gate, logging, owner &mdash; check or justify.</li>
+      <li><span class="tag tag--keep">CI</span> The eval gate: if the feature has an eval, it runs on every PR and blocks merge below the written bar. Rule 2 can't be a checkbox because it's the one people fudge.</li>
+      <li><span class="tag tag--keep">review</span> Reviewers get a one-paragraph &ldquo;what to look for in an AI change&rdquo; note &mdash; the same way they already have one for a schema migration.</li>
+      <li><span class="tag tag--none">quarterly</span> One standing review: each AI feature re-checked against a fresh sample of real traffic. Covered on <a href="enablement.html">Enablement</a>.</li>
+    </ul>
+    <div class="callout note">
+      <strong>Blast-radius scaling.</strong> A model whose output a person always edits before
+      it goes anywhere needs rule 1 and an owner. A model that auto-sends to a customer or
+      closes a ticket needs all five, no exceptions. The threshold is written down so it isn't
+      argued per PR.
+    </div>
+  </section>
+
+</main>
+
+<footer class="pl-footer">
+  <div class="pl-footer-in">
+    <p><strong>This is an illustrative sample, not a real engagement.</strong> Parley is a fictional company; the rules are written for illustration and simplified. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

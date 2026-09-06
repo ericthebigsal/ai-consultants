@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Parley — Keeping the Bar Enforced</title>
+<meta name="description" content="Illustrative sample: the CI eval gate, the review checklist, the pattern library, and the quarterly re-check that keep Parley's AI production bar in force after the engagement ends.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/parley.css">
+</head>
+<body>
+
+<header class="pl-header">
+  <div class="pl-header-in">
+    <a class="pl-brand" href="index.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#3F5C6B"></rect><path d="M5.4 10.4 L8.6 13.6 L14.6 6.4" fill="none" stroke="#FBFCFC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Parley
+    </a>
+    <nav class="pl-nav" aria-label="Parley engagement">
+      <a href="index.html">Overview</a>
+      <a href="inventory.html">Inventory</a>
+      <a href="bar.html">The bar</a>
+      <a href="triage.html">Triage</a>
+      <a href="hardened.html">Hardened</a>
+      <a href="enablement.html" aria-current="page">Enablement</a>
+    </nav>
+    <span class="pl-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="pl-hero">
+  <p class="pl-eyebrow">Deliverable 04</p>
+  <h1>Keeping the bar enforced after we leave</h1>
+  <p>
+    A production bar is a wiki page within a month unless it's wired into the tools engineers
+    already use and owned by someone inside the company. This is the machinery that keeps it
+    real: a CI gate, a review checklist, a pattern library from Parley's own code, and one
+    standing review.
+  </p>
+  <div class="pl-meta">
+    <span>1 CI gate</span>
+    <span>4 PR checkboxes</span>
+    <span>4 reusable patterns</span>
+    <span>quarterly re-check</span>
+  </div>
+</div>
+
+<main class="pl-doc">
+
+  <section id="gate">
+    <p class="sec-label">01 · The CI eval gate</p>
+    <h2>The one rule that can't be a checkbox</h2>
+    <p class="lead">
+      Grounding, logging, and ownership are things a reviewer can verify by reading a diff.
+      &ldquo;Is it actually good?&rdquo; isn't &mdash; so it runs in CI.
+    </p>
+    <ul class="chk">
+      <li><span class="tag tag--keep">shared</span> One eval harness in the monorepo. A feature registers its question set, its graders, and its written bar; the harness runs them the same way for every feature.</li>
+      <li><span class="tag tag--keep">blocking</span> On a PR that touches an AI feature, its eval runs and must clear the feature's bar. A regression fails the build with the specific cases that dropped.</li>
+      <li><span class="tag tag--keep">visible</span> The eval result posts to the PR &mdash; before and after numbers &mdash; so a reviewer sees the quality impact next to the code.</li>
+      <li><span class="tag tag--none">seeded</span> Ticket triage, conversation summary, and the answer bot ship with their eval sets from this engagement. Suggested replies gets one during its harden.</li>
+    </ul>
+  </section>
+
+  <section id="checklist">
+    <p class="sec-label">02 · The review checklist</p>
+    <h2>Four lines in the PR template</h2>
+
+    <aside class="pass-note">
+      <span class="mode">Drafted</span>
+      <span class="drafted">Written as the shortest checklist that covers the four non-eval rules, in the language of Parley's existing PR template &mdash; which already has blocks for schema changes and feature flags.</span>
+      <span class="decided">which lines block a merge and which are advisory, and who the default reviewer is for an AI change.</span>
+    </aside>
+
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Checkbox</th><th>What the reviewer checks</th></tr></thead>
+      <tbody>
+        <tr><td>Grounded or labelled</td><td class="val">customer-facing claims cite a source, or output is a person-owned draft</td></tr>
+        <tr><td>Human gate</td><td class="val">nothing auto-sends or changes customer-visible state without a person or a passing eval</td></tr>
+        <tr><td>Logged</td><td class="val">prompt version, model, input class, and outcome are logged</td></tr>
+        <tr><td>Owner + cadence</td><td class="val">the feature has a named owner and a review interval on the calendar</td></tr>
+      </tbody>
+    </table></div>
+    <p>
+      Reviewers also get a one-paragraph &ldquo;what to look for in an AI change&rdquo; note in
+      the contributing guide &mdash; the same treatment schema migrations already have.
+    </p>
+  </section>
+
+  <section id="patterns">
+    <p class="sec-label">03 · The pattern library</p>
+    <h2>The guardrails, extracted from Parley's own code</h2>
+    <p class="lead">
+      The answer-bot hardening produced reusable pieces. They're pulled out as documented
+      patterns so the next feature doesn't reinvent them &mdash; built on Parley's stack, not
+      a generic sample.
+    </p>
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Pattern</th><th>What it gives you</th><th>From</th></tr></thead>
+      <tbody>
+        <tr><td>Grounding check</td><td class="val">flags any output sentence with no supporting retrieved source</td><td class="val">answer bot</td></tr>
+        <tr><td>Confidence gate</td><td class="val">a threshold below which the feature hands off instead of answering</td><td class="val">answer bot</td></tr>
+        <tr><td>Refusal handling</td><td class="val">a topic denylist and a graceful &ldquo;a person will follow up&rdquo; path</td><td class="val">answer bot</td></tr>
+        <tr><td>Call logging wrapper</td><td class="val">one wrapper that logs prompt version, model, input class, outcome</td><td class="val">conversation summary</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="training">
+    <p class="sec-label">04 · The half-day</p>
+    <h2>Trained on their codebase, not a course</h2>
+    <p>
+      One half-day session with the three teams that own AI features. The material is Parley's
+      own: the six features as worked case studies, the bar with its real pass/fail examples,
+      and the pattern library live in the repo. Engineers leave having run the eval harness
+      against a feature and added a guardrail to it, not having watched slides about prompt
+      engineering.
+    </p>
+    <div class="callout note">
+      <strong>The honest scope.</strong> The session doesn't make anyone an ML engineer. It
+      makes the people already shipping AI features able to tell a demo from a dependency, and
+      gives them the checklist and the tools to close the gap.
+    </div>
+  </section>
+
+  <section id="quarterly">
+    <p class="sec-label">05 · The quarterly re-check</p>
+    <h2>Because the inputs move even when the code doesn't</h2>
+    <p class="lead">
+      The most common way an AI feature degrades is that a data source changed and no one
+      re-ran anything. One standing review catches it.
+    </p>
+    <ul class="chk">
+      <li><span class="tag tag--keep">sample</span> Each live AI feature is re-scored against a fresh sample of real production traffic, using its own eval graders.</li>
+      <li><span class="tag tag--keep">diff</span> The result is diffed against last quarter. A drop opens a ticket to the named owner with the regressed cases attached.</li>
+      <li><span class="tag tag--keep">register</span> Any new AI feature since last quarter is added to the <a href="inventory.html">inventory</a> and checked against the bar.</li>
+      <li><span class="tag tag--none">owner</span> One named person at Parley runs the review. It's on the platform team's calendar, half a day a quarter.</li>
+    </ul>
+  </section>
+
+  <section id="handover">
+    <p class="sec-label">What we hand over</p>
+    <h2>The whole kit</h2>
+    <div class="callout">
+      <strong>Delivered.</strong> The <a href="inventory.html">inventory</a> wired to the
+      codebase scan; the <a href="bar.html">production bar</a> in the PR template and
+      contributing guide; the CI eval harness with three features seeded; the
+      <a href="triage.html">triage</a> with every verdict and its reasoning; the
+      <a href="hardened.html">answer-bot hardening</a> shipped and its runbook; the pattern
+      library; and the quarterly re-check on the calendar with a named owner. Then we leave.
+    </div>
+    <div class="callout note">
+      <strong>How you know it held.</strong> Six months on, a new AI feature goes through the
+      same review as any other change &mdash; no special exception, no special fear &mdash;
+      and the quarterly re-check has caught at least one drift before a customer did.
+    </div>
+  </section>
+
+</main>
+
+<footer class="pl-footer">
+  <div class="pl-footer-in">
+    <p><strong>This is an illustrative sample, not a real engagement.</strong> Parley is a fictional company; the deliverables and figures are invented to show the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em> to show how a playground-to-production engagement leaves a team able to run the bar itself. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

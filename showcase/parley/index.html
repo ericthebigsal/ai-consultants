@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Parley — From Playground to Production</title>
+<meta name="description" content="An illustrative sample: six AI features shipped into the fictional support platform Parley by three teams with no shared standard — audited, held to a production bar, and sorted keep / harden / retire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/parley.css">
+</head>
+<body>
+
+<header class="pl-header">
+  <div class="pl-header-in">
+    <a class="pl-brand" href="index.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#3F5C6B"></rect><path d="M5.4 10.4 L8.6 13.6 L14.6 6.4" fill="none" stroke="#FBFCFC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Parley
+    </a>
+    <nav class="pl-nav" aria-label="Parley engagement">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="inventory.html">Inventory</a>
+      <a href="bar.html">The bar</a>
+      <a href="triage.html">Triage</a>
+      <a href="hardened.html">Hardened</a>
+      <a href="enablement.html">Enablement</a>
+    </nav>
+    <span class="pl-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="pl-hero">
+  <p class="pl-eyebrow">Pillar 02 · From playground to production</p>
+  <h1>Six AI features shipped. Two are good, one is a liability, and nobody could say which was which.</h1>
+  <p>
+    Three teams at Parley added AI to the product over eighteen months, each to its own
+    standard or none. This engagement puts a production bar in writing, holds every feature
+    to it, and sorts the six into keep, harden, and retire &mdash; then hardens one all the
+    way, to show what the verdict actually costs.
+  </p>
+  <div class="pl-meta">
+    <span>6 features · 3 teams</span>
+    <span>0 evaluated in CI</span>
+    <span>2 keep · 2 harden · 2 retire</span>
+    <span>same review bar as any code</span>
+  </div>
+</div>
+
+<main class="pl-doc">
+
+  <section id="situation">
+    <p class="sec-label">The situation, in the client's words</p>
+    <div class="callout">
+      <p style="margin:0;font-style:italic;color:var(--ink-soft)">
+        &ldquo;Half our engineers are already using AI, and half our roadmap now has AI in it.
+        Some of it&rsquo;s great. Some of it I&rsquo;m pretty sure is a liability. The problem
+        is I can&rsquo;t tell you which is which, and neither can the people who built it.&rdquo;
+      </p>
+      <p style="margin-top:10px;font-family:var(--f-mono);font-size:12px;color:var(--mute)">&mdash; VP Engineering, Parley</p>
+    </div>
+  </section>
+
+  <section id="features">
+    <p class="sec-label">What's running</p>
+    <h2>The six AI features</h2>
+    <p class="lead">
+      Every place a model reaches a customer or changes a decision, and where the output goes
+      once the model produces it.
+    </p>
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Feature</th><th>Team</th><th>Output goes</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr class="is-keep"><td>Ticket triage &mdash; category, priority, queue routing</td><td class="val">Support Platform</td><td class="val">changes ticket state</td><td><span class="tag tag--keep">keep</span></td></tr>
+        <tr class="is-harden"><td>Suggested replies &mdash; drafts a response for the agent</td><td class="val">Support Platform</td><td class="val">agent-edited draft</td><td><span class="tag tag--harden">harden</span></td></tr>
+        <tr class="is-retire"><td>Macro suggestions &mdash; recommends a saved reply</td><td class="val">Support Platform</td><td class="val">one-click insert</td><td><span class="tag tag--retire">retire</span></td></tr>
+        <tr class="is-harden"><td>Answer bot &mdash; answers the customer from the help center</td><td class="val">Growth</td><td class="val">customer-facing, no human</td><td><span class="tag tag--harden">harden</span></td></tr>
+        <tr class="is-keep"><td>Conversation summary &mdash; TL;DR on long tickets &amp; handoffs</td><td class="val">Agent Experience</td><td class="val">internal only</td><td><span class="tag tag--keep">keep</span></td></tr>
+        <tr class="is-retire"><td>Sentiment flagging &mdash; marks at-risk conversations</td><td class="val">Agent Experience</td><td class="val">internal signal</td><td><span class="tag tag--retire">retire</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="deliverables">
+    <p class="sec-label">What the engagement produces</p>
+    <h2>Four deliverables, and one hardening worked end to end</h2>
+    <div class="pl-cards">
+      <a class="pl-card" href="inventory.html">
+        <span class="eyebrow">Deliverable 01</span>
+        <span class="title">The inventory</span>
+        <span class="body">Every AI surface, where its output lands, whether it has an eval, whether a human is in the loop, when it was last reviewed.</span>
+      </a>
+      <a class="pl-card" href="bar.html">
+        <span class="eyebrow">Deliverable 02</span>
+        <span class="title">The production bar</span>
+        <span class="body">Five rules for shipping AI-assisted work, folded into Parley's existing PR review, each with a pass and a fail from the six.</span>
+      </a>
+      <a class="pl-card" href="triage.html">
+        <span class="eyebrow">Deliverable 03</span>
+        <span class="title">Keep / harden / retire</span>
+        <span class="body">Every feature sorted against the bar, with the reason and what acting on the verdict costs.</span>
+      </a>
+      <a class="pl-card" href="enablement.html">
+        <span class="eyebrow">Deliverable 04</span>
+        <span class="title">The enablement kit</span>
+        <span class="body">The CI eval gate, the review checklist in the PR template, a pattern library from Parley's own code, the quarterly re-check.</span>
+      </a>
+      <a class="pl-card" href="hardened.html">
+        <span class="eyebrow">Worked example</span>
+        <span class="title">The answer bot, demo to dependency</span>
+        <span class="body">The riskiest feature taken all the way through hardening — failure-mode catalogue, a retrofitted eval, guardrails, before / after.</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="read">
+    <p class="sec-label">How to read this</p>
+    <h2>What's illustrative</h2>
+    <p>
+      Parley is a fictional company. The six features, the failure rates, the verdicts, the
+      eval numbers, and the before / after figures are invented to show the <em>shape</em> of
+      a playground-to-production engagement &mdash; what an audit surfaces, what a production
+      bar contains, how features get sorted against it, and what hardening one actually
+      involves. Where a page shows model output, it is pre-generated for fixed inputs and
+      marked as such. Nothing here calls a model.
+    </p>
+    <div class="callout note">
+      <strong>The line this engagement holds.</strong> Nothing here is anti-AI. The point is
+      that an AI-assisted feature earns the same trust as any other code the same way &mdash;
+      a written bar, an eval, a review, an owner &mdash; not a special exception and not a
+      special fear.
+    </div>
+  </section>
+
+</main>
+
+<footer class="pl-footer">
+  <div class="pl-footer-in">
+    <p><strong>This is an illustrative sample, not a real engagement.</strong> Parley is a fictional company; the AI features, the failure rates, the verdicts, and every figure are invented to show the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em> to show how we take a pile of shipped AI features to a production bar. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Parley — The AI Inventory</title>
+<meta name="description" content="Illustrative sample: every place AI reaches a customer or a decision in the Parley product, with whether it has an eval, a human in the loop, and an owner.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/parley.css">
+<style>
+  /* the register is a wide table — give this section room to breathe */
+  #register { max-width: 840px; }
+  #register .spec td:first-child { font-weight: 500; white-space: nowrap; }
+  #register .spec .owner { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<header class="pl-header">
+  <div class="pl-header-in">
+    <a class="pl-brand" href="index.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#3F5C6B"></rect><path d="M5.4 10.4 L8.6 13.6 L14.6 6.4" fill="none" stroke="#FBFCFC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Parley
+    </a>
+    <nav class="pl-nav" aria-label="Parley engagement">
+      <a href="index.html">Overview</a>
+      <a href="inventory.html" aria-current="page">Inventory</a>
+      <a href="bar.html">The bar</a>
+      <a href="triage.html">Triage</a>
+      <a href="hardened.html">Hardened</a>
+      <a href="enablement.html">Enablement</a>
+    </nav>
+    <span class="pl-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="pl-hero">
+  <p class="pl-eyebrow">Deliverable 01</p>
+  <h1>Where AI reaches a customer or a decision</h1>
+  <p>
+    You can't hold anything to a bar until you can see everything the bar applies to. The
+    first week is an inventory: every model call in the product, what it does, where its
+    output goes, and the four things that decide whether it's safe to depend on.
+  </p>
+  <div class="pl-meta">
+    <span>6 features found</span>
+    <span>1 undocumented before this pass</span>
+    <span>0 with a CI eval</span>
+    <span>2 with no named owner</span>
+  </div>
+</div>
+
+<main class="pl-doc">
+
+  <section id="register">
+    <p class="sec-label">The register</p>
+    <h2>Every AI surface in the product</h2>
+
+    <aside class="pass-note">
+      <span class="mode">Assembled</span>
+      <span class="drafted">Built from a grep of the codebase for model-client calls, the feature-flag list, and a month of gateway logs &mdash; which surfaced the sentiment flag, running on a Growth experiment flag nobody had written down.</span>
+      <span class="decided">that the list was complete, and which two features had no real owner.</span>
+    </aside>
+
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Feature</th><th>Output goes</th><th>Eval</th><th>Human in loop</th><th>Owner</th><th>Last reviewed</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Ticket triage</td>
+          <td class="val">auto, changes state</td>
+          <td><span class="tag tag--none">none</span></td>
+          <td><span class="tag tag--no">no</span></td>
+          <td class="owner">Support Platform</td>
+          <td class="val">4 mo ago</td>
+        </tr>
+        <tr>
+          <td>Suggested replies</td>
+          <td class="val">draft, agent sends</td>
+          <td><span class="tag tag--none">none</span></td>
+          <td><span class="tag tag--yes">yes</span></td>
+          <td class="owner">Support Platform</td>
+          <td class="val">6 mo ago</td>
+        </tr>
+        <tr>
+          <td>Macro suggestions</td>
+          <td class="val">one-click insert</td>
+          <td><span class="tag tag--none">none</span></td>
+          <td><span class="tag tag--yes">yes</span></td>
+          <td class="owner">Support Platform</td>
+          <td class="val">11 mo ago</td>
+        </tr>
+        <tr>
+          <td>Answer bot</td>
+          <td class="val">customer-facing, auto</td>
+          <td><span class="tag tag--none">none</span></td>
+          <td><span class="tag tag--no">no</span></td>
+          <td class="owner">Growth</td>
+          <td class="val">never</td>
+        </tr>
+        <tr>
+          <td>Conversation summary</td>
+          <td class="val">internal only</td>
+          <td><span class="tag tag--harden">partial</span></td>
+          <td><span class="tag tag--none">n/a</span></td>
+          <td class="owner">Agent Experience</td>
+          <td class="val">2 mo ago</td>
+        </tr>
+        <tr>
+          <td>Sentiment flagging</td>
+          <td class="val">internal signal</td>
+          <td><span class="tag tag--none">none</span></td>
+          <td><span class="tag tag--no">no</span></td>
+          <td class="owner">&mdash; none</td>
+          <td class="val">never</td>
+        </tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:13.5px;color:var(--mute);margin-top:12px">
+      What each feature does is on the <a href="index.html#features">overview</a>. This table is
+      the four things that decide whether it's safe to depend on &mdash; and every feature is
+      missing at least two.
+    </p>
+
+    <div class="callout warn">
+      <strong>The one that mattered.</strong> The answer bot has been live to 100% of eligible
+      tickets for nine months, is the only customer-facing model in the product, and has never
+      been reviewed or evaluated. It went from a hackathon demo to a dependency without anyone
+      deciding it should.
+    </div>
+  </section>
+
+  <section id="columns">
+    <p class="sec-label">Why these four columns</p>
+    <h2>What actually predicts trouble</h2>
+    <p class="lead">
+      Not model choice or prompt length &mdash; those are downstream. Four things predict
+      whether an AI feature is safe to depend on, and every one of the six is missing at least
+      two.
+    </p>
+    <ul>
+      <li><strong>Where the output goes.</strong> A draft an agent edits is low-stakes. Something auto-sent to a customer, or that changes state they see, is not. The bar scales with this.</li>
+      <li><strong>Does it have an eval.</strong> Without one, &ldquo;is it good?&rdquo; is answered by whoever looked last and how they felt about it. Five of six have nothing; the sixth has an ad-hoc notebook that doesn't run in CI.</li>
+      <li><strong>Is a human in the loop.</strong> Not as a permanent crutch &mdash; as the thing you can remove later, deliberately, once the eval earns it.</li>
+      <li><strong>Who owns it.</strong> Two features have no name attached. An AI feature with no owner has no one to catch the day its help-center source changes and its answers quietly go stale.</li>
+    </ul>
+    <div class="callout">
+      <strong>What this unlocks.</strong> The inventory is what makes the next step possible:
+      a <a href="bar.html">production bar</a> written against real gaps, not a generic
+      checklist, and a <a href="triage.html">verdict</a> on each feature that the owning team
+      can actually defend.
+    </div>
+  </section>
+
+</main>
+
+<footer class="pl-footer">
+  <div class="pl-footer-in">
+    <p><strong>This is an illustrative sample, not a real engagement.</strong> Parley is a fictional company; the AI features, the review dates, and every figure are invented to show the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
