@@ -28,8 +28,12 @@ every page, each with its own visual identity (distinct from the internal-draft 
 `showcase/index.html` is the portfolio landing that ties the two engagements together (AI
 Consultants identity, no draft banner).
 
-**Northwind Analytics** — a fictional data-analytics SaaS; how we'd use AI on a design + ops
-engagement. Petrol / chalk / Bricolage Grotesque.
+**Northwind Analytics** — a fictional data-analytics SaaS whose design layer accreted across
+teams and whose AI adoption ran ahead of governance and cost control. A design + AI-ops
+engagement in two workstreams: systematize the design system, then bring governance (Pillar 07)
+and vendor spend (Pillar 04) under control. A Business Case + SOW (Shelfmark) plus the 6-page
+prototype. Petrol / chalk / Bricolage Grotesque; "AI pass / Human kept" margin notes. Build
+spec: `PRD.SPC.FZ0N8`.
 
 | Page | Content |
 |---|---|
@@ -119,11 +123,16 @@ design artifacts:
 | Product → Feature Specs `PRD.SPC.GNB86` | Consultancy Site — Design Spec |
 | Engineering → Architecture `ENG.ARC.J3JXC` | Delivery Framework — Core Skills Loop (Framework) |
 | Engineering → API Reference `ENG.API.JAE5B` | Web Search APIs for MCP (resources/) |
-| Design → Design System `DSN.SYS.I5706` | AI-Augmented Design Systems (→ showcase/design-system.html) |
-| Design → Brand Guidelines `DSN.BRD.I5707` | AI-Augmented Brand Guidelines (→ showcase/brand-guidelines.html) |
-| Design → Process `DSN.PRC.I5708` | The AI-Augmented Design Process (→ showcase/process.html) |
-| Operations → Security & Compliance `OPS.SEC.K5L9H` | AI-Augmented Security & Compliance (→ showcase/security.html) |
-| Operations → Vendor Management `OPS.VEN.K5L9I` | AI-Augmented Vendor Management (→ showcase/vendors.html) |
+| Product → Feature Specs `PRD.SPC.FZ0N8` | Northwind Analytics POC — Build Spec |
+| Northwind Analytics → Business Case `NWA.BUS.FZ1F0` | Two Kinds of Drift, One Fix |
+| Northwind Analytics → SOW `NWA.SOW.FZ26S` | Statement of Work — Design & AI Operations |
+| Northwind Analytics → Prototype `NWA.PRO.FZ2YK` | Prototype — What's Included (overview) |
+| Northwind Analytics → Prototype `NWA.PRO.I5706` | Prototype — The Design System (→ design-system.html) |
+| Northwind Analytics → Prototype `NWA.PRO.I5707` | Prototype — The Brand Guide (→ brand-guidelines.html) |
+| Northwind Analytics → Prototype `NWA.PRO.I5708` | Prototype — The Design Process (→ process.html) |
+| Northwind Analytics → Prototype `NWA.PRO.K5L9H` | Prototype — AI Governance & Controls (→ security.html) |
+| Northwind Analytics → Prototype `NWA.PRO.K5L9I` | Prototype — The AI Vendor Register (→ vendors.html) |
+| Northwind Analytics → Prototype `NWA.PRO.FZ3QC` | Prototype — The Executed Migration (→ migration.html) |
 | Product → Feature Specs `PRD.SPC.0HDIM` | Chateau Salerno POC — Build Spec |
 | Chateau Salerno → Business Case `CHA.BUS.1HBXH` | The Case for AI Modernization |
 | Chateau Salerno → SOW `CHA.SOW.1HBXI` | Statement of Work — AI Capability Program |
