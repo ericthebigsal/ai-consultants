@@ -13,6 +13,10 @@
 <link rel="stylesheet" href="../assets/styles.css">
 <style>
   .site-nav a[aria-current="page"] { color: var(--accent-ink); background: var(--accent-soft); }
+  /* sections carry 5 or 6 cards — a 3-track grid keeps every row full */
+  .card-grid { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 900px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .card-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body data-active="none">
@@ -77,6 +81,11 @@
         <span class="card-title">AI vendors</span>
         <span class="card-body">A vendor register with keep/consolidate/exit calls, a workload-based scorecard, and exit readiness.</span>
       </a>
+      <a class="card" href="migration.html">
+        <span class="card-eyebrow">Operations</span>
+        <span class="card-title">The migration</span>
+        <span class="card-body">Three teams taken off two vendors and onto the golden provider, workflow by workflow, with both accounts decommissioned.</span>
+      </a>
     </div>
   </div>
 </section>
@@ -86,13 +95,20 @@
     <div class="sec-head"><span class="sec-num">02</span><h2>Chateau Salerno</h2></div>
     <p class="lede prose">
       A fictional winery-commerce SaaS &mdash; a marketing platform for small wineries &mdash;
-      that wants to add AI capabilities and modernize. A full pitch package: a
+      that wants to add AI capabilities and modernize. The engagement runs Pillar 01 through
+      05, end to end: an orientation diagnostic maps twelve candidate AI applications and
+      ranks four, then a
       <a href="https://claude.ai/code/artifact/99194861-1d96-4c87-ac9f-63c5c23b1829">business
-      case and a statement of work</a> in the docs catalog, plus four clickable capability
-      prototypes built around a sample winery, Kestrel Ridge Vineyards. Its own identity:
-      bordeaux, parchment, Newsreader.
+      case and statement of work</a> argue and sequence the build, then four clickable
+      capability prototypes show the result &mdash; all around a sample winery, Kestrel Ridge
+      Vineyards. Its own identity: bordeaux, parchment, Newsreader.
     </p>
     <div class="card-grid">
+      <a class="card" href="chateau-salerno/opportunities.html">
+        <span class="card-eyebrow">Pillar 01</span>
+        <span class="card-title">Opportunity map</span>
+        <span class="card-body">Twelve candidate AI applications scored on effort, risk, and customer value; four ranked in, seven cut, with the recommended first move.</span>
+      </a>
       <a class="card" href="chateau-salerno/index.html">
         <span class="card-eyebrow">Overview</span>
         <span class="card-title">The prototype</span>

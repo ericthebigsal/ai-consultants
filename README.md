@@ -42,13 +42,16 @@ engagement. Petrol / chalk / Bricolage Grotesque.
 | `showcase/assets/northwind.css` | The Northwind design system (the demos are the system in use) |
 
 **Chateau Salerno** — a fictional winery-commerce SaaS (marketing platform for small wineries),
-modeled on a Commerce7-class product. A pitch package: Business Case + SOW (Shelfmark) plus four
-clickable capability prototypes built around a sample winery, Kestrel Ridge Vineyards. Bordeaux /
-parchment / Newsreader. Build spec: `PRD.SPC.0HDIM`; plan: `docs/plans/2026-09-05-chateau-salerno-poc.md`.
+modeled on a Commerce7-class product. A Pillar 01 → 05 engagement, end to end: an opportunity
+map scores twelve candidate AI applications and ranks four, then a Business Case + SOW (Shelfmark)
+argue and sequence the build, then four clickable capability prototypes show the result — all
+around a sample winery, Kestrel Ridge Vineyards. Bordeaux / parchment / Newsreader. Build spec:
+`PRD.SPC.0HDIM`; plan: `docs/plans/2026-09-05-chateau-salerno-poc.md`.
 
 | Page | Content |
 |---|---|
-| `showcase/chateau-salerno/index.html` | Prototype landing — the four capabilities, what's real vs. pre-generated |
+| `showcase/chateau-salerno/opportunities.html` | The Pillar 01 opportunity map — 12 candidates scored on effort/risk/customer value, 4 ranked in, 7 cut, the recommended first move |
+| `showcase/chateau-salerno/index.html` | Engagement overview — where the four came from, what's real vs. pre-generated |
 | `showcase/chateau-salerno/segments.html` | Plain-English audience → resolved, editable segment (filter tree, count, sample) |
 | `showcase/chateau-salerno/journeys.html` | A goal → a 5-step email + SMS journey with branch logic, copy in the winery's voice |
 | `showcase/chateau-salerno/retention.html` | Club members scored on churn risk + predicted value, with per-member factor breakdown |
@@ -107,6 +110,7 @@ design artifacts:
 | Product → Feature Specs `PRD.SPC.0HDIM` | Chateau Salerno POC — Build Spec |
 | Chateau Salerno → Business Case `CHA.BUS.1HBXH` | The Case for AI Modernization |
 | Chateau Salerno → SOW `CHA.SOW.1HBXI` | Statement of Work — AI Capability Program |
+| Chateau Salerno → Prototype `CHA.PRO.6EGGM` | Prototype — Opportunity Map (→ opportunities.html) |
 | Chateau Salerno → Prototype `CHA.PRO.1EYKH` | Prototype — What's Included (overview) |
 | Chateau Salerno → Prototype `CHA.PRO.1EYKI` | Prototype — Natural-Language Segments (→ segments.html) |
 | Chateau Salerno → Prototype `CHA.PRO.1EYKJ` | Prototype — Campaign & Journey Drafting (→ journeys.html) |

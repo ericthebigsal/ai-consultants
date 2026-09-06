@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Chateau Salerno — AI opportunity map</title>
+<meta name="description" content="Illustrative sample: where AI would actually help the Chateau Salerno platform — candidates scored on effort, risk, and customer value, ranked, with a recommended first move.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/chateau-salerno.css">
+</head>
+<body>
+
+<header class="cs-header">
+  <div class="cs-header-in">
+    <a class="cs-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="11" r="5.5" fill="#5B2233"></circle><path d="M9 5.5 C9 3 10.5 1.5 12.5 1.5" stroke="#4F6B47" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg>
+      Chateau&nbsp;Salerno
+    </a>
+    <nav class="cs-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="opportunities.html" aria-current="page">Opportunity map</a>
+      <a href="segments.html">Segments</a>
+      <a href="journeys.html">Journeys</a>
+      <a href="retention.html">Retention</a>
+      <a href="copy.html">Copy</a>
+    </nav>
+    <span class="cs-sample-tag">Illustrative prototype</span>
+  </div>
+</header>
+
+<div class="cs-hero">
+  <p class="cs-eyebrow">Orientation &mdash; the starting point</p>
+  <h1>Where would AI actually help this platform?</h1>
+  <p>
+    Before anyone built anything, this was the question. We interviewed across product,
+    engineering, support, and customer success, looked at how wineries actually use the
+    platform, and scored every candidate against effort, risk, and customer value. Four made
+    the cut. This is the map, and the reasoning &mdash; including what didn&rsquo;t make it.
+  </p>
+  <div class="cs-meta">
+    <span>12 candidates considered</span>
+    <span>4 recommended · 1 sequenced later · 7 out</span>
+    <span>~1.5-week engagement</span>
+  </div>
+</div>
+
+<main class="cs-main">
+
+  <section id="how">
+    <p class="sec-label">01 · How we looked</p>
+    <h2>The method</h2>
+    <p class="lead">
+      A short diagnostic, not a build. The point is a ranked list the leadership team can
+      defend without us in the room &mdash; not a technology survey.
+    </p>
+    <ul>
+      <li><strong>Interviews.</strong> Product, engineering, support, and customer success &mdash; where does the platform already lose customers time to repetitive, well-understood work?</li>
+      <li><strong>Usage data.</strong> Which features are underused because the interface is hard, which support tickets repeat, where wineries drop off.</li>
+      <li><strong>Scoring.</strong> Each candidate against three axes &mdash; not against what&rsquo;s technically impressive.</li>
+    </ul>
+    <div class="cs-panel">
+      <p class="panel-label">The three axes</p>
+      <div class="reg-wrap"><table class="reg">
+        <tbody>
+          <tr><th>Effort</th><td>Rough build weeks, including the platform work the capability forces (API, data model, evals).</td></tr>
+          <tr><th>Risk</th><td>What can go wrong, and how bad &mdash; a wrong answer to a customer, a quality regression, a data-handling issue.</td></tr>
+          <tr><th>Customer value</th><td>Effect on winery retention, revenue per winery, and whether it&rsquo;s a reason someone chooses Chateau Salerno over a competitor.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section id="candidates">
+    <p class="sec-label">02 · The candidates</p>
+    <h2>Everything we scored</h2>
+    <div class="reg-wrap"><table class="reg wide">
+      <thead><tr><th>Candidate</th><th>Effort</th><th>Risk</th><th>Customer value</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Natural-language segmentation</td><td class="risk-lo">Low&ndash;Med</td><td class="risk-lo">Low</td><td class="risk-hi">High</td><td><span class="cs-tag cs-tag--vine">In &mdash; #1</span></td></tr>
+        <tr><td>Churn &amp; LTV prediction (club members)</td><td class="risk-md">Med&ndash;High</td><td class="risk-md">Med</td><td class="risk-hi">High</td><td><span class="cs-tag cs-tag--vine">In &mdash; #2</span></td></tr>
+        <tr><td>Campaign &amp; journey drafting</td><td class="risk-md">Med</td><td class="risk-md">Med</td><td class="risk-hi">High</td><td><span class="cs-tag cs-tag--vine">In &mdash; #3</span></td></tr>
+        <tr><td>Tasting-note &amp; product copy</td><td class="risk-lo">Low</td><td class="risk-lo">Low</td><td class="risk-md">Med</td><td><span class="cs-tag cs-tag--vine">In &mdash; #4</span></td></tr>
+        <tr><td>Predictive allocation planning</td><td class="risk-md">Med&ndash;High</td><td class="risk-md">Med</td><td class="risk-md">Med&ndash;High</td><td><span class="cs-tag cs-tag--brass">Later</span></td></tr>
+        <tr><td>Storefront product recommendations</td><td class="risk-md">Med</td><td class="risk-lo">Low</td><td class="risk-md">Med</td><td><span class="cs-tag cs-tag--mute">Out</span></td></tr>
+        <tr><td>Support chatbot for winery operators</td><td class="risk-md">Med</td><td class="risk-md">Med</td><td class="risk-md">Med</td><td><span class="cs-tag cs-tag--mute">Out</span></td></tr>
+        <tr><td>Post-purchase feedback / NPS analysis</td><td class="risk-md">Med</td><td class="risk-lo">Low</td><td class="risk-lo">Low&ndash;Med</td><td><span class="cs-tag cs-tag--mute">Out</span></td></tr>
+        <tr><td>Send-time optimization</td><td class="risk-lo">Low&ndash;Med</td><td class="risk-lo">Low</td><td class="risk-lo">Low</td><td><span class="cs-tag cs-tag--mute">Out</span></td></tr>
+        <tr><td>Fraud / bad-actor detection on signups &amp; orders</td><td class="risk-hi">High</td><td class="risk-hi">High</td><td class="risk-md">Med</td><td><span class="cs-tag cs-tag--mute">Out</span></td></tr>
+        <tr><td>Media-library auto-tagging &amp; alt text</td><td class="risk-lo">Low</td><td class="risk-lo">Low</td><td class="risk-lo">Low</td><td><span class="cs-tag cs-tag--mute">Out</span></td></tr>
+        <tr><td>AI questionnaire builder (feedback module)</td><td class="risk-md">Med</td><td class="risk-lo">Low</td><td class="risk-lo">Low&ndash;Med</td><td><span class="cs-tag cs-tag--mute">Out</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="in">
+    <p class="sec-label">03 · What made the cut</p>
+    <h2>The four, ranked &mdash; with the case for each</h2>
+    <p class="lead">Each one: what it costs to try, what it&rsquo;s worth if it works, and how you&rsquo;d know within weeks &mdash; not quarters.</p>
+
+    <div class="cs-panel">
+      <p class="panel-label">#1 &mdash; Natural-language segmentation</p>
+      <p style="margin:0"><strong>Cost to try:</strong> ~3 weeks, on the segment engine that already exists.
+      <strong>Worth if it works:</strong> fewer &ldquo;how do I build this segment&rdquo; support tickets, more wineries reaching the full power of the engine, and a live differentiator in sales demos.
+      <strong>How you&rsquo;d know in 6 weeks:</strong> ship it behind a flag to 5 pilot wineries &mdash; segments created per week up, segmentation support tickets down, and 3 of the 5 say they&rsquo;d miss it.</p>
+      <p style="margin-top:8px"><a class="cs-btn cs-btn--ghost cs-btn--sm" href="segments.html">See the prototype</a></p>
+    </div>
+
+    <div class="cs-panel">
+      <p class="panel-label">#2 &mdash; Churn &amp; LTV prediction</p>
+      <p style="margin:0"><strong>Cost to try:</strong> ~5 weeks &mdash; a scoring pipeline on club history plus a factor-attribution layer.
+      <strong>Worth if it works:</strong> wineries retain club members they would have lost, their success on the platform improves, and Chateau Salerno&rsquo;s own churn drops. The clearest measurable return of the four.
+      <strong>How you&rsquo;d know:</strong> run it silently for a quarter, compare predicted vs. actual cancels; then a pilot win-back journey with a holdout group.</p>
+      <p style="margin-top:8px"><a class="cs-btn cs-btn--ghost cs-btn--sm" href="retention.html">See the prototype</a></p>
+    </div>
+
+    <div class="cs-panel">
+      <p class="panel-label">#3 &mdash; Campaign &amp; journey drafting</p>
+      <p style="margin:0"><strong>Cost to try:</strong> ~4 weeks &mdash; a journey-definition API and a voice model built from the winery&rsquo;s past sends.
+      <strong>Worth if it works:</strong> one-person winery marketing teams ship the multi-step journeys only larger wineries manage today, driving more DTC revenue and making the platform stickier.
+      <strong>How you&rsquo;d know:</strong> journeys published per winery up; the drafted-then-actually-shipped rate.</p>
+      <p style="margin-top:8px"><a class="cs-btn cs-btn--ghost cs-btn--sm" href="journeys.html">See the prototype</a></p>
+    </div>
+
+    <div class="cs-panel">
+      <p class="panel-label">#4 &mdash; Tasting-note &amp; product copy</p>
+      <p style="margin:0"><strong>Cost to try:</strong> ~2 weeks &mdash; bind generation to the structured product fields already in the platform.
+      <strong>Worth if it works:</strong> a recurring chore removed every release, higher day-to-day satisfaction, better renewals and referrals. Lowest stakes of the four &mdash; a good place to build confidence.
+      <strong>How you&rsquo;d know:</strong> copy tasks completed per release, time per release down, a short satisfaction check with pilot wineries.</p>
+      <p style="margin-top:8px"><a class="cs-btn cs-btn--ghost cs-btn--sm" href="copy.html">See the prototype</a></p>
+    </div>
+
+    <div class="callout vine">
+      <strong>The test of a good map:</strong> the Chateau Salerno leadership team can name these
+      four, put them in this order, and defend the ranking to their board without us in the
+      room.
+    </div>
+  </section>
+
+  <section id="out">
+    <p class="sec-label">04 · What didn't, and why</p>
+    <h2>The cut list</h2>
+    <p class="lead">Often the most useful part. Every one of these is a real idea; none of them is the right first move for this platform.</p>
+    <div class="reg-wrap"><table class="reg wide">
+      <thead><tr><th>Candidate</th><th>Call</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Predictive allocation planning</td><td><span class="cs-tag cs-tag--brass">Later</span></td><td>Genuinely valuable &mdash; &ldquo;you&rsquo;ll sell out of the Ros&eacute; by May, hold 40 cases for the club.&rdquo; But it needs the club-history data foundation that #2 builds. Sequenced after, not cut.</td></tr>
+        <tr><td>Storefront product recommendations</td><td><span class="cs-tag cs-tag--mute">Out</span></td><td>A rules-based version &mdash; recency, varietal, club tier &mdash; captures most of the value at a fraction of the effort and risk. Not an AI differentiator.</td></tr>
+        <tr><td>Support chatbot for winery operators</td><td><span class="cs-tag cs-tag--mute">Out</span></td><td>Support volume per winery is low; a better help center and in-product guidance win first. Revisit if support load grows.</td></tr>
+        <tr><td>Post-purchase feedback / NPS analysis</td><td><span class="cs-tag cs-tag--mute">Out</span></td><td>Data volumes per winery are small and the insight per winery is thin. Not a reason anyone buys the platform.</td></tr>
+        <tr><td>Send-time optimization</td><td><span class="cs-tag cs-tag--mute">Out</span></td><td>A per-recipient &ldquo;send at the hour they usually open&rdquo; heuristic captures most of the value and costs nothing to run. A model here is effort spent for a rounding error.</td></tr>
+        <tr><td>Fraud / bad-actor detection</td><td><span class="cs-tag cs-tag--mute">Out</span></td><td>A trust-and-operations project, not a marketing differentiator &mdash; and the cost of a false positive, blocking a real customer, is high. A separate initiative with its own owner.</td></tr>
+        <tr><td>Media-library auto-tagging</td><td><span class="cs-tag cs-tag--mute">Out</span></td><td>Real but tiny. Worth doing eventually as a quality-of-life feature; never worth a program.</td></tr>
+        <tr><td>AI questionnaire builder</td><td><span class="cs-tag cs-tag--mute">Out</span></td><td>Adjacent to the core &mdash; the feedback module &mdash; with a small audience. The same pattern as #1, applied to a less valuable surface.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="first">
+    <p class="sec-label">05 · The recommended first move</p>
+    <h2>Start with natural-language segmentation</h2>
+    <p class="lead">
+      Not because it&rsquo;s the highest-value &mdash; #2 has the clearer ROI &mdash; but because
+      it&rsquo;s the fastest to prove, the easiest to show a prospect, and it establishes the
+      pattern every later capability reuses.
+    </p>
+    <ul>
+      <li><strong>Lowest effort of the four</strong> &mdash; it runs on the segment engine that already exists.</li>
+      <li><strong>Immediately demoable</strong> &mdash; &ldquo;describe your audience&rdquo; is a live moment in a sales call.</li>
+      <li><strong>De-risks the rest</strong> &mdash; it proves the core pattern: the model writes a normal, editable platform object, and a person reviews it. Every other capability on the map works the same way.</li>
+    </ul>
+    <div class="cs-panel">
+      <p class="panel-label">The 6-week proof</p>
+      <p style="margin:0">Build it against the segment engine, ship behind a flag to 5 pilot wineries, and measure: segments created per week, segmentation support tickets, and whether 3 of the 5 wineries say they&rsquo;d miss it if it went away. If two of those three signals move, the rest of the map is worth building. If they don&rsquo;t, we&rsquo;ve spent six weeks, not a program.</p>
+    </div>
+  </section>
+
+  <section id="from-here">
+    <p class="sec-label">06 · From here</p>
+    <h2>This map is the input to everything else</h2>
+    <p>
+      The <a href="https://claude.ai/code/artifact/99194861-1d96-4c87-ac9f-63c5c23b1829">Business
+      Case</a> argues the value of the four in board terms. The
+      <a href="https://claude.ai/code/artifact/99194861-1d96-4c87-ac9f-63c5c23b1829">Statement of
+      Work</a> sequences the build &mdash; segmentation, then churn &amp; LTV, then journeys,
+      then copy, the order this page recommends. The four prototypes in this catalog are what
+      each capability looks like once built.
+    </p>
+    <div class="callout">
+      <strong>This is a Pillar 01 engagement that continued.</strong> Orientation and
+      opportunity mapping produced this map in about a week and a half. The client chose to go
+      straight into the build &mdash; but they could have stopped here with a ranked list they
+      could act on themselves.
+    </div>
+  </section>
+
+</main>
+
+<footer class="cs-footer">
+  <div class="cs-footer-in">
+    <p class="cs-disclaimer"><strong>Illustrative prototype, not a shipping product.</strong> Chateau Salerno and Kestrel Ridge Vineyards are fictional; all candidates, scores, and figures are invented to show the shape of an AI opportunity-mapping engagement. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
