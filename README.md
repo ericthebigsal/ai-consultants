@@ -25,6 +25,8 @@ Hosted via GitHub Pages: <https://ericthebigsal.github.io/ai-consultants/>
 
 `showcase/` holds illustrative assets built for **fictional** clients, disclaimed as samples on
 every page, each with its own visual identity (distinct from the internal-draft site).
+`showcase/index.html` is the portfolio landing that ties the two engagements together (AI
+Consultants identity, no draft banner).
 
 **Northwind Analytics** — a fictional data-analytics SaaS; how we'd use AI on a design + ops
 engagement. Petrol / chalk / Bricolage Grotesque.
