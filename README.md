@@ -54,6 +54,20 @@ parchment / Newsreader. Build spec: `PRD.SPC.0HDIM`; plan: `docs/plans/2026-09-0
 | `showcase/chateau-salerno/copy.html` | Structured wine data → tasting note, shop description, allocation email, one voice |
 | `showcase/chateau-salerno/assets/chateau-salerno.css` | The Chateau Salerno prototype design system |
 
+**APlusTechBros** — a fictional SaaS martech platform that shipped AI into 8 features and never
+checked the bill (~$182k/mo, no attribution, no evals). A remediation engagement: Business Case
++ SOW (Shelfmark) plus four analysis dashboards. Electric indigo / Archivo / a before→after
+ledger row as the signature. Build spec: `PRD.SPC.4LDLE`.
+
+| Page | Content |
+|---|---|
+| `showcase/aplustechbros/index.html` | Prototype landing — the four analyses, illustrative-figures framing |
+| `showcase/aplustechbros/audit.html` | The AI bill by feature / model / cost-per-outcome, ~$108k/mo of waste named |
+| `showcase/aplustechbros/routing.html` | Each feature routed to the right model tier — $182k → ~$74k/mo, gateway config |
+| `showcase/aplustechbros/evals.html` | Per-feature win rate vs. a deterministic baseline; 6 keep, 2 cut |
+| `showcase/aplustechbros/prompts.html` | One prompt 4,240 → 680 tokens, quality held; a 6-call panel collapsed to 1 |
+| `showcase/aplustechbros/assets/aplustechbros.css` | The APlusTechBros prototype identity |
+
 ## Shelfmark (docs dashboard) mirror
 
 Every page on this site is mirrored into Shelfmark as a standalone reference, alongside the
@@ -83,6 +97,14 @@ design artifacts:
 | Chateau Salerno → Prototype `CHA.PRO.1EYKJ` | Prototype — Campaign & Journey Drafting (→ journeys.html) |
 | Chateau Salerno → Prototype `CHA.PRO.1EYKK` | Prototype — Churn & LTV Prediction (→ retention.html) |
 | Chateau Salerno → Prototype `CHA.PRO.1EYKL` | Prototype — Tasting Notes & Product Copy (→ copy.html) |
+| Product → Feature Specs `PRD.SPC.4LDLE` | APlusTechBros POC — Build Spec |
+| APlusTechBros → Business Case `APL.BUS.4WGQ1` | The Cost of Undisciplined AI |
+| APlusTechBros → SOW `APL.SOW.4WGQ2` | Statement of Work — AI Efficiency Program |
+| APlusTechBros → Prototype `APL.PRO.4WGPW` | Prototype — What's Included (overview) |
+| APlusTechBros → Prototype `APL.PRO.4WGPX` | Prototype — Cost & Usage Audit (→ audit.html) |
+| APlusTechBros → Prototype `APL.PRO.4WGPY` | Prototype — Model Routing (→ routing.html) |
+| APlusTechBros → Prototype `APL.PRO.4WGPZ` | Prototype — Eval Harness (→ evals.html) |
+| APlusTechBros → Prototype `APL.PRO.4WGQ0` | Prototype — Prompt & Call Diet (→ prompts.html) |
 
 The GitHub Pages site is the canonical, fuller version of each; Shelfmark holds a condensed
 reference that links back to it.
