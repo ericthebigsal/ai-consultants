@@ -1,8 +1,9 @@
 # Parley — Pillar 02 showcase (From playground to production)
 
 **Date:** 2026-09-06
-**Status:** built — 6 pages + CSS in `showcase/parley/`, wired into `showcase/index.html`
-and `README.md`. Shelfmark mirror not yet done.
+**Status:** shipped — 6 pages + CSS in `showcase/parley/`, wired into `showcase/index.html`
+and `README.md`, mirrored to Shelfmark (Category `PAR`; build spec `PRD.SPC.8JEPE`,
+BC `PAR.BUS.8JFH6`, SOW `PAR.SOW.8JG8Y`, 6 prototype docs `PAR.PRO.*`).
 **Pillar:** 02 — From playground to production (`services.html#pillar-2`)
 
 ## Why

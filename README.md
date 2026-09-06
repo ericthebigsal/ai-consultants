@@ -86,6 +86,23 @@ gates kept). Business Case + SOW (Shelfmark) plus four demos. Spruce green / och
 | `showcase/fieldwork/guardrails.html` | Six human gates, TDD rule, CI checks, and what Claude Code can't touch |
 | `showcase/fieldwork/assets/fieldwork.css` | The Fieldwork prototype identity |
 
+**Parley** — a fictional customer-support platform where three teams shipped six AI features
+in eighteen months with no shared standard (two good, one a customer-facing liability, none
+with an eval). The Pillar 02 engagement: audit every AI surface, write a production bar into
+code review, sort each feature keep / harden / retire, harden one all the way. A Business Case
++ SOW (Shelfmark) plus the 6-page prototype. Cool slate / Space Grotesk / a rotated inspection
+stamp. Build spec: `PRD.SPC.8JEPE`; plan: `docs/plans/2026-09-06-parley-pillar-02-showcase.md`.
+
+| Page | Content |
+|---|---|
+| `showcase/parley/index.html` | Engagement landing — the six features, the situation, the four deliverables + worked example |
+| `showcase/parley/inventory.html` | Every AI surface: output destination, eval, human-in-loop, owner, last reviewed |
+| `showcase/parley/bar.html` | Five production-bar rules, each with a pass and a fail from the six shipped features |
+| `showcase/parley/triage.html` | Keep / harden / retire on each feature, the reason, and what acting on it costs |
+| `showcase/parley/hardened.html` | The answer bot demo→dependency — failure-mode catalogue, retrofitted eval, guardrails, before/after |
+| `showcase/parley/enablement.html` | CI eval gate, PR review checklist, pattern library, the quarterly re-check |
+| `showcase/parley/assets/parley.css` | The Parley prototype identity |
+
 ## Shelfmark (docs dashboard) mirror
 
 Every page on this site is mirrored into Shelfmark as a standalone reference, alongside the
@@ -132,6 +149,15 @@ design artifacts:
 | Fieldwork → Prototype `FIE.PRO.5N34P` | Prototype — A Feature, End to End (→ feature.html) |
 | Fieldwork → Prototype `FIE.PRO.5N34Q` | Prototype — The Claude Code Setup (→ setup.html) |
 | Fieldwork → Prototype `FIE.PRO.5N34R` | Prototype — The Guardrails (→ guardrails.html) |
+| Product → Feature Specs `PRD.SPC.8JEPE` | Parley POC — Build Spec |
+| Parley → Business Case `PAR.BUS.8JFH6` | You Can't Tell the Demos From the Dependencies |
+| Parley → SOW `PAR.SOW.8JG8Y` | Statement of Work — A Production Bar for AI-Assisted Work |
+| Parley → Prototype `PAR.PRO.8JH0Q` | Prototype — What's Included (overview) |
+| Parley → Prototype `PAR.PRO.8JHSI` | Prototype — The AI Inventory (→ inventory.html) |
+| Parley → Prototype `PAR.PRO.8JIKA` | Prototype — The Production Bar (→ bar.html) |
+| Parley → Prototype `PAR.PRO.8JJC2` | Prototype — Keep / Harden / Retire (→ triage.html) |
+| Parley → Prototype `PAR.PRO.8JK3U` | Prototype — The Answer Bot, Demo to Dependency (→ hardened.html) |
+| Parley → Prototype `PAR.PRO.8JKVM` | Prototype — Keeping the Bar Enforced (→ enablement.html) |
 
 The GitHub Pages site is the canonical, fuller version of each; Shelfmark holds a condensed
 reference that links back to it.
