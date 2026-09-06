@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Northwind Analytics — The Migration</title>
+<meta name="description" content="An illustrative sample: moving three Northwind teams off two AI vendors and onto the golden provider, workflow by workflow, without losing outcomes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/northwind.css">
+<style>
+  .ba-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 24px; }
+  .ba-strip .nw-stat { border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; background: var(--surface); }
+  .chk { list-style: none; padding: 0; margin-top: 22px; }
+  .chk li { display: flex; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--rule-soft); font-size: 14.5px; }
+  .chk li:last-child { border-bottom: none; }
+  .chk .nw-badge { flex: none; }
+  .lane-row .stage-name em { font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="nw-header">
+  <div class="nw-header-in">
+    <a class="nw-brand" href="design-system.html">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="5" fill="#1B4B49"></rect><path d="M10 4 L15 15 L5 15 Z" fill="#FBFAF6"></path></svg>
+      North<em>wind</em> Analytics
+    </a>
+    <nav class="nw-nav" aria-label="Northwind samples">
+      <a href="design-system.html">Design system</a>
+      <a href="brand-guidelines.html">Brand</a>
+      <a href="process.html">Process</a>
+      <a href="security.html">Security</a>
+      <a href="vendors.html">Vendors</a>
+      <a href="migration.html" aria-current="page">Migration</a>
+    </nav>
+    <span class="nw-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="nw-hero">
+  <p class="nw-eyebrow">Migration · Q3&ndash;Q4</p>
+  <h1>Two vendors gone, three teams moved, nothing they built stopped working.</h1>
+  <p>
+    The <a href="vendors.html">vendor analysis</a> ended on a recommendation: consolidate on
+    Vendor&nbsp;A, on the higher-tier plan that fixes the rate limits that caused the sprawl.
+    This is the part that actually earns the saving &mdash; taking each team off Vendor&nbsp;B
+    and Vendor&nbsp;C, workflow by workflow, and shutting the old accounts for good. The
+    margin notes mark each AI pass and the human call.
+  </p>
+  <div class="nw-meta">
+    <span>2 platforms decommissioned</span>
+    <span>3 teams cut over</span>
+    <span>Outcomes held</span>
+    <span>~$150k/yr realized</span>
+  </div>
+</div>
+
+<main class="nw-doc">
+
+  <section id="inventory">
+    <p class="sec-label">01 · The inventory</p>
+    <h2>What each team actually did with B and C</h2>
+    <p class="lead">
+      Not the sanctioned use &mdash; the real one. You can't rebuild a workflow you haven't
+      seen, and the thing that breaks a migration is always the use nobody wrote down.
+    </p>
+
+    <aside class="ai-note">
+      <span class="mode">Create</span>
+      <span class="did">Inventoried every call to B and C from the codebases, the notebook repo, and a month of API logs &mdash; the prompt, the model, the response fields read, and any vendor-specific feature &mdash; then interviewed each owning team against that draft.</span>
+      <span class="kept">confirming the inventory was complete, and that no workflow was missing.</span>
+    </aside>
+
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Team</th><th>Workflow</th><th>On</th><th>Depends on</th><th>Sanctioned?</th></tr></thead>
+      <tbody>
+        <tr><td>Product Eng</td><td>In-app record summarization</td><td class="val">Vendor B</td><td>Nothing B-specific</td><td class="val">yes</td></tr>
+        <tr><td>Product Eng</td><td>Report-builder agent</td><td class="val">Vendor B</td><td>B's tool-calling format</td><td class="val">yes</td></tr>
+        <tr><td>Data Science</td><td>Ad-hoc analysis notebooks (~40)</td><td class="val">Vendor C</td><td>Nothing C-specific</td><td class="val">yes</td></tr>
+        <tr><td>Data Science</td><td>Nightly batch classification job</td><td class="val">Vendor C</td><td>Threshold tuned to C's calibration</td><td class="val">yes</td></tr>
+        <tr><td>Support</td><td>Macro / reply drafting</td><td class="val">Vendor C</td><td>Nothing</td><td class="val">no &mdash; found in the log pass</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout">
+      <strong>One real dependency.</strong> Only the report-builder agent is genuinely bound to
+      its vendor &mdash; it uses B's tool-calling schema. Everything else is a client swap and a
+      prompt that needs re-checking, not a rewrite. The Support use wasn't on anyone's list; it
+      surfaced in the log pass and got folded into the plan.
+    </div>
+  </section>
+
+  <section id="rebuild">
+    <p class="sec-label">02 · The rebuild</p>
+    <h2>Team by team, workflow by workflow</h2>
+    <p class="lead">
+      Each workflow rebuilt on Vendor&nbsp;A and checked against the same 300-prompt sample the
+      scorecard used. The red dot marks a call only the owning team should make.
+    </p>
+
+    <div class="lanes">
+      <div class="lane-head">
+        <div>Team &amp; workflow</div><div>AI drafted</div><div>The team decided</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Product Eng<span>summarization</span></div>
+        <div class="ai-cell">Ported the prompt, swapped the SDK, and ran the 300-prompt sample against A to confirm output parity. Produced the diff for review.</div>
+        <div class="human-cell">Signed off on the sample diff &mdash; no wording changes needed.</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Product Eng<span>report-builder agent</span></div>
+        <div class="ai-cell">Wrote an adapter mapping B's tool-calling schema onto Vendor&nbsp;A's, migrated the tool definitions for the 2 affected features, and added a contract test per tool.</div>
+        <div class="human-cell">The failure behaviour when a tool call comes back malformed &mdash; fail closed, surface it to the user, no silent retry.</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Data Science<span>analysis notebooks</span></div>
+        <div class="ai-cell">Generated the new client config and a scripted find-and-replace across the ~40 notebooks. Flagged 3 that read a B-only response field.</div>
+        <div class="human-cell">Whether each flagged notebook still needs that field, or the analysis changes.</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Data Science<span>batch classification</span></div>
+        <div class="ai-cell">Re-ran the classification eval on Vendor&nbsp;A, retuned the confidence threshold where A's calibration differed, and diffed a week of historical output against C.</div>
+        <div class="human-cell">Accepted the new threshold after reviewing the rows where A and C disagreed.</div>
+      </div>
+      <div class="lane-row">
+        <div class="stage-name">Support<span>macro drafting</span></div>
+        <div class="ai-cell">Moved the workflow onto the sanctioned Vendor&nbsp;A path behind the support tool, with every prompt logged per the governance rules.</div>
+        <div class="human-cell">Whether to keep it at all &mdash; kept, and added to the approved-use register.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cutover">
+    <p class="sec-label">03 · Cutover</p>
+    <h2>The order, and what pulls it back</h2>
+
+    <aside class="ai-note">
+      <span class="mode">Accelerate</span>
+      <span class="did">Drafted the cutover sequence from the dependency map &mdash; thinnest and lowest-risk first, the agent last &mdash; with a dual-run window and a rollback trigger written for each step.</span>
+      <span class="kept">the schedule against each team's week, and the call to advance or roll back at every step.</span>
+    </aside>
+
+    <div class="spec-wrap"><table class="spec wide">
+      <thead><tr><th>Step</th><th>Team</th><th>Dual-run</th><th>Rollback trigger</th></tr></thead>
+      <tbody>
+        <tr><td>1 · Notebooks + Support drafting</td><td>Data Science, Support</td><td class="val">3 days</td><td>Any notebook erroring on the new client</td></tr>
+        <tr><td>2 · Batch classification job</td><td>Data Science</td><td class="val">1 week, shadowed against C</td><td>&gt;2% class disagreement vs. the C baseline</td></tr>
+        <tr><td>3 · In-app summarization</td><td>Product Eng</td><td class="val">3 days</td><td>Quality sample below 8.0</td></tr>
+        <tr><td>4 · Report-builder agent (2 features)</td><td>Product Eng</td><td class="val">1 week behind a flag: 10% &rarr; 50% &rarr; 100%</td><td>Any tool-call contract test failing in production</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout">
+      <strong>Timeline.</strong> Vendor&nbsp;C fully dark in week 1 &mdash; well ahead of its
+      August renewal. Vendor&nbsp;B fully dark in week 3; the non-renewal notice went out inside
+      the 60-day window before the January date. No workflow ran on both vendors for longer than
+      its dual-run window.
+    </div>
+  </section>
+
+  <section id="decommission">
+    <p class="sec-label">04 · Decommission</p>
+    <h2>Gone, not just unplugged</h2>
+
+    <aside class="ai-note">
+      <span class="mode">Maintain</span>
+      <span class="did">Tracked the shutdown checklist to closure &mdash; keys, SSO apps, contracts, logs, budget lines &mdash; and watches the expense feed and SSO list so a revived account would show up within the week.</span>
+      <span class="kept">the non-renewal notices, and the sign-off that each account is actually closed.</span>
+    </aside>
+
+    <ul class="chk">
+      <li><span class="nw-badge nw-badge--live">done</span> Vendor&nbsp;C API keys revoked, SSO app removed</li>
+      <li><span class="nw-badge nw-badge--live">done</span> Vendor&nbsp;C contract left to lapse at the August renewal; finance notified</li>
+      <li><span class="nw-badge nw-badge--neutral">n/a</span> Vendor&nbsp;C &mdash; no DPA to unwind, no data held to export</li>
+      <li><span class="nw-badge nw-badge--live">done</span> Vendor&nbsp;B API keys revoked, SSO app removed</li>
+      <li><span class="nw-badge nw-badge--live">done</span> Vendor&nbsp;B non-renewal notice sent inside the 60-day window before January</li>
+      <li><span class="nw-badge nw-badge--live">done</span> Vendor&nbsp;B prompt and response logs exported for the 90-day retention window, then deletion requested</li>
+      <li><span class="nw-badge nw-badge--live">done</span> Budget lines for B and C closed; the Vendor&nbsp;A plan upgrade booked against the saving</li>
+    </ul>
+
+    <div class="callout signal">
+      <strong>Still open, on purpose.</strong> Vendor&nbsp;E (meeting transcription) is not part
+      of this migration &mdash; it's on the <a href="security.html">governance track</a>, paused
+      until a DPA is signed or it's replaced. Listed here so it isn't mistaken for finished
+      work.
+    </div>
+  </section>
+
+  <section id="after">
+    <p class="sec-label">05 · Before / after</p>
+    <h2>What moved, and what didn't</h2>
+
+    <div class="ba-strip">
+      <div class="nw-stat"><div class="k">AI vendors</div><div class="v">7 &rarr; 5</div><div class="d up">B and C retired</div></div>
+      <div class="nw-stat"><div class="k">Net AI spend</div><div class="v">&minus;$150k</div><div class="d up">per year, after the A upgrade</div></div>
+      <div class="nw-stat"><div class="k">Output quality</div><div class="v">8.4</div><div class="d">moved workloads; 8.1 / 7.6 before</div></div>
+      <div class="nw-stat"><div class="k">p95 latency</div><div class="v">+40 ms</div><div class="d">on ex-B workloads &mdash; within SLO</div></div>
+      <div class="nw-stat"><div class="k">DPAs to maintain</div><div class="v">3 &rarr; 1</div><div class="d up">one contract, not three</div></div>
+    </div>
+
+    <p>
+      The only regression is p95 latency on the workflows that were on Vendor&nbsp;B, which
+      scored best on speed. It's 40&nbsp;ms slower on A and still inside every affected feature's
+      budget. Product Eng accepted it against the quality gain and the single-vendor
+      simplification.
+    </p>
+
+    <h3>The next platform decision stays with Northwind</h3>
+    <p>What we hand over so the next vendor call doesn't need us:</p>
+    <ul>
+      <li><strong>The scorecard method.</strong> The five criteria and their weights, and the held-out prompt sample, so any new vendor is scored on Northwind's real workloads, not a benchmark.</li>
+      <li><strong>&ldquo;Why not an existing vendor?&rdquo;</strong> The one-line question every new AI-tool request answers before it's approved &mdash; the same gate the <a href="vendors.html#maintain">register</a> and the <a href="security.html#controls">controls</a> use.</li>
+      <li><strong>Dual-run before cutover.</strong> No vendor swap goes straight to 100%; every one gets a shadow window and a written rollback trigger.</li>
+      <li><strong>The renewal calendar.</strong> Every contract's renewal and notice date, with a 60-day reminder and current usage attached.</li>
+    </ul>
+
+    <div class="callout signal">
+      <strong>The honest limit.</strong> This went cleanly because A, B, and C were
+      interchangeable general LLM APIs &mdash; the differences were price, limits, and paperwork.
+      Migrating between vendors with genuinely different capabilities, or off a platform your
+      product is built into, is a longer job, and we'd scope it as its own engagement rather
+      than pretend it's a config swap.
+    </div>
+  </section>
+
+</main>
+
+<footer class="nw-footer">
+  <div class="nw-footer-in">
+    <p><strong>This is an illustrative sample, not a real migration.</strong> Northwind Analytics is a fictional company; vendors, figures, and timelines are invented for illustration. Built by AI&nbsp;Consultants <em>(working name)</em> to show how we do the hands-on work of consolidating a client onto one AI platform. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

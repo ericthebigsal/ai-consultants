@@ -38,6 +38,7 @@ engagement. Petrol / chalk / Bricolage Grotesque.
 | `showcase/process.html` | The five-stage AI-augmented design process as an AI-lane / human-lane swimlane |
 | `showcase/security.html` | Northwind's AI governance register, controls, risk register, and framework crosswalk |
 | `showcase/vendors.html` | Northwind's AI vendor register, a head-to-head scorecard, exit readiness, and renewal watch |
+| `showcase/migration.html` | The executed consolidation — three teams moved off two vendors onto the golden provider, workflow by workflow, cutover order, decommission checklist, before/after |
 | `showcase/assets/northwind.css` | The Northwind design system (the demos are the system in use) |
 
 **Chateau Salerno** — a fictional winery-commerce SaaS (marketing platform for small wineries),
