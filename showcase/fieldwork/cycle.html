@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Fieldwork — The cycle, before &amp; after</title>
+<meta name="description" content="Illustrative sample: each SDLC stage timed before and after Claude Code, with the model/human split.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/fieldwork.css">
+</head>
+<body>
+
+<header class="fw-header">
+  <div class="fw-header-in">
+    <a class="fw-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" fill="none" stroke="#1F5E4A" stroke-width="1.6"></rect><path d="M5 6.2 H13 M5 9 H13 M5 11.8 H10" stroke="#1F5E4A" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      Fieldwork
+    </a>
+    <nav class="fw-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="cycle.html" aria-current="page">The cycle</a>
+      <a href="feature.html">A feature</a>
+      <a href="setup.html">Setup</a>
+      <a href="guardrails.html">Guardrails</a>
+    </nav>
+    <span class="fw-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="fw-hero">
+  <p class="fw-eyebrow">Part 01</p>
+  <h1>Where the time goes, and where it's saved</h1>
+  <p>
+    Fieldwork's cycle for a medium feature &mdash; a new capability that touches the
+    questionnaire builder, the logic engine, and the response pipeline. Timed by stage,
+    before Claude Code and after.
+  </p>
+  <div class="fw-meta">
+    <span>medium feature</span>
+    <span>20 working days &rarr; 8.5</span>
+    <span>same 6 gates</span>
+  </div>
+</div>
+
+<main class="fw-main">
+
+  <section id="totals">
+    <p class="sec-label">The headline</p>
+    <div class="stat-row">
+      <div class="stat"><div class="k">Before</div><div class="v">20d</div><div class="d">~4 working weeks</div></div>
+      <div class="stat"><div class="k">After</div><div class="v pine">8.5d</div><div class="d">~1.7 working weeks</div></div>
+      <div class="stat"><div class="k">Faster</div><div class="v pine">2.4&times;</div><div class="d">defect rate held flat</div></div>
+    </div>
+  </section>
+
+  <section id="bars">
+    <p class="sec-label">By stage</p>
+    <div class="tbars">
+      <div class="tbar">
+        <span class="stage">Requirements</span>
+        <div class="rows">
+          <div class="row"><span class="k">before</span><span class="track"><span class="fill before" style="width:37%"></span></span><span class="d">3d</span></div>
+          <div class="row"><span class="k">after</span><span class="track"><span class="fill after" style="width:25%"></span></span><span class="d">2d</span></div>
+        </div>
+      </div>
+      <div class="tbar">
+        <span class="stage">Functional spec</span>
+        <div class="rows">
+          <div class="row"><span class="k">before</span><span class="track"><span class="fill before" style="width:50%"></span></span><span class="d">4d</span></div>
+          <div class="row"><span class="k">after</span><span class="track"><span class="fill after" style="width:19%"></span></span><span class="d">1.5d</span></div>
+        </div>
+      </div>
+      <div class="tbar">
+        <span class="stage">Architecture</span>
+        <div class="rows">
+          <div class="row"><span class="k">before</span><span class="track"><span class="fill before" style="width:25%"></span></span><span class="d">2d</span></div>
+          <div class="row"><span class="k">after</span><span class="track"><span class="fill after" style="width:12%"></span></span><span class="d">1d</span></div>
+        </div>
+      </div>
+      <div class="tbar">
+        <span class="stage">Test plan</span>
+        <div class="rows">
+          <div class="row"><span class="k">before</span><span class="track"><span class="fill before" style="width:25%"></span></span><span class="d">2d</span></div>
+          <div class="row"><span class="k">after</span><span class="track"><span class="fill after" style="width:6%"></span></span><span class="d">0.5d</span></div>
+        </div>
+      </div>
+      <div class="tbar">
+        <span class="stage">Build (test-first)</span>
+        <div class="rows">
+          <div class="row"><span class="k">before</span><span class="track"><span class="fill before" style="width:100%"></span></span><span class="d">8d</span></div>
+          <div class="row"><span class="k">after</span><span class="track"><span class="fill after" style="width:37%"></span></span><span class="d">3d</span></div>
+        </div>
+      </div>
+      <div class="tbar">
+        <span class="stage">Deployment</span>
+        <div class="rows">
+          <div class="row"><span class="k">before</span><span class="track"><span class="fill before" style="width:12%"></span></span><span class="d">1d</span></div>
+          <div class="row"><span class="k">after</span><span class="track"><span class="fill after" style="width:6%"></span></span><span class="d">0.5d</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stages">
+    <p class="sec-label">Per stage &mdash; what changed</p>
+    <ol class="items">
+      <li class="item">
+        <span class="n">1</span>
+        <div>
+          <h3>Requirements &mdash; 3d &rarr; 2d</h3>
+          <div class="split">
+            <div class="drafts"><span class="lbl">Claude Code drafts</span>The requirements doc from the discovery notes and the PM's bullet points, in Fieldwork's template, with the open questions called out.</div>
+            <div class="decides"><span class="lbl">The PM decides</span>Scope, priority, the success metric, and answers to the open questions. Signs the doc.</div>
+          </div>
+          <div class="gate"><strong>Requirements sign-off</strong> &mdash; a named PM approves before design starts.</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="n">2</span>
+        <div>
+          <h3>Functional spec &mdash; 4d &rarr; 1.5d</h3>
+          <div class="split">
+            <div class="drafts"><span class="lbl">Claude Code drafts</span>The spec from the requirements plus the codebase &mdash; existing patterns, the affected modules, explicit out-of-scope, edge cases in the logic engine.</div>
+            <div class="decides"><span class="lbl">The eng lead decides</span>Whether the approach fits, resolves any ambiguity the draft flagged, cuts or adds scope.</div>
+          </div>
+          <div class="gate"><strong>Spec review</strong> &mdash; eng lead and PM both approve. This is the biggest single time saving.</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="n">3</span>
+        <div>
+          <h3>Architecture &mdash; 2d &rarr; 1d</h3>
+          <div class="split">
+            <div class="drafts"><span class="lbl">Claude Code drafts</span>The component and data-model changes against the real schema (via the read-only staging-schema MCP), with the migration sketched and failure boundaries drawn.</div>
+            <div class="decides"><span class="lbl">The architect decides</span>The final shape, the migration strategy, and anything touching the response pipeline.</div>
+          </div>
+          <div class="gate"><strong>Architecture review</strong> &mdash; required for any schema or pipeline change.</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="n">4</span>
+        <div>
+          <h3>Test plan &mdash; 2d &rarr; 0.5d</h3>
+          <div class="split">
+            <div class="drafts"><span class="lbl">Claude Code drafts</span>The test cases from the spec &mdash; unit, integration, and property tests for the quota logic &mdash; and maps each back to a requirement.</div>
+            <div class="decides"><span class="lbl">QA decides</span>Coverage &mdash; what's missing, which edge cases are real, what needs a manual pass.</div>
+          </div>
+          <div class="gate"><strong>Test-plan review</strong> &mdash; QA approves; the plan is merged before any implementation PR.</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="n">5</span>
+        <div>
+          <h3>Build (test-first) &mdash; 8d &rarr; 3d</h3>
+          <div class="split">
+            <div class="drafts"><span class="lbl">Claude Code drafts</span>The implementation in a red-green-refactor loop against the merged test plan, one reviewable PR per slice, running the repo's checks each time.</div>
+            <div class="decides"><span class="lbl">Engineers decide</span>Every PR is reviewed and approved by a person. Design calls the model surfaces get answered, not deferred.</div>
+          </div>
+          <div class="gate"><strong>Code review</strong> &mdash; every PR, same bar as any other change. No PR merges without a human approval.</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="n">6</span>
+        <div>
+          <h3>Deployment &mdash; 1d &rarr; 0.5d</h3>
+          <div class="split">
+            <div class="drafts"><span class="lbl">Claude Code drafts</span>The release notes, the migration run order, and the rollback checklist.</div>
+            <div class="decides"><span class="lbl">The on-call engineer decides</span>When to ship, runs the deploy, watches the dashboards.</div>
+          </div>
+          <div class="gate"><strong>Release sign-off</strong> &mdash; a person runs the deploy. Claude Code never deploys to production.</div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="measure">
+    <p class="sec-label">How the number is real</p>
+    <ul>
+      <li>Phase 0 baselines the current cycle across the last ten shipped features &mdash; time per stage, PR count, review turnaround, and the post-release defect rate.</li>
+      <li>After each stage is integrated, the same metrics are tracked for every feature that runs through it.</li>
+      <li>The acceleration only counts if the defect rate holds. If it moves, the gate that let it through gets tightened, not removed.</li>
+    </ul>
+    <div class="callout">
+      <strong>The saving is in drafting, not deciding.</strong> Every gate on this page existed
+      before Claude Code and still does. What compresses is the time spent producing the
+      artifact that the gate reviews.
+    </div>
+  </section>
+
+</main>
+
+<footer class="fw-footer">
+  <div class="fw-footer-in">
+    <p class="fw-disclaimer"><strong>Illustrative sample, not a real engagement.</strong> Fieldwork is a fictional company; the cycle times, the feature, and every figure are invented to show the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Fieldwork — A feature, end to end</title>
+<meta name="description" content="Illustrative sample: response quotas per segment, from a written requirement to a merged PR, with every artifact and every gate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/fieldwork.css">
+</head>
+<body>
+
+<header class="fw-header">
+  <div class="fw-header-in">
+    <a class="fw-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" fill="none" stroke="#1F5E4A" stroke-width="1.6"></rect><path d="M5 6.2 H13 M5 9 H13 M5 11.8 H10" stroke="#1F5E4A" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      Fieldwork
+    </a>
+    <nav class="fw-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="cycle.html">The cycle</a>
+      <a href="feature.html" aria-current="page">A feature</a>
+      <a href="setup.html">Setup</a>
+      <a href="guardrails.html">Guardrails</a>
+    </nav>
+    <span class="fw-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="fw-hero">
+  <p class="fw-eyebrow">Part 02</p>
+  <h1>Response quotas per audience segment</h1>
+  <p>
+    One feature, walked from the paragraph a PM wrote to the PR that shipped it. Every
+    artifact Claude Code produced is listed, and every point a person had to sign off.
+  </p>
+  <div class="fw-meta">
+    <span>medium feature</span>
+    <span>8.5 working days</span>
+    <span>6 gates, all passed</span>
+  </div>
+</div>
+
+<main class="fw-main">
+
+  <section id="ask">
+    <p class="sec-label">The requirement, as written</p>
+    <div class="fw-panel">
+      <p style="margin:0;font-style:italic;color:var(--ink-soft)">
+        &ldquo;Survey owners need to cap how many completed responses come from each audience
+        segment, so the final sample matches a target distribution. Example: stop collecting
+        from &lsquo;men 45+&rsquo; once we hit 200 completes, but keep the survey open for
+        everyone else. When a quota is full, those respondents should be screened out politely
+        before they start. Owners set quotas when building the survey and can adjust them
+        while it&rsquo;s live.&rdquo;
+      </p>
+      <p style="margin-top:10px;font-family:var(--f-mono);font-size:12px;color:var(--mute)">&mdash; PM, in the feature ticket</p>
+    </div>
+  </section>
+
+  <section id="walk">
+    <p class="sec-label">The walk</p>
+    <ol class="tl">
+      <li class="tl-step">
+        <div class="head"><span class="by cc">Claude Code</span><span class="fw-tag fw-tag--mute">Requirements</span><span class="t">day 1&ndash;2</span></div>
+        <p class="what">Expanded the ticket into the requirements doc: the quota model (segment + target + current count), the live-adjust rules, the screen-out copy, the reporting need, and four open questions &mdash; including &ldquo;what counts as a &lsquo;complete&rsquo; for the quota: submitted, or passed validation?&rdquo;</p>
+        <p class="artifact">artifact: <code>docs/features/segment-quotas/requirements.md</code></p>
+        <div class="gate"><strong>Requirements sign-off</strong> &mdash; PM answered the open questions (a complete is a validated submission) and approved.</div>
+      </li>
+      <li class="tl-step">
+        <div class="head"><span class="by cc">Claude Code</span><span class="fw-tag fw-tag--mute">Functional spec</span><span class="t">day 2&ndash;4</span></div>
+        <p class="what">Wrote the spec against the codebase: quotas attach to a survey as a new <code>quota_group</code>; the logic engine checks quota state at screen-in; a live counter updates on each validated complete; owners edit quotas from the existing survey-settings panel. Flagged a race condition &mdash; two respondents completing at once near the cap &mdash; and proposed handling it.</p>
+        <p class="artifact">artifact: <code>docs/features/segment-quotas/spec.md</code></p>
+        <div class="gate"><strong>Spec review</strong> &mdash; eng lead accepted the approach, chose the stricter race handling (a short lock at the cap), PM confirmed the screen-out flow.</div>
+      </li>
+      <li class="tl-step">
+        <div class="head"><span class="by cc">Claude Code</span><span class="fw-tag fw-tag--mute">Architecture</span><span class="t">day 4&ndash;5</span></div>
+        <p class="what">Proposed the schema: a <code>quota_groups</code> table and a <code>quota_counts</code> table keyed by group and segment, with the count incremented in the same transaction as the response write. Sketched the migration and the backfill (none needed &mdash; new tables). Noted the response-pipeline touch and routed it for extra review.</p>
+        <p class="artifact">artifact: migration <code>0412_quota_groups.sql</code> (draft), architecture note in the spec</p>
+        <div class="gate"><strong>Architecture review</strong> &mdash; architect approved the schema; the pipeline change got a second reviewer per the guardrails.</div>
+      </li>
+      <li class="tl-step">
+        <div class="head"><span class="by cc">Claude Code</span><span class="fw-tag fw-tag--mute">Test plan</span><span class="t">day 5</span></div>
+        <p class="what">28 test cases from the spec: unit tests for quota-state math, integration tests for screen-in with a full quota, a property test that total completes per segment never exceeds its target under concurrent load, and a manual pass for the screen-out copy. Each case mapped to a requirement line.</p>
+        <p class="artifact">artifact: <code>packages/logic/src/quotas/__tests__/</code> (plan), test-plan doc</p>
+        <div class="gate"><strong>Test-plan review</strong> &mdash; QA added two cases (quota edited to below the current count; quota deleted mid-survey) and approved. Plan merged.</div>
+      </li>
+      <li class="tl-step">
+        <div class="head"><span class="by cc">Claude Code</span><span class="fw-tag fw-tag--mute">Build</span><span class="t">day 5&ndash;8</span></div>
+        <p class="what">Five PRs, test-first each time: the schema + migration; the quota-state module; the logic-engine screen-in check; the settings-panel UI; the reporting column. Ran typecheck, tests, and the survey-logic property suite on every push. Two design questions surfaced (should an edited quota retroactively screen out over-target completes? &mdash; no) and were answered in review, not deferred.</p>
+        <p class="artifact">artifact: PRs #4021&ndash;#4025</p>
+        <div class="gate"><strong>Code review</strong> &mdash; each PR reviewed and approved by an engineer. Same bar as any change.</div>
+      </li>
+      <li class="tl-step">
+        <div class="head"><span class="by cc">Claude Code</span><span class="fw-tag fw-tag--mute">Deployment</span><span class="t">day 8&ndash;8.5</span></div>
+        <p class="what">Prepared the release: notes, the migration run order (tables first, then the feature flag), a rollback checklist (flag off, tables can stay), and a load-test plan for the pipeline change.</p>
+        <p class="artifact">artifact: <code>docs/releases/2026-w37-segment-quotas.md</code></p>
+        <div class="gate"><strong>Release sign-off</strong> &mdash; on-call engineer ran the load test, then the deploy, and enabled the flag for 5% of surveys. Claude Code did not touch production.</div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="note">
+    <p class="sec-label">What to notice</p>
+    <ul>
+      <li>Claude Code produced every first-draft artifact. A person reviewed and owned every one.</li>
+      <li>The two hard calls &mdash; the race condition, the retroactive-screen-out question &mdash; were surfaced early and decided by the people who should decide them.</li>
+      <li>The pipeline touch got the extra review the guardrails require, automatically, because the setup routes it.</li>
+      <li>Nothing about the process is new. It's the same six stages and six gates, done in 8.5 days instead of 20.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="fw-footer">
+  <div class="fw-footer-in">
+    <p class="fw-disclaimer"><strong>Illustrative sample, not a real engagement.</strong> Fieldwork is a fictional company; the cycle times, the feature, and every figure are invented to show the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

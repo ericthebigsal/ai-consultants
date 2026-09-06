@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Fieldwork — The Claude Code setup</title>
+<meta name="description" content="Illustrative sample: the CLAUDE.md, skills, subagents, MCP servers, hooks, and slash commands configured for the Fieldwork repo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/fieldwork.css">
+</head>
+<body>
+
+<header class="fw-header">
+  <div class="fw-header-in">
+    <a class="fw-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" fill="none" stroke="#1F5E4A" stroke-width="1.6"></rect><path d="M5 6.2 H13 M5 9 H13 M5 11.8 H10" stroke="#1F5E4A" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      Fieldwork
+    </a>
+    <nav class="fw-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="cycle.html">The cycle</a>
+      <a href="feature.html">A feature</a>
+      <a href="setup.html" aria-current="page">Setup</a>
+      <a href="guardrails.html">Guardrails</a>
+    </nav>
+    <span class="fw-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="fw-hero">
+  <p class="fw-eyebrow">Part 03</p>
+  <h1>How Claude Code knows the Fieldwork codebase</h1>
+  <p>
+    The acceleration on the previous pages depends on the model working from Fieldwork's own
+    conventions, not generic ones. This is what's configured in the repo to make that true.
+  </p>
+  <div class="fw-meta">
+    <span>1 CLAUDE.md</span>
+    <span>3 skills · 2 subagents</span>
+    <span>3 MCP servers · 2 hooks · 3 commands</span>
+  </div>
+</div>
+
+<main class="fw-main">
+
+  <section id="claudemd">
+    <p class="sec-label">CLAUDE.md</p>
+    <h2>The repo's ground rules</h2>
+    <p class="lead">Loaded into every session. Kept short so it's actually read.</p>
+    <div class="code"><span class="cmt"># Fieldwork — CLAUDE.md (excerpt)</span>
+
+<span class="key">Stack:</span> TypeScript, React, Node, Postgres. pnpm workspace.
+<span class="key">Test:</span> `pnpm test` (vitest). Property tests for logic: `pnpm test:logic`.
+<span class="key">Domain terms:</span> respondent, complete (= validated submission),
+  disposition, quota group, wave, screen-in / screen-out, piping.
+
+<span class="key">Never touch without a senior + explicit ask:</span>
+  - packages/auth/**          <span class="cmt"># SSO, session, permissions</span>
+  - packages/billing/**
+  - packages/ingest/**        <span class="cmt"># the response-write hot path</span>
+  - any migration already applied to staging
+
+<span class="key">Always:</span> test-first. One reviewable PR per slice.
+  Surface design questions in the PR, don't defer them.</div>
+  </section>
+
+  <section id="skills">
+    <p class="sec-label">Skills</p>
+    <h2>Fieldwork's conventions, as skills</h2>
+    <div class="reg-wrap"><table class="reg wide">
+      <thead><tr><th>Skill</th><th>What it carries</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">fieldwork:test-conventions</td><td>How Fieldwork writes tests &mdash; the fixture builders, when to use a property test, the naming, what belongs in unit vs. integration, how to test the logic engine.</td></tr>
+        <tr><td class="mono">fieldwork:migration</td><td>The migration + rollback process &mdash; numbering, the two-phase deploy (schema, then flag), what needs a backfill script, how to make a change reversible.</td></tr>
+        <tr><td class="mono">fieldwork:survey-logic</td><td>How the branching, piping, and quota rules engine works &mdash; the evaluation order, the state model, the invariants that must hold, the known sharp edges.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="subagents">
+    <p class="sec-label">Subagents</p>
+    <h2>Two review passes that run themselves</h2>
+    <ul>
+      <li><strong><code>spec-reviewer</code></strong> &mdash; checks a drafted spec against the requirements: every requirement covered, out-of-scope stated, edge cases in the logic engine considered, ambiguities flagged rather than assumed.</li>
+      <li><strong><code>schema-checker</code></strong> &mdash; checks a proposed schema or migration against the real staging schema (read-only): no name collisions, indexes where the queries need them, the change is reversible, nothing touches a protected package.</li>
+    </ul>
+    <div class="callout">
+      <strong>These don't replace human review.</strong> They catch the mechanical problems
+      before a person looks, so the human review is about judgement, not spotting a missing
+      index.
+    </div>
+  </section>
+
+  <section id="mcp">
+    <p class="sec-label">MCP servers</p>
+    <h2>What the model can read</h2>
+    <div class="reg-wrap"><table class="reg wide">
+      <thead><tr><th>Server</th><th>Access</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td>Issue tracker</td><td class="mono">read</td><td>Pulling the ticket, the linked discussion, and the acceptance criteria into the requirements draft.</td></tr>
+        <tr><td>Staging DB schema</td><td class="mono">read-only</td><td>Proposing schema changes against the real structure &mdash; tables, columns, indexes, constraints. No data.</td></tr>
+        <tr><td>Internal docs</td><td class="mono">read</td><td>The architecture docs, the runbooks, past feature specs &mdash; so a new spec matches the house style and cites the right precedent.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="hooks">
+    <p class="sec-label">Hooks &amp; commands</p>
+    <h2>The rails</h2>
+    <h3>Hooks</h3>
+    <ul>
+      <li><strong>On stop:</strong> run <code>pnpm typecheck</code> and <code>pnpm lint</code>; a failure is surfaced immediately, not at PR time.</li>
+      <li><strong>Pre-commit:</strong> block any staged change under <code>packages/auth</code>, <code>packages/billing</code>, or <code>packages/ingest</code> &mdash; those need a human to make the change deliberately.</li>
+    </ul>
+    <h3>Slash commands</h3>
+    <ul>
+      <li><strong><code>/new-feature</code></strong> &mdash; takes a ticket ID, runs the requirements &rarr; spec &rarr; test-plan flow, stops at each gate for review.</li>
+      <li><strong><code>/ship</code></strong> &mdash; runs the release checklist: notes, migration order, rollback, load-test plan for any pipeline touch.</li>
+      <li><strong><code>/quota-scenario</code></strong> &mdash; generates a test scenario for the quota engine (segments, targets, a sequence of completes) to reproduce a reported edge case.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="fw-footer">
+  <div class="fw-footer-in">
+    <p class="fw-disclaimer"><strong>Illustrative sample, not a real engagement.</strong> Fieldwork is a fictional company; the cycle times, the feature, and every figure are invented to show the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

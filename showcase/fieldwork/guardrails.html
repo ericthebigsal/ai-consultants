@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Fieldwork — The guardrails</title>
+<meta name="description" content="Illustrative sample: the review bar, the TDD requirement, the CI checks, and what Claude Code is not allowed to touch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/fieldwork.css">
+</head>
+<body>
+
+<header class="fw-header">
+  <div class="fw-header-in">
+    <a class="fw-brand" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" fill="none" stroke="#1F5E4A" stroke-width="1.6"></rect><path d="M5 6.2 H13 M5 9 H13 M5 11.8 H10" stroke="#1F5E4A" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      Fieldwork
+    </a>
+    <nav class="fw-nav" aria-label="Prototype">
+      <a href="index.html">Overview</a>
+      <a href="cycle.html">The cycle</a>
+      <a href="feature.html">A feature</a>
+      <a href="setup.html">Setup</a>
+      <a href="guardrails.html" aria-current="page">Guardrails</a>
+    </nav>
+    <span class="fw-sample-tag">Illustrative sample</span>
+  </div>
+</header>
+
+<div class="fw-hero">
+  <p class="fw-eyebrow">Part 04</p>
+  <h1>Fast, and still production-grade</h1>
+  <p>
+    The acceleration comes from doing the same process faster, not from skipping it. Every
+    gate stays. Here's the full set of rules that keep AI-assisted work at the same bar as
+    everything else Fieldwork ships.
+  </p>
+  <div class="fw-meta">
+    <span>6 human gates</span>
+    <span>TDD enforced</span>
+    <span>a short list of hard limits</span>
+  </div>
+</div>
+
+<main class="fw-main">
+
+  <section id="gates">
+    <p class="sec-label">The gates</p>
+    <h2>Every point a person must sign off</h2>
+    <p class="lead">These are the same gates Fieldwork had before Claude Code. None were removed.</p>
+    <ol class="items">
+      <li class="item"><span class="n">1</span><div><h3>Requirements sign-off</h3><div class="body">A named PM approves the requirements doc before design starts.</div></div></li>
+      <li class="item"><span class="n">2</span><div><h3>Spec review</h3><div class="body">Eng lead and PM both approve the functional spec.</div></div></li>
+      <li class="item"><span class="n">3</span><div><h3>Architecture review</h3><div class="body">Required for any schema change; a second reviewer for anything touching the response pipeline.</div></div></li>
+      <li class="item"><span class="n">4</span><div><h3>Test-plan review</h3><div class="body">QA approves coverage; the test plan is merged before any implementation PR.</div></div></li>
+      <li class="item"><span class="n">5</span><div><h3>Code review</h3><div class="body">Every PR reviewed and approved by an engineer. No PR merges on a machine approval.</div></div></li>
+      <li class="item"><span class="n">6</span><div><h3>Release sign-off</h3><div class="body">A person runs the deploy and watches the rollout.</div></div></li>
+    </ol>
+  </section>
+
+  <section id="tdd">
+    <p class="sec-label">The build rule</p>
+    <h2>Test-first, enforced</h2>
+    <ul>
+      <li>The test plan is a merged artifact before any implementation PR opens. CI blocks an implementation PR whose feature has no merged test plan.</li>
+      <li>Every implementation PR adds or references the tests for what it changes. A PR that lowers coverage on a touched file needs an explicit reviewer waiver.</li>
+      <li>Claude Code works red-green-refactor: failing test, minimal implementation, refactor &mdash; the same loop a Fieldwork engineer uses.</li>
+    </ul>
+  </section>
+
+  <section id="ci">
+    <p class="sec-label">CI</p>
+    <h2>What runs on every PR</h2>
+    <div class="reg-wrap"><table class="reg wide">
+      <thead><tr><th>Check</th><th>Blocks merge?</th></tr></thead>
+      <tbody>
+        <tr><td>Typecheck</td><td class="mono">yes</td></tr>
+        <tr><td>Unit + integration tests</td><td class="mono">yes</td></tr>
+        <tr><td>Survey-logic property suite</td><td class="mono">yes</td></tr>
+        <tr><td>Migration reversibility check</td><td class="mono">yes (if a migration changed)</td></tr>
+        <tr><td>Bundle-size budget</td><td class="mono">warns</td></tr>
+        <tr><td>Human approval</td><td class="mono">yes &mdash; always</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="limits">
+    <p class="sec-label">The hard limits</p>
+    <h2>What Claude Code can and can't do</h2>
+    <div class="rules-two">
+      <div class="can">
+        <h3>Can</h3>
+        <ul>
+          <li>Draft any artifact &mdash; requirements, spec, architecture, tests, code, release notes</li>
+          <li>Open PRs and push to feature branches</li>
+          <li>Run tests, typecheck, and the local checks</li>
+          <li>Read the issue tracker, the staging schema, and the docs</li>
+          <li>Run migrations against a local or ephemeral database</li>
+        </ul>
+      </div>
+      <div class="cannot">
+        <h3>Can't</h3>
+        <ul>
+          <li>Merge a PR &mdash; a human approval is always required</li>
+          <li>Change <code>packages/auth</code>, <code>packages/billing</code>, or <code>packages/ingest</code> without a senior making the change deliberately</li>
+          <li>Alter a migration already applied to staging or production</li>
+          <li>Deploy to production &mdash; ever</li>
+          <li>Modify the response-ingestion pipeline without a second reviewer and a load test</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>The escape hatch.</strong> If Claude Code is going in circles on a task &mdash;
+      more than two iterations without progress &mdash; it stops and asks a person, rather than
+      spending time (and tokens) on a guess.
+    </div>
+  </section>
+
+  <section id="why">
+    <p class="sec-label">Why this holds</p>
+    <p>
+      Nothing here is specific to AI. It's the review discipline a well-run engineering team
+      already has, written down and wired into CI so it applies the same way whether a person
+      or Claude Code produced the change. The
+      <a href="cycle.html">cycle comparison</a> only counts the acceleration if the defect
+      rate stays flat &mdash; and it stays flat because the gates stayed.
+    </p>
+  </section>
+
+</main>
+
+<footer class="fw-footer">
+  <div class="fw-footer-in">
+    <p class="fw-disclaimer"><strong>Illustrative sample, not a real engagement.</strong> Fieldwork is a fictional company; the cycle times, the feature, and every figure are invented to show the shape of the work. Built by AI&nbsp;Consultants <em>(working name)</em>. More: <a href="https://ericthebigsal.github.io/ai-consultants/">ai-consultants</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
