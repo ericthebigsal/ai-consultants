@@ -69,7 +69,7 @@
       </div>
       <div class="tpl-block">
         <p class="tpl-label">What's really going on</p>
-        <p>Leadership has real signal that competitors or vendors are moving, but no way to translate "AI" into "which specific things in our product and delivery process would benefit, in what order, for what return." Without that translation, the default move is a splashy pilot disconnected from the roadmap, or nothing at all.</p>
+        <p>Leadership has real signal that competitors or vendors are moving, but no way to translate "AI" into "which specific things in our product and delivery process would benefit, in what order, for what return." Without that translation, the default move is a splashy pilot disconnected from the roadmap, or nothing at all. For a company whose product already has AI in it — or should — the same mapping has to answer a second set of questions: what to build into the product next, whether to build or buy the model layer, and how to package and price it.</p>
       </div>
       <div class="tpl-block">
         <p class="tpl-label">What we do</p>
@@ -77,6 +77,7 @@
           <li>Interview product, engineering, support and — where relevant — sales, to find where the business already loses time or money to well-understood, repeatable work.</li>
           <li>Map candidate AI applications against effort, risk, and customer-facing value, not against what's technically impressive.</li>
           <li>Rank them into a short list with a plain-language case for each: what it costs to try, what it's worth if it works, how you'd know within weeks, not quarters.</li>
+          <li>Where the product itself is the subject: sequence the AI capability roadmap and take a position on build-vs-buy, packaging, and pricing — on the same effort / risk / value axes.</li>
         </ul>
       </div>
       <div class="tpl-block">
@@ -85,6 +86,7 @@
           <li>A prioritized opportunity map, not a slide of buzzwords.</li>
           <li>A recommended first move, sized to prove value fast.</li>
           <li>A shared vocabulary the leadership team can actually use with each other.</li>
+          <li>For a product engagement: a sequenced capability roadmap and a defensible read on build-vs-buy, packaging, and where the moat is.</li>
         </ul>
       </div>
       <div class="tpl-block">
@@ -93,6 +95,9 @@
           <li>You can name the top 1–3 AI opportunities and defend the ranking without us in the room.</li>
           <li>The first pilot ships, and its outcome is measured against the case we wrote for it.</li>
         </ul>
+      </div>
+      <div class="callout">
+        <strong>Two entry points.</strong> Most clients arrive asking where AI helps their delivery and operations. Founders of AI-forward companies arrive asking what to build into the product and how to price it. It's the same engagement — the same axes, the same ranked output — pointed at a different subject.
       </div>
       <div class="tpl-block">
         <p class="tpl-label">Worked example</p>
@@ -103,8 +108,8 @@
         <p>Likely a short, fixed-fee engagement — days, not months. Natural candidate for the lead offer (see <a href="engagement.html#open-questions">open questions</a>).</p>
       </div>
       <div class="tpl-block">
-        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
-        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+        <p class="tpl-label">Anti-scope <span class="tag proposed">Proposed</span></p>
+        <p>We won't run the pilot itself — proving a use case is Pillar 02 or a capability build. We won't do standalone market sizing or competitive intelligence; we work from what the client already knows about its market. We won't put an opportunity on the map that can't be tied to a measurable outcome within weeks.</p>
       </div>
     </article>
 
@@ -125,9 +130,12 @@
         <p class="tpl-label">What we do</p>
         <ul>
           <li>Audit what's actually running today — tools, prompts, integrations, and everywhere model output reaches a customer or a decision.</li>
-          <li>Establish a production bar: review criteria, an evaluation/testing approach for AI-assisted or AI-driven features, guardrails for known failure modes.</li>
+          <li>Establish a production bar: review criteria, guardrails for known failure modes, and an eval that turns "production quality" into a number (Pillar 06 goes deep here).</li>
           <li>Train the team against that bar using their own codebase — a pattern library and a review checklist, not a generic course.</li>
         </ul>
+      </div>
+      <div class="callout">
+        <strong>Named specialty — the context layer.</strong> For features that answer from company data, most of the production quality is in retrieval: chunking, freshness, citation, and knowing when the context isn't good enough to answer at all. We treat that as its own workstream — the eval and the guardrails both hang off it.
       </div>
       <div class="tpl-block">
         <p class="tpl-label">What you walk away with</p>
@@ -153,8 +161,8 @@
         <p>Likely an assessment phase followed by an embedded advisory period.</p>
       </div>
       <div class="tpl-block">
-        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
-        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+        <p class="tpl-label">Anti-scope <span class="tag proposed">Proposed</span></p>
+        <p>We won't build new AI features — this hardens what's already shipped. We won't be a standing QA function. We won't set a bar the client's own engineers can't hold once we've left. Deep eval work is Pillar 06; deep agent work is Pillar 08.</p>
       </div>
     </article>
 
@@ -203,8 +211,8 @@
         <p>Typically a focused, time-boxed engagement.</p>
       </div>
       <div class="tpl-block">
-        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
-        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+        <p class="tpl-label">Anti-scope <span class="tag proposed">Proposed</span></p>
+        <p>We won't cut spend at the expense of quality — every saving is checked against an eval before it ships. We won't negotiate vendor contracts on the client's behalf; we build the case, the client negotiates. We won't re-architect the system — targeted right-sizing, caching, and prompt efficiency only.</p>
       </div>
     </article>
 
@@ -256,8 +264,8 @@
         <strong>Real-world reference.</strong> A recent WOTC job posting sought a "hands-on Migration Engineer to lead our enterprise transition from multiple AI platforms (Claude, ChatGPT, Copilot, and others) onto a single, standardized 'golden provider'" — an execution role, working directly with individual users and teams to rebuild their workflows on the new platform "without losing functionality or outcomes," supported by an embedded FTE engineer for coding tasks. This is close to a literal description of this pillar, and evidence that enterprises are already budgeting for exactly this work.
       </div>
       <div class="tpl-block">
-        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
-        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+        <p class="tpl-label">Anti-scope <span class="tag proposed">Proposed</span></p>
+        <p>We won't take on a migration between platforms with genuinely different capabilities, or off a platform a product is built into, as a fixed-fee consolidation — that's a scoped engineering project. We won't decommission a legacy platform that's still doing something nothing else does. We won't override a team's tool choice without rebuilding the workflow that justified it.</p>
       </div>
     </article>
 
@@ -281,6 +289,9 @@
           <li>Introduce and integrate tools and practices at each stage to fit your existing process, not a wholesale rip-and-replace.</li>
           <li>Measure cycle time and quality before and after, stage by stage.</li>
         </ul>
+      </div>
+      <div class="callout">
+        <strong>Named specialty — legacy modernization.</strong> A one-time push rather than an ongoing cycle: AI-assisted documentation for a codebase nobody wrote, test backfill to make a big refactor safe, or a framework upgrade across hundreds of files. Same discipline — measured, reviewed, gated — aimed at clearing a backlog instead of speeding a pipeline.
       </div>
       <div class="tpl-block">
         <p class="tpl-label">What you walk away with</p>
@@ -306,8 +317,8 @@
         <p>Likely the longest-running pillar; probably phased one SDLC stage at a time.</p>
       </div>
       <div class="tpl-block">
-        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
-        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+        <p class="tpl-label">Anti-scope <span class="tag proposed">Proposed</span></p>
+        <p>We won't rip out and replace the client's existing process — AI integrates into it. We won't remove or weaken a review gate; the speed comes from faster drafting, not fewer gates. We won't run the augmented cycle for the client indefinitely — it's theirs after handoff.</p>
       </div>
     </article>
 
@@ -368,8 +379,8 @@
         <p>A focused build engagement, then a lighter period keeping the sets current as usage shifts. Often the first thing to do inside a Pillar 02 or Pillar 08 engagement.</p>
       </div>
       <div class="tpl-block">
-        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
-        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+        <p class="tpl-label">Anti-scope <span class="tag proposed">Proposed</span></p>
+        <p>We won't decide what "good" means for the client — we build the harness and calibrate the judges; the client owns the bar. We won't be the human-review team long-term. We won't help a feature pass by loosening its eval — the eval is allowed to say "don't ship," and sometimes it should.</p>
       </div>
     </article>
 
@@ -393,6 +404,9 @@
           <li>Establish the control set — human review before action, logging and attribution, data handling and retention, an approval path for new uses — and crosswalk it to the frameworks you already report against (SOC 2, ISO 42001, NIST AI RMF) and the sector rules that apply (HIPAA, financial-services conduct rules, state AI laws).</li>
           <li>Turn it outward: a trust page, a standard answer set for security questionnaires, and the evidence pack an auditor or enterprise buyer asks for.</li>
         </ul>
+      </div>
+      <div class="callout">
+        <strong>Named specialty — adversarial testing.</strong> The work above is the controls and the paper trail. This is the offensive half: red-teaming the agent for prompt-injection paths, data-exfiltration routes, and jailbreaks, then hardening against what's found. Scoped separately from the register-and-controls engagement.
       </div>
       <div class="tpl-block">
         <p class="tpl-label">What you walk away with</p>
@@ -418,8 +432,8 @@
         <p>An assessment, then a build period to close the gaps, then a light retainer as the frameworks and the product both move.</p>
       </div>
       <div class="tpl-block">
-        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
-        <p>What we explicitly won't do in this pillar — not yet decided. (We are not anyone's legal counsel; that line gets drawn here.)</p>
+        <p class="tpl-label">Anti-scope <span class="tag proposed">Proposed</span></p>
+        <p>We are not the client's legal counsel or their security team — we make both faster and better informed, not redundant. We won't sign an attestation or represent the client to an auditor. We won't build a control the client has no intention of enforcing.</p>
       </div>
     </article>
 
@@ -468,8 +482,8 @@
         <p>A design-and-build engagement scoped to one agent or agent family, with the patterns reused across the rest.</p>
       </div>
       <div class="tpl-block">
-        <p class="tpl-label">Anti-scope <span class="tag open">Open</span></p>
-        <p>What we explicitly won't do in this pillar — not yet decided.</p>
+        <p class="tpl-label">Anti-scope <span class="tag proposed">Proposed</span></p>
+        <p>We won't rescue an agent whose underlying task is genuinely unbounded or ambiguous — some workflows shouldn't be an agent, and we'll say so early. We won't chase full autonomy; the deliverable is an agent that fails safe, not one that never needs a person. We won't own the agent's on-call after handoff.</p>
       </div>
     </article>
 
@@ -479,9 +493,10 @@
 <section id="open">
   <div class="wrap">
     <div class="callout open">
-      <strong>Open across all eight:</strong> pricing per pillar, which one is the lead offer, and
-      per-pillar anti-scope are unresolved. Whether 06&ndash;08 are pitched as their own
-      engagements or only ever sold inside another is also open. Full list on
+      <strong>Open across all eight:</strong> pricing per pillar and which one is the lead offer
+      are unresolved. The anti-scope lines are now drafted (<span class="tag proposed">Proposed</span>)
+      and need both founders' sign-off. Whether 06&ndash;08 and the named specialties are pitched
+      as their own engagements or only ever sold inside another is also open. Full list on
       <a href="engagement.html#open-questions">Engagement &rarr; open questions</a>.
     </div>
   </div>
