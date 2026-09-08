@@ -18,6 +18,7 @@ Hosted via GitHub Pages: <https://ericthebigsal.github.io/ai-consultants/>
 | `principles.html` | Proposed point of view on judicious AI use |
 | `framework.html` | The 10 core delivery skills as an 8-stage loop (with input/output contracts) plus 2 cross-cutting skills — also the methodology behind Pillar 05 |
 | `engagement.html` | End-to-end engagement flow + the master open-questions list |
+| `founders.html` | The two founders — bios (Eric now, Mark's is a stub), and an honest note that the firm is new and its first clients would be founding clients |
 | `resources/web-search-apis-for-mcp.html` | Standalone reference doc (moved from the site root) |
 | `assets/styles.css`, `assets/site.js` | Shared design system + theme toggle, used by every page |
 
@@ -25,8 +26,9 @@ Hosted via GitHub Pages: <https://ericthebigsal.github.io/ai-consultants/>
 
 `showcase/` holds illustrative assets built for **fictional** clients, disclaimed as samples on
 every page, each with its own visual identity (distinct from the internal-draft site).
-`showcase/index.html` is the portfolio landing that ties the two engagements together (AI
-Consultants identity, no draft banner).
+`showcase/index.html` is the "Worked examples" landing — framed explicitly as demonstrations of
+method, not client case studies, since the firm has no clients yet (AI Consultants identity, no
+draft banner).
 
 **Northwind Analytics** — a fictional data-analytics SaaS whose design layer accreted across
 teams and whose AI adoption ran ahead of governance and cost control. A design + AI-ops

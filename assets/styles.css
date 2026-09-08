@@ -139,7 +139,8 @@ body[data-active="flywheel"] .site-nav a[data-page="flywheel"],
 body[data-active="problem-space"] .site-nav a[data-page="problem-space"],
 body[data-active="principles"] .site-nav a[data-page="principles"],
 body[data-active="framework"] .site-nav a[data-page="framework"],
-body[data-active="engagement"] .site-nav a[data-page="engagement"] {
+body[data-active="engagement"] .site-nav a[data-page="engagement"],
+body[data-active="founders"] .site-nav a[data-page="founders"] {
   color: var(--accent-ink); background: var(--accent-soft);
 }
 .theme-toggle {

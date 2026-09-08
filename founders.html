@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>Founders — AI Consultants (working name)</title>
+<meta name="description" content="Who's behind AI Consultants: two founders who've spent decades shipping software and the last few years getting AI features to production quality. The firm is new; the work isn't.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .founder {
+    border: 1px solid var(--line); border-radius: 12px; background: var(--surface);
+    padding: 26px 26px 22px; margin-top: 22px; box-shadow: var(--shadow); scroll-margin-top: 84px;
+  }
+  .founder > header {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    flex-wrap: wrap; border-bottom: 1px solid var(--line-soft); padding-bottom: 14px; margin-bottom: 4px;
+  }
+  .founder h3 { margin: 0; font-size: 1.28rem; }
+  .founder .founder-role {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--accent-ink); letter-spacing: .06em;
+  }
+  .founder p { font-family: "IBM Plex Sans", sans-serif; font-size: 0.95rem; color: var(--ink-soft); margin: 14px 0 0; }
+  .founder .founder-meta {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--muted);
+    margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft);
+  }
+  .founder .founder-meta a { color: var(--muted); }
+  .founder h4 {
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--muted); margin: 18px 0 0;
+  }
+  .founder ul { font-family: "IBM Plex Sans", sans-serif; font-size: 0.92rem; color: var(--ink-soft); margin-top: 8px; }
+</style>
+</head>
+<body data-active="founders">
+
+<div class="draft-banner"><strong>Internal working draft</strong> — not for distribution. Company name and a few bio details are still <span class="tag open" style="vertical-align:1px;">Open</span>.</div>
+
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="brand" href="index.html">AI Consultants <span class="brand-tag">(working name)</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="services.html" data-page="services">Services</a>
+      <a href="flywheel.html" data-page="flywheel">Flywheel</a>
+      <a href="problem-space.html" data-page="problem-space">Problem space</a>
+      <a href="principles.html" data-page="principles">Principles</a>
+      <a href="framework.html" data-page="framework">Framework</a>
+      <a href="engagement.html" data-page="engagement">Engagement</a>
+      <a href="founders.html" data-page="founders">Founders</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">Theme</button>
+  </div>
+</header>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <p class="eyebrow">Who we are</p>
+    <h1>Two founders, one specialty</h1>
+    <p class="standfirst">
+      The firm is new. The work isn't. Between us we've spent decades shipping software —
+      and the last few years doing the specific thing this company exists for: getting AI
+      features to a quality you'd put in front of a customer, an auditor, or your own
+      on-call rotation.
+    </p>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Why we started this</h2></div>
+    <div class="prose">
+      <p>
+        We kept seeing the same thing from two different seats: AI that demoed well and then
+        wobbled in production, spend that climbed with no one able to explain it, and teams
+        who'd been sold a strategy when what they actually needed was a bar. AI Consultants
+        exists to do that middle part — the unglamorous work between a promising pilot and
+        something an on-call engineer can live with.
+      </p>
+    </div>
+    <div class="callout">
+      <strong>Where we actually are.</strong> This is a new firm, and you would be among our
+      first clients. What that buys you: senior people doing the work themselves, a
+      founding-client rate, and more of our direct attention than we'll be able to offer
+      once we're booked. What it doesn't buy you yet is a wall of logos — the
+      <a href="showcase/index.html">worked examples</a> are exactly how we'd run an
+      engagement, built end to end, but they're demonstrations, not past results. We'd
+      rather you know that going in.
+    </div>
+  </div>
+</section>
+
+<section id="eric">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>The founders</h2></div>
+
+    <article class="founder" id="eric-salerno">
+      <header>
+        <h3>Eric Salerno</h3>
+        <span class="founder-role">Co-founder</span>
+      </header>
+      <p>
+        Eric is a technical product manager who builds — he designs the architecture and
+        ships the system, not just the backlog. Close to 30 years in software, starting as a
+        full-stack developer and moving through program management at Microsoft and Amazon
+        to director-level roles in health tech.
+      </p>
+      <p>
+        Most recently, at the customer-data platform <strong>Amperity</strong>, he designed
+        and built an AI-assisted integration system: a human-in-the-loop discovery pipeline
+        feeding a containerized execution engine. It cut connector development from about
+        four weeks to about two days, with first-pass output roughly 85% compatible with
+        Amperity's existing production integration library. Twenty-four connectors reached
+        production; a companion intake-automation step took a request from raw ask to
+        dev-ready spec in about an hour, down from a week.
+      </p>
+      <p>
+        Before that: <strong>Senior Director of Technical Program Management at Press
+        Ganey</strong>, reporting to the CTO, where a feasibility analysis he led produced a
+        FedRAMP no-go recommendation that spared the company a costly multi-year program.
+        <strong>Senior Program Manager at Microsoft</strong> — he led the initial API design
+        for the PlayReady DRM platform and shipped it for Windows 8 and Silverlight, then
+        ran the security-hardening program for Xbox One offline licensing.
+        <strong>Senior TPM at Amazon</strong> on the Amazon Coins team, building
+        fraud-detection and customer-segmentation models. <strong>Director of TPM at
+        Accolade</strong>, leading a multi-year CRM migration and integrating two
+        acquisitions into the core platform.
+      </p>
+      <h4>Selected recent build work</h4>
+      <ul>
+        <li>A retrieval (RAG) pipeline built from scratch — operation-level chunking, no framework.</li>
+        <li><span class="mono">judge-dread</span> — a local-first regression-testing harness for AI prompts.</li>
+        <li>An agent that turns OpenAPI specs into MCP tool servers.</li>
+        <li><span class="mono">nanoGPT</span> — a character-level GPT trained from scratch.</li>
+      </ul>
+      <p class="founder-meta">
+        B.S., Industrial &amp; Operations Engineering, University of Michigan ·
+        <a href="https://www.linkedin.com/in/ersalerno">LinkedIn</a> ·
+        <a href="https://github.com/ericthebigsal">GitHub</a>
+      </p>
+    </article>
+
+    <article class="founder" id="mark-colburn">
+      <header>
+        <h3>Mark Colburn</h3>
+        <span class="founder-role">Co-founder</span>
+      </header>
+      <p>
+        Mark works where product, engineering, and the business case for both meet — an
+        entrepreneur and program leader who has spent his career matching a company's vision
+        to the technology and the team that can deliver it. He is currently at
+        <strong>Transcarent</strong>, the health-technology company behind an AI-powered
+        care-navigation platform; earlier roles span software development and program
+        leadership across the Seattle, Minneapolis, and Chicago markets.
+      </p>
+      <p>
+        He holds a Microsoft Certified Solution Developer credential, is a Certified Master
+        Trainer for the Microsoft Solutions Framework, and studied at the University of
+        Washington's Foster School of Business.
+      </p>
+      <p style="font-style:italic; color:var(--muted);">
+        Fuller bio to come — Mark is still drafting his.
+      </p>
+      <p class="founder-meta">
+        <a href="https://www.linkedin.com/in/markcol/">LinkedIn</a>
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="how-we-run">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>How we work</h2></div>
+    <div class="prose">
+      <p>
+        It's just the two of us today. Every engagement is delivered by a founder, not
+        handed to a junior team. Where a pillar needs hands-on engineering beyond what two
+        people can cover — a large platform migration especially — we're candid about that
+        up front and scope it accordingly (see the
+        <a href="engagement.html#team-model">team model</a>). We start with a discovery
+        conversation, not a pitch (<a href="problem-space.html">Problem space</a>), and we
+        leave when your team can run it without us (<a href="engagement.html">Engagement
+        model</a>).
+      </p>
+      <p>
+        Our point of view on where AI does and doesn't earn its keep is on
+        <a href="principles.html">Principles</a>. The short version: judicious, not maximal,
+        and measured before and after.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap site-footer-inner">
+    <p>The company itself is still being named — see <a href="index.html">the working definition</a>. Reach either founder through LinkedIn above.</p>
+    <p class="site-footer-meta">ai-consultants · draft · <a href="https://github.com/ericthebigsal/ai-consultants">source</a> · <a href="engagement.html#open-questions">open questions</a></p>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
